@@ -362,7 +362,7 @@ namespace MacroTools.FactionSystem
         _abilityAvailabilities[ability] += value;
       else
         _abilityAvailabilities[ability] = value;
-      Player?.SetAbilityAvailability(ability, value > 0);
+      Player?.SetAbilityAvailable(ability, value > 0);
     }
 
     /// <summary>
@@ -630,7 +630,7 @@ namespace MacroTools.FactionSystem
         Player?.SetObjectLevel(key, value);
 
       foreach (var (key, value) in _abilityAvailabilities)
-        Player?.SetAbilityAvailability(key, value > 0);
+        Player?.SetAbilityAvailable(key, value > 0);
     }
 
     //Removes this Faction's object limits and levels from its active Person
@@ -643,7 +643,7 @@ namespace MacroTools.FactionSystem
         Player?.SetObjectLevel(key, 0);
 
       foreach (var (key, _) in _abilityAvailabilities)
-        Player?.SetAbilityAvailability(key, true);
+        Player?.SetAbilityAvailable(key, true);
     }
 
     /// <summary>
