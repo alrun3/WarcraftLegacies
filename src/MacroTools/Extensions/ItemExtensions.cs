@@ -7,16 +7,6 @@ namespace MacroTools.Extensions
   public static class ItemExtensions
   {
     /// <summary>
-    /// Determines whether or not the item can be manually dropped.
-    /// </summary>
-    public static void SetDroppable(this item whichItem, bool canBeDropped)
-    {
-      SetItemDroppable(whichItem, canBeDropped);
-    }
-
-    public static bool IsDroppable(this item whichItem) => BlzGetItemBooleanField(whichItem, ITEM_BF_CAN_BE_DROPPED);
-
-    /// <summary>
     /// Drop the item at the given position. If the position turns out to be non-ground-pathable,
     /// return it to a nearby <see cref="Shore"/> instead.
     /// </summary>
@@ -36,20 +26,10 @@ namespace MacroTools.Extensions
       }
       whichItem.SetPosition(shore.Position);
     }
-
-    public static void SetPosition(this item whichItem, float x, float y)
-    {
-      SetItemPosition(whichItem, x, y);
-    }
     
     public static void SetPosition(this item whichItem, Point position)
     {
-      SetItemPosition(whichItem, position.X, position.Y);
-    }
-
-    public static Point GetPosition(this item whichItem)
-    {
-      return new Point(GetItemX(whichItem), GetItemY(whichItem));
+      whichItem.SetPosition(position.X, position.Y);
     }
   }
 }
