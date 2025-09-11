@@ -23,8 +23,8 @@ namespace MacroTools.BookSystem.Core
       Books.Add(specialMenu);
       specialMenu.LauncherButton = new Button("SpectrumMenuButtonMenu", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0))
       {
-        Width = specialMenu.LauncherParent.GetWidth(),
-        Height = specialMenu.LauncherParent.GetHeight(),
+        Width = specialMenu.LauncherParent.Width,
+        Height = specialMenu.LauncherParent.Height,
         Text = specialMenu.Title,
         Visible = whichPlayer == null || whichPlayer == GetLocalPlayer()
       };
