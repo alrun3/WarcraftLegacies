@@ -87,8 +87,8 @@ namespace MacroTools.ObjectiveSystem
       _sfxProgress.SetPosition(-100000, -100000, 0); //Has no death animation so needs to be moved off the map
       _sfxProgress.Dispose();
       _sfx.Dispose();
-      _channelingTimer?.Destroy();
-      _periodictimer.Destroy();
+      _channelingTimer?.Dispose();
+      _periodictimer.Dispose();
       DestroyTimerDialog(_channelingDialog);
     }
     

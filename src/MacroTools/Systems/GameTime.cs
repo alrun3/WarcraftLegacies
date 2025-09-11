@@ -34,14 +34,14 @@ namespace MacroTools.Systems
         var turnTimer = CreateTimer();
         turnTimer.Start(TurnDuration, true, EndTurn);
         _turnTimerDialog = CreateTimerDialog(turnTimer);
-        GetExpiredTimer().Destroy();
+        GetExpiredTimer().Dispose();
       });
 
       CreateTimer().Start(TimerDelay, false, () =>
       {
         TimerDialogDisplay(_turnTimerDialog, true);
         TimerDialogSetTitle(_turnTimerDialog, "Game starts in:");
-        GetExpiredTimer().Destroy();
+        GetExpiredTimer().Dispose();
       });
     }
 

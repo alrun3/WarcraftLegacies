@@ -102,7 +102,7 @@ namespace MacroTools.Powers
       _oilIncomePeriodicAction.Active = false;
       _oilIncomePeriodicAction = null;
       _owners.Remove(whichPlayer);
-      _oilTimer?.Destroy();
+      _oilTimer?.Dispose();
     }
     
     /// <summary>

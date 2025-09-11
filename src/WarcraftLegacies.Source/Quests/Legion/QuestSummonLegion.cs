@@ -55,7 +55,7 @@ namespace WarcraftLegacies.Source.Quests.Legion
       {
         _legionTeleporter1?.Remove();
         _legionTeleporter2?.Remove();
-        GetExpiredTimer().Destroy();
+        GetExpiredTimer().Dispose();
       });
 
       _anetheron.Unit?.SetAbilityLevel(ABILITY_VP02_VAMPIRIC_SIPHON_LEGION_DREADLORDS, 2);
@@ -74,7 +74,7 @@ namespace WarcraftLegacies.Source.Quests.Legion
       CreateTimer().Start(6, false, () =>
       {
         PlayThematicMusic("Doom");
-        GetExpiredTimer().Destroy();
+        GetExpiredTimer().Dispose();
       });
 
       foreach (var player in Util.EnumeratePlayers())

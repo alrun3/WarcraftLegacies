@@ -48,7 +48,7 @@ namespace MacroTools.GameModes
         foreach (var player in WCSharp.Shared.Util.EnumeratePlayers())
           DialogDisplay(player, dialog, true);
 
-        GetExpiredTimer().Destroy();
+        GetExpiredTimer().Dispose();
         CreateTimer().Start(VoteLength, false, () => { ConcludeVote(dialog, buttonClickTriggers); });
       }
 
@@ -63,7 +63,7 @@ namespace MacroTools.GameModes
       var highestVotedGameMode = _gameModeVotes.OrderByDescending(x => x.VoteCount).First();
       highestVotedGameMode.GameMode.OnChoose();
 
-      GetExpiredTimer().Destroy();
+      GetExpiredTimer().Dispose();
       DialogClear(dialog);
 
       foreach (var player in WCSharp.Shared.Util.EnumeratePlayers())
