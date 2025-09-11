@@ -38,10 +38,10 @@ namespace WarcraftLegacies.Source.ArtifactBehaviour
       Target.AddAbility(ABILITY_A01Y_INVENTORY_DUMMY_DROP_ARTIFACT);
       Target.AddItemSafe(_eyeOfSargeras);
       _impacted = true;
-        
-      AddSpecialEffect(ImpactEffect, GetUnitX(Target), GetUnitY(Target))
-        .SetScale(2)
-        .SetLifespan(1);
+
+      var effect = AddSpecialEffect(ImpactEffect, GetUnitX(Target), GetUnitY(Target));
+      effect.SetScale(2);
+      effect.SetLifespan(1);
       
       var eyeEffect = AddSpecialEffectTarget(@"Doodads\Cinematic\EyeOfSargeras\EyeOfSargeras.mdl", Target, "overhead");
       var trigger = CreateTrigger();
@@ -60,9 +60,9 @@ namespace WarcraftLegacies.Source.ArtifactBehaviour
         return;
       
       _eyeOfSargeras.SetPosition(MissileX, MissileY);
-      AddSpecialEffect(ImpactEffect, MissileX, MissileY)
-        .SetScale(2)
-        .SetLifespan(1);
+      var effect = AddSpecialEffect(ImpactEffect, MissileX, MissileY);
+      effect.SetScale(2);
+      effect.SetLifespan(1);
     }
   }
 }

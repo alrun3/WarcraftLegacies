@@ -59,11 +59,11 @@ namespace WarcraftLegacies.Source.Spells
       {
         target.SetScale(0.6f);
       }
-  
-      AddSpecialEffect(EffectTarget, GetUnitX(target), GetUnitY(target))
-        .SetScale(EffectScaleTarget)
-        .SetLifespan()
-        .SetColor(0, 255, 0);
+
+      var effect = AddSpecialEffect(EffectTarget, GetUnitX(target), GetUnitY(target));
+      effect.SetScale(EffectScaleTarget);
+      effect.SetLifespan();
+      effect.SetColor(0, 255, 0);
     }
 
   }

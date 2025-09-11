@@ -91,10 +91,9 @@ namespace MacroTools.ControlPointSystem
           {
             var controlPoint = _byUnit[GetTriggerUnit()];
             controlPoint.ControlLevel += 1;
-            AddSpecialEffect(@"Abilities\Spells\Items\AIlm\AIlmTarget.mdl", GetUnitX(controlPoint.Unit),
-                GetUnitY(controlPoint.Unit))
-              .SetScale(1.5f)
-              .SetLifespan();
+            var effect = AddSpecialEffect(@"Abilities\Spells\Items\AIlm\AIlmTarget.mdl", GetUnitX(controlPoint.Unit), GetUnitY(controlPoint.Unit));
+            effect.SetScale(1.5f);
+            effect.SetLifespan();
           }
           catch (Exception ex)
           {
@@ -261,10 +260,9 @@ namespace MacroTools.ControlPointSystem
             controlPoint.ControlLevel >= ControlLevelSettings.ControlLevelMaximum)
           return;
         controlPoint.ControlLevel += 1 + controlPoint.Owner.GetControlLevelPerTurnBonus();
-        AddSpecialEffect(@"Abilities\Spells\Items\AIlm\AIlmTarget.mdl", GetUnitX(controlPoint.Unit),
-            GetUnitY(controlPoint.Unit))
-          .SetScale(1.5f)
-          .SetLifespan();
+        var effect = AddSpecialEffect(@"Abilities\Spells\Items\AIlm\AIlmTarget.mdl", GetUnitX(controlPoint.Unit), GetUnitY(controlPoint.Unit));
+        effect.SetScale(1.5f);
+        effect.SetLifespan();
       };
     }
 

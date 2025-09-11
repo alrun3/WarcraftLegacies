@@ -32,10 +32,10 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
       _egg.SetLifePercent(100);
       _egg.SetArmor((int)BlzGetUnitArmor(Target));
       _egg.SetName($"Cocoon ({Target.GetProperName()})");
-      
-      AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target))
-        .SetScale(2)
-        .SetLifespan();
+
+      var effect = AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target));
+      effect.SetScale(2);
+      effect.SetLifespan();
 
       _deathTrigger = CreateTrigger();
       _deathTrigger.RegisterUnitEvent(_egg, EVENT_UNIT_DEATH);
@@ -71,10 +71,10 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
       Target.SetCurrentHitpoints(_egg!.GetCurrentHitPoints());
       _egg!.Kill();
       Target.SetPosition(_egg!.GetPosition());
-      
-      AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target))
-        .SetScale(2)
-        .SetLifespan();
+
+      var effect = AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target));
+      effect.SetScale(2);
+      effect.SetLifespan();
     }
   }
 }
