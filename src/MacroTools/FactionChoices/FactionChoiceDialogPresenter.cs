@@ -27,9 +27,8 @@ namespace MacroTools.FactionChoices
       var pickedFaction = choice.Faction;
       ReplaceStartingUnitsWithFactionEquivalents(pickingPlayer, choice, pickedFaction);
 
-      pickingPlayer
-        .RepositionCamera(choice.StartingArea.Center)
-        .SetFaction(pickedFaction);
+      pickingPlayer.RepositionCamera(choice.StartingArea.Center);
+      pickingPlayer.SetFaction(pickedFaction);
 
       FactionManager.Register(pickedFaction);
       CleanupUnpickedFactions(choice);
