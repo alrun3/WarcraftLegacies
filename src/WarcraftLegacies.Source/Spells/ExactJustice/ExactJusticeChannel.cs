@@ -4,7 +4,6 @@ using MacroTools.Extensions;
 using MacroTools.SpellSystem;
 using MacroTools.Utils;
 using WCSharp.Buffs;
-using WCSharp.Shared.Data;
 
 namespace WarcraftLegacies.Source.Spells.ExactJustice
 {
@@ -57,16 +56,16 @@ namespace WarcraftLegacies.Source.Spells.ExactJustice
       _ringEffect.SetAlpha(0);
       _ringEffect.SetTimeScale(0);
       _ringEffect.SetColor(235, 235, 50);
-      _ringEffect.SetScale(EffectSettings.RingScale);
+      _ringEffect.Scale = EffectSettings.RingScale;
 
       _sparkleEffect = AddSpecialEffect(EffectSettings.SparklePath, x, y);
-      _sparkleEffect.SetScale(EffectSettings.SparkleScale);
+      _sparkleEffect.Scale = EffectSettings.SparkleScale;
       _sparkleEffect.SetColor(255, 255, 0);
 
       _progressEffect = AddSpecialEffect(EffectSettings.ProgressBarPath, x, y);
       _progressEffect.SetTimeScale(1 / Duration);
       _progressEffect.SetColor(Player(4));
-      _progressEffect.SetScale(EffectSettings.ProgressBarScale);
+      _progressEffect.Scale = EffectSettings.ProgressBarScale;
       _progressEffect.SetHeight(EffectSettings.ProgressBarHeight);
 
       _aura = new ExactJusticeAura(Caster)
@@ -94,7 +93,7 @@ namespace WarcraftLegacies.Source.Spells.ExactJustice
     protected override void OnDispose()
     {
       var effect = AddSpecialEffect(EffectSettings.ExplodePath, GetUnitX(Caster), GetUnitY(Caster));
-      effect.SetScale(EffectSettings.ExplodeScale);
+      effect.Scale = EffectSettings.ExplodeScale;
       effect.SetLifespan();
       foreach (var unit in GlobalGroup.EnumUnitsInRange(Caster.GetPosition(), Radius)
                  .Where(target => CastFilters.IsTargetEnemyAndAlive(Caster, target)))
@@ -103,13 +102,12 @@ namespace WarcraftLegacies.Source.Spells.ExactJustice
       }
       
       //The below effects have no death animations so they have//to be moved off the map as they are destroyed.
-      var dummyRemovalPoint = new Point(-100000, -100000);
-      _sparkleEffect?.SetPosition(dummyRemovalPoint);
-      _sparkleEffect?.Destroy();
-      _progressEffect?.SetPosition(dummyRemovalPoint);
-      _progressEffect?.Destroy();
+      _sparkleEffect?.SetPosition(-100000, -100000, 0);
+      _sparkleEffect?.Dispose();
+      _progressEffect?.SetPosition(-100000, -100000, 0);
+      _progressEffect?.Dispose();
       _ringEffect?.SetTimeScale(1);
-      _ringEffect?.Destroy();
+      _ringEffect?.Dispose();
       if (_aura != null) 
         _aura.Active = false;
     }

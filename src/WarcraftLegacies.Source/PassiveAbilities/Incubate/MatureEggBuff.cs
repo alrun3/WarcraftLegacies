@@ -26,7 +26,7 @@ namespace WarcraftLegacies.Source.PassiveAbilities.Incubate
 
       var effect = AddSpecialEffect(@"Abilities\Spells\Items\AIem\AIemTarget.mdl", GetUnitX(Target), GetUnitY(Target));
       effect.SetColor(0, 255, 0);
-      effect.SetScale(0.5f);
+      effect.Scale = 0.5f;
       effect.SetLifespan();
     }
 

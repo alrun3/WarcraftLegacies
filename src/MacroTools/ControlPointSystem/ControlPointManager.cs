@@ -91,7 +91,7 @@ namespace MacroTools.ControlPointSystem
             var controlPoint = _byUnit[GetTriggerUnit()];
             controlPoint.ControlLevel += 1;
             var effect = AddSpecialEffect(@"Abilities\Spells\Items\AIlm\AIlmTarget.mdl", GetUnitX(controlPoint.Unit), GetUnitY(controlPoint.Unit));
-            effect.SetScale(1.5f);
+            effect.Scale = 1.5f;
             effect.SetLifespan();
           }
           catch (Exception ex)
@@ -260,7 +260,7 @@ namespace MacroTools.ControlPointSystem
           return;
         controlPoint.ControlLevel += 1 + controlPoint.Owner.GetControlLevelPerTurnBonus();
         var effect = AddSpecialEffect(@"Abilities\Spells\Items\AIlm\AIlmTarget.mdl", GetUnitX(controlPoint.Unit), GetUnitY(controlPoint.Unit));
-        effect.SetScale(1.5f);
+        effect.Scale = 1.5f;
         effect.SetLifespan();
       };
     }

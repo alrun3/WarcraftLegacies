@@ -83,7 +83,7 @@ namespace MacroTools.PassiveAbilities
         var target = GetTriggerUnit();
 
         var effect = AddSpecialEffect(Effect, GetUnitX(target), GetUnitY(target)); ;
-        effect.SetScale(EffectScale);
+        effect.Scale = EffectScale;
         effect.SetYaw(GetUnitFacing(caster) * MathEx.DegToRad);
         effect.SetLifespan();
 

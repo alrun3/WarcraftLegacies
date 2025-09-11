@@ -2,7 +2,6 @@
 using MacroTools.Extensions;
 using WCSharp.Events;
 using WCSharp.Missiles;
-using WCSharp.Shared.Data;
 
 namespace WarcraftLegacies.Source.Spells
 {
@@ -46,7 +45,7 @@ namespace WarcraftLegacies.Source.Spells
         DummyCastOriginType.Target);
 
       var effect = AddSpecialEffect(EffectOnHitModel, GetUnitX(unit), GetUnitY(unit));
-      effect.SetScale(EffectOnHitScale);
+      effect.Scale = EffectOnHitScale;
       effect.SetLifespan();
     }
 
@@ -62,9 +61,9 @@ namespace WarcraftLegacies.Source.Spells
     /// <inheritdoc />
     public override void OnDispose()
     {
-      Effect.SetPosition(new Point(21623f, 24212f));
+      Effect.SetPosition(21623f, 24212f, 0);
       var effect = AddSpecialEffect(EffectOnProjectileDespawnModel, MissileX, MissileY);
-      effect.SetScale(EffectOnProjectileDespawnScale);
+      effect.Scale = EffectOnProjectileDespawnScale;
       effect.SetLifespan();
     }
 

@@ -56,7 +56,7 @@ namespace WarcraftLegacies.Source.Quests
       var yoggsaronSummonPoint = new Point(3995, 23488);
       _yoggsaron.ForceCreate(Player(PLAYER_NEUTRAL_AGGRESSIVE), yoggsaronSummonPoint, 320);
       var effect = AddSpecialEffect(@"Abilities\Spells\Human\Thunderclap\ThunderClapCaster.mdl", yoggsaronSummonPoint.X, yoggsaronSummonPoint.Y);
-      effect.SetScale(2);
+      effect.Scale = 2;
       effect.SetLifespan(1);
       _yoggsaronPrison.Kill();
 

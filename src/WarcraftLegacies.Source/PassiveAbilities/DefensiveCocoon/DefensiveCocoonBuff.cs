@@ -34,7 +34,7 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
       _egg.SetName($"Cocoon ({Target.GetProperName()})");
 
       var effect = AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target));
-      effect.SetScale(2);
+      effect.Scale = 2;
       effect.SetLifespan();
 
       _deathTrigger = CreateTrigger();
@@ -73,7 +73,7 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
       Target.SetPosition(_egg!.GetPosition());
 
       var effect = AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target));
-      effect.SetScale(2);
+      effect.Scale = 2;
       effect.SetLifespan();
     }
   }

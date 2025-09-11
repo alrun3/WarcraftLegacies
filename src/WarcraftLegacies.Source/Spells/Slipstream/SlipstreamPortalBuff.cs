@@ -48,7 +48,7 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
           Target.SetAnimationSpeed(1);
           Target.SetAnimation("stand");
           Target.SetWaygateActive(true);
-          _progressBar.Destroy();
+          _progressBar.Dispose();
         }
 
         DestroyTimer(GetExpiredTimer());
@@ -89,7 +89,7 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
     /// <inheritdoc />
     public override void OnDispose()
     {
-      _progressBar?.Destroy();
+      _progressBar?.Dispose();
     }
 
     private void CloseInstantly()
@@ -99,7 +99,7 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
       Target.Kill();
       Target.Remove();
       var effect = AddSpecialEffect(@"Abilities\Spells\Human\Feedback\SpellBreakerAttack.mdl", GetUnitX(Target), GetUnitY(Target));
-      effect.SetScale(6);
+      effect.Scale = 6;
       effect.SetLifespan();
       Active = false;
     }

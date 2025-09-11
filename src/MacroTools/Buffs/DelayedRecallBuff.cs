@@ -57,8 +57,8 @@ namespace MacroTools.Buffs
     /// <inheritdoc />
     public override void OnDispose()
     {
-      Effect?.Destroy();
-      _progressEffect?.Destroy();
+      Effect?.Dispose();
+      _progressEffect?.Dispose();
       
       if (!UnitAlive(Caster))
       {

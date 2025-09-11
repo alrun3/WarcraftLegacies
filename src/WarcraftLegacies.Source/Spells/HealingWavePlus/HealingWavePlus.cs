@@ -75,7 +75,7 @@ namespace WarcraftLegacies.Source.Spells.HealingWavePlus
             if (!string.IsNullOrEmpty(HealingEffect))
             {
                 var effect = AddSpecialEffectTarget(HealingEffect, target, "origin");
-                effect.SetScale(HealingEffectScale);
+                effect.Scale = HealingEffectScale;
                 effect.SetLifespan();
             }
             _currentHealingModifier *= HealingReductionFactor;

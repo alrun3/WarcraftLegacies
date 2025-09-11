@@ -40,7 +40,7 @@ namespace WarcraftLegacies.Source.ArtifactBehaviour
       _impacted = true;
 
       var effect = AddSpecialEffect(ImpactEffect, GetUnitX(Target), GetUnitY(Target));
-      effect.SetScale(2);
+      effect.Scale = 2;
       effect.SetLifespan(1);
       
       var eyeEffect = AddSpecialEffectTarget(@"Doodads\Cinematic\EyeOfSargeras\EyeOfSargeras.mdl", Target, "overhead");
@@ -48,7 +48,7 @@ namespace WarcraftLegacies.Source.ArtifactBehaviour
       trigger.RegisterUnitEvent(Target, EVENT_UNIT_DEATH);
       trigger.AddAction(() =>
       {
-        eyeEffect.Destroy();
+        eyeEffect.Dispose();
         DestroyTrigger(GetTriggeringTrigger());
       });
     }
@@ -61,7 +61,7 @@ namespace WarcraftLegacies.Source.ArtifactBehaviour
       
       _eyeOfSargeras.SetPosition(MissileX, MissileY);
       var effect = AddSpecialEffect(ImpactEffect, MissileX, MissileY);
-      effect.SetScale(2);
+      effect.Scale = 2;
       effect.SetLifespan(1);
     }
   }

@@ -86,7 +86,7 @@ namespace WarcraftLegacies.Source.Spells
       {
         var projectileOrigin = GetProjectileOrigin(i, middle, casterFacing, casterX, casterY, width, projectileCount);
         var effect = AddSpecialEffect(EffectOnProjectileSpawn, projectileOrigin.X, projectileOrigin.Y);
-        effect.SetScale(EffectOnProjectileSpawnScale);
+        effect.Scale = EffectOnProjectileSpawnScale;
         effect.SetLifespan();
 
         var projectileDestination = GetProjectileDestination(projectileOrigin, casterFacing);
