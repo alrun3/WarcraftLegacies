@@ -1,5 +1,4 @@
 ﻿using MacroTools.CommandSystem;
-using MacroTools.Extensions;
 
 namespace MacroTools.Cheats
 {
@@ -24,7 +23,7 @@ namespace MacroTools.Cheats
     /// <inheritdoc />
     public override string Execute(player cheater, params string[] parameters)
     {
-      cheater.AdjustPlayerState(PLAYER_STATE_RESOURCE_FOOD_CAP, S2I(parameters[0]));
+      cheater.FoodCap += S2I(parameters[0]);
       return "Granted " + parameters[0] + " food.";
     }
   }

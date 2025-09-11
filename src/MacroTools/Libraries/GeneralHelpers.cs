@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using MacroTools.Extensions;
 using WCSharp.Shared.Data;
 
 namespace MacroTools.Libraries
@@ -106,8 +105,8 @@ namespace MacroTools.Libraries
 
         if (IsUnitType(u, UNIT_TYPE_STRUCTURE))
         {
-          GetOwningPlayer(u).AdjustPlayerState(PLAYER_STATE_RESOURCE_GOLD, GetUnitGoldCost(GetUnitTypeId(u)));
-          GetOwningPlayer(u).AdjustPlayerState(PLAYER_STATE_RESOURCE_LUMBER, GetUnitWoodCost(GetUnitTypeId(u)));
+          GetOwningPlayer(u).Gold += GetUnitGoldCost(GetUnitTypeId(u));
+          GetOwningPlayer(u).Lumber += GetUnitWoodCost(GetUnitTypeId(u));
           KillUnit(u);
         }
 

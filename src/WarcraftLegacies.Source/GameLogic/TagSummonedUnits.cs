@@ -1,4 +1,3 @@
-﻿using MacroTools.Extensions;
 using WCSharp.Events;
 
 namespace WarcraftLegacies.Source.GameLogic

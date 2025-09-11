@@ -77,7 +77,7 @@ namespace MacroTools.Systems
         foreach (var player in WCSharp.Shared.Util.EnumeratePlayers(PLAYER_SLOT_STATE_PLAYING, MAP_CONTROL_USER))
         {
           var faction = player.GetFaction();
-          var meetEliminationThreshold = player.GetControlPoints().Count <= 5 && player.GetFoodUsed() <= 105 &&
+          var meetEliminationThreshold = player.GetControlPoints().Count <= 5 && player.FoodUsed <= 105 &&
                                          !player.GetTeam()!.DoesTeamHaveEssentialLegend();
           if (meetEliminationThreshold)
           {

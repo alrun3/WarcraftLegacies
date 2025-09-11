@@ -1,5 +1,4 @@
-﻿using MacroTools.Extensions;
-using MacroTools.FactionSystem;
+﻿using MacroTools.FactionSystem;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.QuestSystem;
@@ -43,7 +42,7 @@ namespace WarcraftLegacies.Source.Quests.Zandalar
       if(completingFaction.Player != null)
       {
         SetPlayerTechResearched(completingFaction.Player, ZulgurubResearch, 1);
-        completingFaction.Player.AdjustPlayerState(PLAYER_STATE_RESOURCE_GOLD, _goldReward);
+        completingFaction.Player.Gold += _goldReward;
       }
     }
 

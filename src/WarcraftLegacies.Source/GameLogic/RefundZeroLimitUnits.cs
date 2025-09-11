@@ -15,8 +15,9 @@ namespace WarcraftLegacies.Source.GameLogic
       if (player.GetObjectLimit(GetUnitTypeId(whichUnit)) != 0) 
         return;
 
-      player.AdjustPlayerState(PLAYER_STATE_RESOURCE_GOLD,
-        IsUnitType(whichUnit, UNIT_TYPE_HERO) ? PlayerDistributor.HeroCost : GetUnitGoldCost(GetUnitTypeId(whichUnit)));
+      player.Gold += IsUnitType(whichUnit, UNIT_TYPE_HERO)
+        ? PlayerDistributor.HeroCost
+        : GetUnitGoldCost(GetUnitTypeId(whichUnit));
 
       RemoveUnit(whichUnit);
     }

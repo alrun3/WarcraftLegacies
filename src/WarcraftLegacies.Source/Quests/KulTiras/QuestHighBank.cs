@@ -50,7 +50,8 @@ namespace WarcraftLegacies.Source.Quests.KulTiras
     /// <inheritdoc/>
     protected override void OnComplete(Faction completingFaction)
     {
-      completingFaction.Player?.AdjustPlayerState(PLAYER_STATE_RESOURCE_GOLD, 225);
+      if (completingFaction.Player != null)
+        completingFaction.Player.Gold += 225;
       completingFaction.Player.RescueGroup(_rescueUnits);
       _katherine.Unit?.AddExperience(2000);
     }

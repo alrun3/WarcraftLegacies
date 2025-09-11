@@ -96,8 +96,8 @@ namespace MacroTools.Mechanics.DemonGates
       if (Progress < _spawnInterval)
         Progress += Interval;
       if (Progress >= _spawnInterval
-          && Caster.OwningPlayer().GetFoodUsed() < Caster.OwningPlayer().GetFoodCap()
-          && Caster.OwningPlayer().GetFoodUsed() < Caster.OwningPlayer().GetFoodCapCeiling()
+          && Caster.OwningPlayer().FoodUsed < Caster.OwningPlayer().FoodCap
+          && Caster.OwningPlayer().FoodUsed < Caster.OwningPlayer().FoodCapCeiling
           && GetUnitAbilityLevel(Caster, _toggleBuffTypeId) > 0
           && _spawnedDemons.Count <= SpawnLimit - _spawnCount)
       {
