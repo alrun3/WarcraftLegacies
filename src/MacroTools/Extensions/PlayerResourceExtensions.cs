@@ -38,10 +38,9 @@ namespace MacroTools.Extensions
       GetPlayerState(whichPlayer, PLAYER_STATE_FOOD_CAP_CEILING);
     
     /// <summary>Removes all of the player's resources.</summary>
-    public static player RemoveAllResources(this player whichPlayer)
+    public static void RemoveAllResources(this player whichPlayer)
     {
       whichPlayer.SetGold(0);
-      return whichPlayer;
     }
   }
 }
