@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using WCSharp.Buffs;
-using static War3Api.Common;
 
 namespace MacroTools.Buffs
 {
@@ -29,7 +28,7 @@ namespace MacroTools.Buffs
 
     public AddSpellOnCastBuff(unit caster, unit target, int bindApplicatorId, int bindBuffId) : base(caster, target)
     {
-      Bind(bindApplicatorId, bindBuffId);
+      BindAura(bindApplicatorId, bindBuffId);
     }
   }
 }

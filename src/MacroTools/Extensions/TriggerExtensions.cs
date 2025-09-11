@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using WCSharp.Api.Enums;
 using WCSharp.Shared.Data;
-using static War3Api.Common;
 
 namespace MacroTools.Extensions
 {
@@ -22,7 +22,7 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Registers a key event for all players.
     /// </summary>
-    public static void RegisterSharedKeyEvent(this trigger whichTrigger, oskeytype key, int metaKey, bool keyDown)
+    public static void RegisterSharedKeyEvent(this trigger whichTrigger, oskeytype key, MetaKey metaKey, bool keyDown)
     {
       foreach (var player in WCSharp.Shared.Util.EnumeratePlayers())
         BlzTriggerRegisterPlayerKeyEvent(whichTrigger, player, key, metaKey, keyDown);

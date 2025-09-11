@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using MacroTools.Extensions;
 using MacroTools.PassiveAbilitySystem;
-using static War3Api.Common;
 
 namespace MacroTools.PassiveAbilities
 {

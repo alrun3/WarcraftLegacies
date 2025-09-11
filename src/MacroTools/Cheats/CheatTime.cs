@@ -1,5 +1,4 @@
-using MacroTools.CommandSystem;
-using static War3Api.Common;
+﻿using MacroTools.CommandSystem;
 
 namespace MacroTools.Cheats
 {

@@ -1,5 +1,4 @@
 ﻿using WCSharp.Buffs;
-using static War3Api.Common;
 
 namespace MacroTools.Buffs
 {
@@ -7,7 +6,7 @@ namespace MacroTools.Buffs
   {
     public SpellResistanceAuraTarget(unit caster, unit target) : base(caster, target)
     {
-      Bind(FourCC("A0B1"), FourCC("Bhab"));
+      BindAura(FourCC("A0B1"), FourCC("Bhab"));
       EffectString = @"Abilities\Spells\Other\GeneralAuraTarget\GeneralAuraTarget.mdl";
     }
 

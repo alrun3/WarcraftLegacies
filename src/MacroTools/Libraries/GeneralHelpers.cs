@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using MacroTools.Extensions;
 using WCSharp.Shared.Data;
-using static War3Api.Common;
 
 namespace MacroTools.Libraries
 {
@@ -142,8 +141,5 @@ namespace MacroTools.Libraries
       RegionAddRect(rectRegion, whichRect);
       return rectRegion;
     }
-    
-    /// @CSharpLua.Template = "BlzGetAbilityId({0})"
-    public static extern int BlzGetAbilityId(ability whichAbility);
   }
 }

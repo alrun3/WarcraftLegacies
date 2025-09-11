@@ -1,6 +1,4 @@
-﻿using static War3Api.Common;
-
-namespace MacroTools.Systems
+﻿namespace MacroTools.Systems
 {
   /// <summary>
   /// A research that is automatically granted to all players when a particular turn has passed.
