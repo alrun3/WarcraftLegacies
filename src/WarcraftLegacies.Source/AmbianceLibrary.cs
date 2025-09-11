@@ -1,6 +1,4 @@
-﻿using MacroTools.Extensions;
-
-namespace WarcraftLegacies.Source
+﻿namespace WarcraftLegacies.Source
 {
   /// <summary>
   /// Provides ambiance sounds with predefined settings.
@@ -32,7 +30,7 @@ namespace WarcraftLegacies.Source
     {
       DalaranRuinsNight = CreateSound("Sound/Ambient/DalaranRuins/DalaranRuinsNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       DalaranRuinsNight.SetParamsFromLabel("DalaranRuinsNight");
-      DalaranRuinsNight.SetDuration(114759);
+      DalaranRuinsNight.Duration = 114759;
       DalaranRuinsNight.SetChannel(10);
       DalaranRuinsNight.SetVolume(15);
       DalaranRuinsNight.SetDistances(0, 10000.0f);
@@ -40,7 +38,7 @@ namespace WarcraftLegacies.Source
 
       BlackCitadelOutlandNight = CreateSound("Sound/Ambient/BlackCitadel/BlackCitadel_OutlandNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       BlackCitadelOutlandNight.SetParamsFromLabel("BlackCitadelNight");
-      BlackCitadelOutlandNight.SetDuration(116318);
+      BlackCitadelOutlandNight.Duration = 116318;
       BlackCitadelOutlandNight.SetChannel(10);
       BlackCitadelOutlandNight.SetVolume(18);
       BlackCitadelOutlandNight.SetDistances(0, 10000.0f);
@@ -48,7 +46,7 @@ namespace WarcraftLegacies.Source
 
       BlackCitadelOutlandDay = CreateSound("Sound/Ambient/BlackCitadel/BlackCitadel_OutlandDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       BlackCitadelOutlandDay.SetParamsFromLabel("BlackCitadelDay");
-      BlackCitadelOutlandDay.SetDuration(119186);
+      BlackCitadelOutlandDay.Duration = 119186;
       BlackCitadelOutlandDay.SetChannel(10);
       BlackCitadelOutlandDay.SetVolume(14);
       BlackCitadelOutlandDay.SetDistances(0, 10000f);
@@ -56,7 +54,7 @@ namespace WarcraftLegacies.Source
 
       IceCrownNight = CreateSound("Sound/Ambient/IceCrown/IceCrownNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       IceCrownNight.SetParamsFromLabel("IceCrownNight");
-      IceCrownNight.SetDuration(123220);
+      IceCrownNight.Duration = 123220;
       IceCrownNight.SetChannel(10);
       IceCrownNight.SetVolume(14);
       IceCrownNight.SetDistances(0, 10000f);
@@ -64,7 +62,7 @@ namespace WarcraftLegacies.Source
 
       AshenvaleNight = CreateSound("Sound/Ambient/Ashenvale/AshenvaleNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       AshenvaleNight.SetParamsFromLabel("AshenvaleNight");
-      AshenvaleNight.SetDuration(119013);
+      AshenvaleNight.Duration = 119013;
       AshenvaleNight.SetChannel(10);
       AshenvaleNight.SetVolume(10);
       AshenvaleNight.SetDistances(0, 10000);
@@ -72,7 +70,7 @@ namespace WarcraftLegacies.Source
 
       LordaeronFallDay = CreateSound("Sound/Ambient/LordaeronFall/LordaeronFallDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       LordaeronFallDay.SetParamsFromLabel("LordaeronFallDay");
-      LordaeronFallDay.SetDuration(124766);
+      LordaeronFallDay.Duration = 124766;
       LordaeronFallDay.SetChannel(10);
       LordaeronFallDay.SetVolume(10);
       LordaeronFallDay.SetDistances(0, 10000);
@@ -80,7 +78,7 @@ namespace WarcraftLegacies.Source
 
       AshenvaleDay = CreateSound("Sound/Ambient/Ashenvale/AshenvaleDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       AshenvaleDay.SetParamsFromLabel("AshenvaleDay");
-      AshenvaleDay.SetDuration(47700);
+      AshenvaleDay.Duration = 47700;
       AshenvaleDay.SetChannel(10);
       AshenvaleDay.SetVolume(10);
       AshenvaleDay.SetDistances(0, 10000);
@@ -88,7 +86,7 @@ namespace WarcraftLegacies.Source
 
       BarrensDay = CreateSound("Sound/Ambient/Barrens/BarrensDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       BarrensDay.SetParamsFromLabel("BarrensDay");
-      BarrensDay.SetDuration(113856);
+      BarrensDay.Duration = 113856;
       BarrensDay.SetChannel(10);
       BarrensDay.SetVolume(20);
       BarrensDay.SetDistances(0, 10000);
@@ -96,7 +94,7 @@ namespace WarcraftLegacies.Source
 
       DalaranRuinsDay = CreateSound("Sound/Ambient/DalaranRuins/DalaranRuinsDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       DalaranRuinsDay.SetParamsFromLabel("DalaranRuinsDay");
-      DalaranRuinsDay.SetDuration(119795);
+      DalaranRuinsDay.Duration = 119795;
       DalaranRuinsDay.SetChannel(10);
       DalaranRuinsDay.SetVolume(20);
       DalaranRuinsDay.SetDistances(0, 10000);
@@ -104,7 +102,7 @@ namespace WarcraftLegacies.Source
 
       WetlandsNight = CreateSound("Sound/Ambient/SunkenRuins/WetlandsNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       WetlandsNight.SetParamsFromLabel("SunkenRuinsNight");
-      WetlandsNight.SetDuration(172730);
+      WetlandsNight.Duration = 172730;
       WetlandsNight.SetChannel(10);
       WetlandsNight.SetVolume(5);
       WetlandsNight.SetDistances(0, 10000);
@@ -112,7 +110,7 @@ namespace WarcraftLegacies.Source
 
       Wetlandsday = CreateSound("Sound/Ambient/SunkenRuins/Wetlandsday.flac", true, true, true, 1, 1, "DefaultEAXON");
       Wetlandsday.SetParamsFromLabel("SunkenRuinsDay");
-      Wetlandsday.SetDuration(175048);
+      Wetlandsday.Duration = 175048;
       Wetlandsday.SetChannel(10);
       Wetlandsday.SetVolume(5);
       Wetlandsday.SetDistances(0, 10000);
@@ -120,7 +118,7 @@ namespace WarcraftLegacies.Source
 
       IceCrownDay = CreateSound("Sound/Ambient/IceCrown/IceCrownDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       IceCrownDay.SetParamsFromLabel("IceCrownDay");
-      IceCrownDay.SetDuration(120528);
+      IceCrownDay.Duration = 120528;
       IceCrownDay.SetChannel(10);
       IceCrownDay.SetVolume(14);
       IceCrownDay.SetDistances(0, 10000);
@@ -128,7 +126,7 @@ namespace WarcraftLegacies.Source
 
       LordaeronSummerDay = CreateSound("Sound/Ambient/LordaeronSummer/LordaeronSummerDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       LordaeronSummerDay.SetParamsFromLabel("LordaeronSummerDay");
-      LordaeronSummerDay.SetDuration(117210);
+      LordaeronSummerDay.Duration = 117210;
       LordaeronSummerDay.SetChannel(10);
       LordaeronSummerDay.SetVolume(10);
       LordaeronSummerDay.SetDistances(0, 10000);
@@ -136,7 +134,7 @@ namespace WarcraftLegacies.Source
 
       CityScapeDay = CreateSound("Sound/Ambient/CityScape/CityScapeDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       CityScapeDay.SetParamsFromLabel("DalaranDay");
-      CityScapeDay.SetDuration(253775);
+      CityScapeDay.Duration = 253775;
       CityScapeDay.SetChannel(10);
       CityScapeDay.SetVolume(16);
       CityScapeDay.SetDistances(0, 10000);
@@ -144,7 +142,7 @@ namespace WarcraftLegacies.Source
 
       LordaeronSummerNight = CreateSound("Sound/Ambient/LordaeronSummer/LordaeronSummerNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       LordaeronSummerNight.SetParamsFromLabel("LordaeronSummerNight");
-      LordaeronSummerNight.SetDuration(122859);
+      LordaeronSummerNight.Duration = 122859;
       LordaeronSummerNight.SetChannel(10);
       LordaeronSummerNight.SetVolume(10);
       LordaeronSummerNight.SetDistances(0, 10000);
@@ -152,7 +150,7 @@ namespace WarcraftLegacies.Source
 
       NorthrendDay = CreateSound("Sound/Ambient/Northrend/NorthrendDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       NorthrendDay.SetParamsFromLabel("NorthrendDay");
-      NorthrendDay.SetDuration(114102);
+      NorthrendDay.Duration = 114102;
       NorthrendDay.SetChannel(10);
       NorthrendDay.SetVolume(15);
       NorthrendDay.SetDistances(0, 10000);
@@ -160,7 +158,7 @@ namespace WarcraftLegacies.Source
 
       NorthrendNight = CreateSound("Sound/Ambient/Northrend/NorthrendNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       NorthrendNight.SetParamsFromLabel("DungeonNight");
-      NorthrendNight.SetDuration(106607);
+      NorthrendNight.Duration = 106607;
       NorthrendNight.SetChannel(10);
       NorthrendNight.SetVolume(25);
       NorthrendNight.SetDistances(0, 10000);
@@ -168,7 +166,7 @@ namespace WarcraftLegacies.Source
 
       LordaeronWinterNight = CreateSound("Sound/Ambient/LordaeronWinter/LordaeronWinterNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       LordaeronWinterNight.SetParamsFromLabel("LordaeronWinterNight");
-      LordaeronWinterNight.SetDuration(118060);
+      LordaeronWinterNight.Duration = 118060;
       LordaeronWinterNight.SetChannel(10);
       LordaeronWinterNight.SetVolume(10);
       LordaeronWinterNight.SetDistances(0, 10000);
@@ -176,7 +174,7 @@ namespace WarcraftLegacies.Source
 
       LordaeronFallNight = CreateSound("Sound/Ambient/LordaeronFall/LordaeronFallNight.flac", true, true, true, 1, 1, "DefaultEAXON");
       LordaeronFallNight.SetParamsFromLabel("VillageFallNight");
-      LordaeronFallNight.SetDuration(124342);
+      LordaeronFallNight.Duration = 124342;
       LordaeronFallNight.SetChannel(10);
       LordaeronFallNight.SetVolume(10);
       LordaeronFallNight.SetDistances(0, 10000.0f);
@@ -184,7 +182,7 @@ namespace WarcraftLegacies.Source
 
       LordaeronWinterDay = CreateSound("Sound/Ambient/LordaeronWinter/LordaeronWinterDay.flac", true, true, true, 1, 1, "DefaultEAXON");
       LordaeronWinterDay.SetParamsFromLabel("LordaeronWinterDay");
-      LordaeronWinterDay.SetDuration(117986);
+      LordaeronWinterDay.Duration = 117986;
       LordaeronWinterDay.SetChannel(10);
       LordaeronWinterDay.SetVolume(10);
       LordaeronWinterDay.SetDistances(0, 10000.0f);
