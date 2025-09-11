@@ -21,7 +21,8 @@ namespace WarcraftLegacies.Source.ArtifactBehaviour
       EffectScale = 1.5f;
       Arc = 0.3f;
       Speed = 700;
-      _eyeOfSargeras = eyeOfSargeras.SetPosition(20229f, 24244);
+      _eyeOfSargeras = eyeOfSargeras;
+      _eyeOfSargeras.SetPosition(20229f, 24244);
       CollisionRadius = 100;
       Active = true;
       CasterLaunchZ = 50;
