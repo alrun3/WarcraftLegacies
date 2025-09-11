@@ -24,10 +24,9 @@ namespace MacroTools.Extensions
     /// Set the number of extra <see cref="ControlPoint.ControlLevel"/>s the player gets each turn.
     /// </summary>
     /// <returns></returns>
-    public static player SetControlLevelPerTurnBonus(this player whichPlayer, float value)
+    public static void SetControlLevelPerTurnBonus(this player whichPlayer, float value)
     {
       PlayerData.ByHandle(whichPlayer).ControlLevelPerTurnBonus = value;
-      return whichPlayer;
     }
 
     /// <summary>
@@ -43,11 +42,10 @@ namespace MacroTools.Extensions
     /// <param name="position">Where to ping.</param>
     /// <param name="duration">How long the ping should last.</param>
     /// <returns>The same player that was passed in.</returns>
-    public static player PingLocation(this player whichPlayer, Point position, float duration)
+    public static void PingLocation(this player whichPlayer, Point position, float duration)
     {
       if (GetLocalPlayer() == whichPlayer)
         PingMinimap(position.X, position.Y, duration);
-      return whichPlayer;
     }
 
     /// <summary>
@@ -133,7 +131,7 @@ namespace MacroTools.Extensions
     /// Safely removes all of the player's units.
     /// <para>Units that cannot be safely removed are instead turned hostile.</para>
     /// </summary>
-    public static player RemoveAllUnits(this player whichPlayer)
+    public static void RemoveAllUnits(this player whichPlayer)
     {
       foreach (var unit in GlobalGroup
                  .EnumUnitsOfPlayer(whichPlayer))
@@ -143,30 +141,24 @@ namespace MacroTools.Extensions
         else
           unit.SetOwner(Player(PLAYER_NEUTRAL_AGGRESSIVE));
       }
-
-      return whichPlayer;
     }
 
     /// <summary>
     /// Selects the specified unit for the player.
     /// </summary>
-    public static player Select(this player whichPlayer, unit whichUnit)
+    public static void Select(this player whichPlayer, unit whichUnit)
     {
       if (GetLocalPlayer() == whichPlayer)
         SelectUnit(whichUnit, true);
-      
-      return whichPlayer;
     }
 
     /// <summary>
     /// Flashes the quest menu for the player.
     /// </summary>
-    public static player FlashQuests(this player whichPlayer)
+    public static void FlashQuests(this player whichPlayer)
     {
       if (GetLocalPlayer() == whichPlayer)
         FlashQuestDialogButton();
-
-      return whichPlayer;
     }
 
     /// <summary>
