@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MacroTools.Extensions;
 
 namespace MacroTools.DialogueSystem
 {
@@ -30,7 +29,7 @@ namespace MacroTools.DialogueSystem
           dialogue.Play(whichPlayer);
           TriggerSleepAction(dialogue.Length + 0.75f);
         }
-        GetTriggeringTrigger().Destroy();
+        GetTriggeringTrigger().Dispose();
       });
       trigger.Execute();
     }

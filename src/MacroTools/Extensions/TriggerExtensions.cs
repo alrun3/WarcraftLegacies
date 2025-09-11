@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using WCSharp.Api.Enums;
 using WCSharp.Shared.Data;
 
@@ -48,39 +47,6 @@ namespace MacroTools.Extensions
     {
       foreach (var region in regions)
         TriggerRegisterLeaveRegion(whichTrigger, region.Region, filter);
-    }
-
-    public static void RegisterLifeEvent(this trigger whichTrigger, unit whichUnit, unitstate unitState, limitop limitOp, float limitValue)
-    {
-      TriggerRegisterUnitStateEvent(whichTrigger, whichUnit, unitState, limitOp, limitValue);
-    }
-    
-    public static void RegisterUnitEvent(this trigger whichTrigger, unit whichUnit, unitevent whichEvent)
-    {
-      TriggerRegisterUnitEvent(whichTrigger, whichUnit, whichEvent);
-    }
-
-    public static void RegisterDialogButtonEvent(this trigger whichTrigger, button whichButton)
-    {
-      TriggerRegisterDialogButtonEvent(whichTrigger, whichButton);
-    }
-    
-    public static void AddAction(this trigger whichTrigger, Action actionFunc)
-    {
-      TriggerAddAction(whichTrigger, actionFunc);
-    }
-    
-    /// <summary>
-    /// Destroys the trigger.
-    /// </summary>
-    public static void Destroy(this trigger whichTrigger) => DestroyTrigger(whichTrigger);
-
-    /// <summary>
-    /// Immediately executes all of the trigger's actions.
-    /// </summary>
-    public static void Execute(this trigger whichTrigger)
-    {
-      TriggerExecute(whichTrigger);
     }
   }
 }

@@ -62,7 +62,7 @@ namespace WarcraftLegacies.Source.Quests
       _rescueUnits.Clear();
       if (_preventAccessTriggers != null)
         foreach (var preventAccessTrigger in _preventAccessTriggers)
-          preventAccessTrigger.Destroy();
+          preventAccessTrigger.Dispose();
 
       _preventAccessTriggers = null;
       _entranceDoor.SetInvulnerable(false);

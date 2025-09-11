@@ -122,7 +122,7 @@ namespace WarcraftLegacies.Source.FactionMechanics.Scourge
 
     private static void OnFrozenThroneChangeOwner()
     {
-      GetTriggeringTrigger().Destroy();
+      GetTriggeringTrigger().Dispose();
       Fracture();
     }
     

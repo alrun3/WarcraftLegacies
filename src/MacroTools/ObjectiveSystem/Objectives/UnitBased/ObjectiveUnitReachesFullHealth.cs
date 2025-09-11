@@ -25,11 +25,11 @@ namespace MacroTools.ObjectiveSystem.Objectives.UnitBased
         : $"Bring {GetUnitName(objectiveUnit)} to {hitPointRequirement} hit points";
       DisplaysPosition = IsUnitType(objectiveUnit, UNIT_TYPE_STRUCTURE);
       var trigger = CreateTrigger();
-      trigger.RegisterLifeEvent(objectiveUnit, UNIT_STATE_LIFE, GREATER_THAN, hitPointRequirement - 1);
+      trigger.RegisterUnitStateEvent(objectiveUnit, UNIT_STATE_LIFE, GREATER_THAN, hitPointRequirement - 1);
       trigger.AddAction(() =>
       {
         Progress = QuestProgress.Complete;
-        GetTriggeringTrigger().Destroy();
+        GetTriggeringTrigger().Dispose();
       });
 
       Position = _objectiveUnit.GetPosition();

@@ -184,9 +184,9 @@ namespace MacroTools.LegendSystem
     /// <inheritdoc />
     protected override void OnChangeUnit()
     {
-      _becomesRevivableTrig?.Destroy();
-      _castTrig?.Destroy();
-      _ownerTrig?.Destroy();
+      _becomesRevivableTrig?.Dispose();
+      _castTrig?.Dispose();
+      _ownerTrig?.Dispose();
 
       if (Unit == null) 
         return;

@@ -53,7 +53,7 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
 
     public override void OnDispose()
     {
-      _deathTrigger?.Destroy();
+      _deathTrigger?.Dispose();
       Target.Show(true);
       Target.PauseEx(false);
 
