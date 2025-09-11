@@ -135,13 +135,13 @@ namespace MacroTools.Mechanics.DemonGates
         
         _spawnedDemons.Add(spawnedDemon);
 
-        CreateTrigger()
-          .RegisterUnitEvent(spawnedDemon, EVENT_UNIT_DEATH)
-          .AddAction(() =>
-          {
-            _spawnedDemons.Remove(spawnedDemon);
-            DestroyTrigger(GetTriggeringTrigger());
-          });
+        var trigger = CreateTrigger();
+        trigger.RegisterUnitEvent(spawnedDemon, EVENT_UNIT_DEATH);
+        trigger.AddAction(() =>
+        {
+          _spawnedDemons.Remove(spawnedDemon);
+          DestroyTrigger(GetTriggeringTrigger());
+        });
       }
 
       AddSpecialEffect(SpawnEffectPath, SpawnPoint.X, SpawnPoint.Y).SetLifespan();

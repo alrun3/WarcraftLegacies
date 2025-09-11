@@ -71,13 +71,13 @@ namespace MacroTools.ObjectiveSystem.Objectives.ControlPointBased
       foreach (var unit in unitsNearby)
       {
         _maxKillCount++;
-        CreateTrigger()
-          .RegisterUnitEvent(unit, EVENT_UNIT_DEATH)
-          .AddAction(() =>
-          {
-            CurrentKillCount++;
-            DestroyTrigger(GetTriggeringTrigger());
-          });
+        var trigger = CreateTrigger();
+        trigger.RegisterUnitEvent(unit, EVENT_UNIT_DEATH);
+        trigger.AddAction(() =>
+        {
+          CurrentKillCount++;
+          DestroyTrigger(GetTriggeringTrigger());
+        });
       }
     }
   }

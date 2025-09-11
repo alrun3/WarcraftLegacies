@@ -52,9 +52,9 @@ namespace WarcraftLegacies.Source.Quests.Draenei
     protected override void OnComplete(Faction whichFaction)
     {
       _objectivePowerSource.UsedPowerSource?.SetDroppable(false);
-      CreateTrigger()
-        .RegisterUnitEvent(_dimensionalGenerator, EVENT_UNIT_DEATH)
-        .AddAction(() => { _objectivePowerSource.UsedPowerSource?.SetDroppable(true); });
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(_dimensionalGenerator, EVENT_UNIT_DEATH);
+      trigger.AddAction(() => { _objectivePowerSource.UsedPowerSource?.SetDroppable(true); });
     }
 
     /// <inheritdoc/>

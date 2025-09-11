@@ -19,9 +19,9 @@ namespace MacroTools.ObjectiveSystem.Objectives.LegendBased
       TargetWidget = target.Unit;
       Description = $"{target.Unit.GetName()} is destroyed";
       DisplaysPosition = true;
-      CreateTrigger()
-        .RegisterUnitEvent(target.Unit, EVENT_UNIT_DEATH)
-        .AddAction(() => Progress = QuestProgress.Complete);
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(target.Unit, EVENT_UNIT_DEATH);
+      trigger.AddAction(() => Progress = QuestProgress.Complete);
       
       Position = new(GetUnitX(target.Unit), GetUnitY(target.Unit));
     }

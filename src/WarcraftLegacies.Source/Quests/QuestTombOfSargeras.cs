@@ -84,10 +84,13 @@ namespace WarcraftLegacies.Source.Quests
     {
       List<trigger> triggers = new();
       foreach (var rect in rectangles)
-        triggers.Add(CreateTrigger()
-          .RegisterEnterRegion(rect)
-          .AddAction(() => GetEnteringUnit().SetPosition(_entrance.Center))
-        );
+      {
+        var trigger = CreateTrigger();
+        trigger.RegisterEnterRegion(rect);
+        trigger.AddAction(() => GetEnteringUnit().SetPosition(_entrance.Center));
+        triggers.Add(trigger);
+      }
+
       return triggers;
     }
   }

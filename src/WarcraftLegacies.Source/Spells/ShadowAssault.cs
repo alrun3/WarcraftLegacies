@@ -177,9 +177,9 @@ namespace WarcraftLegacies.Source.Spells
       public override void OnApply()
       {
         // Create trigger to block all incoming damage
-        _damageTrigger = CreateTrigger()
-           .RegisterUnitEvent(Target, EVENT_UNIT_DAMAGED)
-           .AddAction(() => BlzSetEventDamage(0));
+        _damageTrigger = CreateTrigger();
+        _damageTrigger.RegisterUnitEvent(Target, EVENT_UNIT_DAMAGED);
+        _damageTrigger.AddAction(() => BlzSetEventDamage(0));
       }
 
       public override void OnDispose()

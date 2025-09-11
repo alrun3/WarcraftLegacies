@@ -34,13 +34,13 @@ namespace WarcraftLegacies.Source.Setup.Legends
       {
         Unit = preplacedUnitSystem.GetUnit(UNIT_NEMI_KING_TERENAS_MENETHIL_LORDAERON)
       };
-      CreateTrigger()
-        .RegisterUnitEvent(Terenas.Unit, EVENT_UNIT_DEATH)
-        .AddAction(() =>
-        {
-          if (artifactSetup.CrownOfLordaeron.OwningUnit == Terenas.Unit)
-            artifactSetup.CrownOfLordaeron.Item.SetPosition(Regions.King_Arthas_crown.Center);
-        });
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(Terenas.Unit, EVENT_UNIT_DEATH);
+      trigger.AddAction(() =>
+      {
+        if (artifactSetup.CrownOfLordaeron.OwningUnit == Terenas.Unit)
+          artifactSetup.CrownOfLordaeron.Item.SetPosition(Regions.King_Arthas_crown.Center);
+      });
 
       Mograine = new LegendaryHero("Alexandros Mograine")
       {

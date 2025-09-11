@@ -178,57 +178,57 @@ namespace MacroTools.ControlPointSystem
 
     private static void RegisterDamageTrigger(ControlPoint controlPoint)
     {
-      CreateTrigger()
-        .RegisterUnitEvent(controlPoint.Unit, EVENT_UNIT_DAMAGED)
-        .AddAction(() =>
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(controlPoint.Unit, EVENT_UNIT_DAMAGED);
+      trigger.AddAction(() =>
+      {
+        try
         {
-          try
-          {
-            var attacker = GetEventDamageSource();
-            var hitPoints = GetUnitState(controlPoint.Unit, UNIT_STATE_LIFE) - GetEventDamage();
-            if (hitPoints > 1)
-              return;
-            BlzSetEventDamage(0);
-            SetUnitOwner(controlPoint.Unit, GetOwningPlayer(attacker), true);
-            controlPoint.Unit.SetLifePercent(100);
-          }
-          catch (Exception ex)
-          {
-            Console.WriteLine(ex);
-          }
-        });
+          var attacker = GetEventDamageSource();
+          var hitPoints = GetUnitState(controlPoint.Unit, UNIT_STATE_LIFE) - GetEventDamage();
+          if (hitPoints > 1)
+            return;
+          BlzSetEventDamage(0);
+          SetUnitOwner(controlPoint.Unit, GetOwningPlayer(attacker), true);
+          controlPoint.Unit.SetLifePercent(100);
+        }
+        catch (Exception ex)
+        {
+          Console.WriteLine(ex);
+        }
+      });
     }
 
     private void RegisterOwnershipChangeTrigger(ControlPoint controlPoint)
     {
-      CreateTrigger()
-        .RegisterUnitEvent(controlPoint.Unit, EVENT_UNIT_CHANGE_OWNER)
-        .AddAction(() =>
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(controlPoint.Unit, EVENT_UNIT_CHANGE_OWNER);
+      trigger.AddAction(() =>
+      {
+        try
         {
-          try
-          {
-            var previousOwner = PlayerData.ByHandle(GetChangingUnitPrevOwner());
-            previousOwner.RemoveControlPoint(controlPoint);
-            previousOwner.BaseIncome -= controlPoint.Value;
+          var previousOwner = PlayerData.ByHandle(GetChangingUnitPrevOwner());
+          previousOwner.RemoveControlPoint(controlPoint);
+          previousOwner.BaseIncome -= controlPoint.Value;
 
-            var newOwner = PlayerData.ByHandle(GetTriggerUnit().OwningPlayer());
-            newOwner.AddControlPoint(controlPoint);
-            newOwner.BaseIncome += controlPoint.Value;
+          var newOwner = PlayerData.ByHandle(GetTriggerUnit().OwningPlayer());
+          newOwner.AddControlPoint(controlPoint);
+          newOwner.BaseIncome += controlPoint.Value;
 
-            if (GetUnitAbilityLevel(controlPoint.Unit, RegenerationAbility) == 0)
-              controlPoint.Unit.AddAbility(RegenerationAbility);
+          if (GetUnitAbilityLevel(controlPoint.Unit, RegenerationAbility) == 0)
+            controlPoint.Unit.AddAbility(RegenerationAbility);
             
-            if (GetUnitAbilityLevel(controlPoint.Unit, PiercingResistanceAbility) == 0)
-              controlPoint.Unit.AddAbility(PiercingResistanceAbility);
+          if (GetUnitAbilityLevel(controlPoint.Unit, PiercingResistanceAbility) == 0)
+            controlPoint.Unit.AddAbility(PiercingResistanceAbility);
             
-            controlPoint.Unit.SetLifePercent(100);
-            controlPoint.ControlLevel = 0;
-          }
-          catch (Exception ex)
-          {
-            Console.WriteLine(ex);
-          }
-        });
+          controlPoint.Unit.SetLifePercent(100);
+          controlPoint.ControlLevel = 0;
+        }
+        catch (Exception ex)
+        {
+          Console.WriteLine(ex);
+        }
+      });
     }
 
     private void RegisterControlLevelChangeTrigger(ControlPoint controlPoint)

@@ -26,13 +26,13 @@ namespace MacroTools.ObjectiveSystem.Objectives.LegendBased
     public override void OnAdd(FactionSystem.Faction faction)
     {
       Progress = QuestProgress.Complete;
-      CreateTrigger()
-        .RegisterUnitEvent(_target.Unit, EVENT_UNIT_CHANGE_OWNER)
-        .AddAction(() =>
-        {
-          if (GetTriggerUnit().OwningPlayer() != faction.Player) 
-            Progress = QuestProgress.Failed;
-        });
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(_target.Unit, EVENT_UNIT_CHANGE_OWNER);
+      trigger.AddAction(() =>
+      {
+        if (GetTriggerUnit().OwningPlayer() != faction.Player)
+          Progress = QuestProgress.Failed;
+      });
     }
   }
 }

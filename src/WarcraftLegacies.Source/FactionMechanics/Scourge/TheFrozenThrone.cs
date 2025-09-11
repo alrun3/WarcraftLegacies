@@ -32,9 +32,9 @@ namespace WarcraftLegacies.Source.FactionMechanics.Scourge
     {
       _frozenThrone = frozenThrone;
 
-      CreateTrigger()
-        .RegisterUnitEvent(frozenThrone.Unit!, EVENT_UNIT_CHANGE_OWNER)
-        .AddAction(OnFrozenThroneChangeOwner);
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(frozenThrone.Unit!, EVENT_UNIT_CHANGE_OWNER);
+      trigger.AddAction(OnFrozenThroneChangeOwner);
 
       lichKing.PermanentlyDied += OnLichKingDied;
 

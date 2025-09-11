@@ -30,23 +30,23 @@ namespace MacroTools.ObjectiveSystem.Objectives.UnitBased
       DisplaysPosition = true;
       PingPath = "MinimapQuestTurnIn";
 
-      CreateTrigger()
-        .RegisterEnterRegion(targetRect)
-        .AddAction(() =>
-        {
-          var triggerUnit = GetTriggerUnit();
-          if (!IsUnitValid(triggerUnit)) 
-            return;
-          CompletingUnit = triggerUnit;
-          Progress = QuestProgress.Complete;
-        });
-      CreateTrigger()
-        .RegisterLeaveRegion(targetRect)
-        .AddAction(() =>
-        {
-          if (!IsValidUnitInRect()) 
-            Progress = QuestProgress.Incomplete;
-        });
+      var trigger1 = CreateTrigger();
+      trigger1.RegisterEnterRegion(targetRect);
+      trigger1.AddAction(() =>
+      {
+        var triggerUnit = GetTriggerUnit();
+        if (!IsUnitValid(triggerUnit))
+          return;
+        CompletingUnit = triggerUnit;
+        Progress = QuestProgress.Complete;
+      });
+      var trigger2 = CreateTrigger();
+      trigger2.RegisterLeaveRegion(targetRect);
+      trigger2.AddAction(() =>
+      {
+        if (!IsValidUnitInRect())
+          Progress = QuestProgress.Incomplete;
+      });
       Position = new(GetRectCenterX(_targetRect), GetRectCenterY(_targetRect));
     }
 

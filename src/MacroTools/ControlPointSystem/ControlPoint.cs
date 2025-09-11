@@ -93,12 +93,12 @@ namespace MacroTools.ControlPointSystem
     /// </summary>
     internal void OnRegister()
     {
-      CreateTrigger()
-        .RegisterUnitEvent(Unit, EVENT_UNIT_CHANGE_OWNER)
-        .AddAction(() =>
-        {
-          SignalOwnerAllianceChange();
-        });
+      var trigger = CreateTrigger();
+      trigger.RegisterUnitEvent(Unit, EVENT_UNIT_CHANGE_OWNER);
+      trigger.AddAction(() =>
+      {
+        SignalOwnerAllianceChange();
+      });
     }
 
     /// <summary>

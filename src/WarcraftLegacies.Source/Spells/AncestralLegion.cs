@@ -62,18 +62,18 @@ namespace WarcraftLegacies.Source.Spells
         summonedTauren.SetName("Ancestor");
         summonedTauren.AddType(UNIT_TYPE_SUMMONED);
 
-        CreateTrigger()
-          .RegisterUnitEvent(summonedTauren, EVENT_UNIT_DEATH)
-          .AddAction(() =>
-          {
-            AddSpecialEffect(DeathEffect, GetUnitX(summonedTauren), GetUnitY(summonedTauren))
-              .SetLifespan(1);
+        var trigger = CreateTrigger();
+        trigger.RegisterUnitEvent(summonedTauren, EVENT_UNIT_DEATH);
+        trigger.AddAction(() =>
+        {
+          AddSpecialEffect(DeathEffect, GetUnitX(summonedTauren), GetUnitY(summonedTauren))
+            .SetLifespan(1);
             
-            summonedTauren.Remove();
+          summonedTauren.Remove();
             
-            GetTriggeringTrigger()
-              .Destroy();
-          });
+          GetTriggeringTrigger()
+            .Destroy();
+        });
         
         AddSpecialEffect(SummonEffect, targetPoint.X, targetPoint.Y)
           .SetLifespan();
