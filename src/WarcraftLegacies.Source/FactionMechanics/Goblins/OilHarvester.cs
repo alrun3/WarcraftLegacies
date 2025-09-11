@@ -48,7 +48,8 @@ namespace WarcraftLegacies.Source.FactionMechanics.Goblins
 
       if (oilPoolNearby == null)
       {
-        createdUnit.Kill().Remove();
+        createdUnit.Kill();
+        createdUnit.Remove();
         return;
       }
       
@@ -66,7 +67,8 @@ namespace WarcraftLegacies.Source.FactionMechanics.Goblins
       if (GlobalGroup.EnumUnitsInRange(createdUnit.GetPosition(), 900)
           .All(x => x.GetTypeId() != createdUnit.GetTypeId() || x == createdUnit || !UnitAlive(x)))
         return true;
-      createdUnit.Kill().Remove();
+      createdUnit.Kill();
+      createdUnit.Remove();
       return false;
     }
   }

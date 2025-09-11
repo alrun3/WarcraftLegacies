@@ -26,10 +26,10 @@ namespace WarcraftLegacies.Source.Quests
       @"ReplaceableTextures\CommandButtons\BTNHeroAvatarOfFlame.blp")
     {
       _ragnaros = ragnaros;
-      _ragnarosSummoningPedestal = ragnarosSummmoningPedestal
-        .MakeCapturable()
-        .SetOwner(Player(PLAYER_NEUTRAL_PASSIVE))
-        .SetInvulnerable(true);
+      _ragnarosSummoningPedestal = ragnarosSummmoningPedestal;
+      _ragnarosSummoningPedestal.MakeCapturable();
+      _ragnarosSummoningPedestal.SetOwner(Player(PLAYER_NEUTRAL_PASSIVE));
+      _ragnarosSummoningPedestal.SetInvulnerable(true);
 
       _heroInRectObjective =
         new ObjectiveHeroWithLevelInRect(10, Regions.RagnarosSummon, "the Portal to the Firelands");
@@ -47,9 +47,8 @@ namespace WarcraftLegacies.Source.Quests
     /// <inheritdoc/>
     protected override void OnComplete(Faction completingFaction)
     {
-      _ragnarosSummoningPedestal
-        .SetOwner(_heroInRectObjective.CompletingUnit?.OwningPlayer() ?? Player(PLAYER_NEUTRAL_AGGRESSIVE))
-        .SetInvulnerable(false);
+      _ragnarosSummoningPedestal.SetOwner(_heroInRectObjective.CompletingUnit?.OwningPlayer() ?? Player(PLAYER_NEUTRAL_AGGRESSIVE));
+      _ragnarosSummoningPedestal.SetInvulnerable(false);
     }
 
     private void OnCastSummonSpell()

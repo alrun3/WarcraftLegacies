@@ -49,11 +49,10 @@ namespace WarcraftLegacies.Source.Quests
 
       if (_bookOfMedivhPedestal == null)
       {
-        _bookOfMedivhPedestal = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), UNIT_NBSM_BOOK_OF_MEDIVH,
-          bookLocation.Rectangle.Center.X, bookLocation.Rectangle.Center.Y, 270);
-        _bookOfMedivhPedestal.SetInvulnerable(true)
-          .AddAbility(ABILITY_A01Y_INVENTORY_DUMMY_DROP_ARTIFACT)
-          .AddItemSafe(bookOfMedivh.Item);
+        _bookOfMedivhPedestal = CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), UNIT_NBSM_BOOK_OF_MEDIVH, bookLocation.Rectangle.Center.X, bookLocation.Rectangle.Center.Y, 270);
+        _bookOfMedivhPedestal.SetInvulnerable(true);
+        _bookOfMedivhPedestal.AddAbility(ABILITY_A01Y_INVENTORY_DUMMY_DROP_ARTIFACT);
+        _bookOfMedivhPedestal.AddItemSafe(bookOfMedivh.Item);
       }
       
       IsFactionQuest = bypassLevelRequirement;

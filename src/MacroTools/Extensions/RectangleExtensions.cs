@@ -113,9 +113,8 @@ namespace MacroTools.Extensions
         if (IsUnitType(unit, UNIT_TYPE_STRUCTURE) && hideStructures && !IsUnitType(unit, UNIT_TYPE_ANCIENT) ||
             !IsUnitType(unit, UNIT_TYPE_STRUCTURE) && hideUnits)
           unit.Show(false);
-        unit
-          .SetInvulnerable(true)
-          .PauseEx(true);
+        unit.SetInvulnerable(true);
+        unit.PauseEx(true);
       }
 
       return group;

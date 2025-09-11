@@ -60,10 +60,9 @@ namespace WarcraftLegacies.Source.Quests.Scourge
       _arthas.PermaDies = true;
       _arthas.DeathMessage = "The day he was born, the very forests of Lordaeron whispered the name Arthas - but no King rules forever.";
 
-      _arthas.Unit?
-        .SetLifePercent(100)
-        .SetManaPercent(100)
-        .AddItemSafe(_helmOfDomination.Item);
+      _arthas.Unit?.SetLifePercent(100);
+      _arthas.Unit?.SetManaPercent(100);
+      _arthas.Unit?.AddItemSafe(_helmOfDomination.Item);
 
       _utgardeKeep.Rescue(completingFaction.Player!);
 

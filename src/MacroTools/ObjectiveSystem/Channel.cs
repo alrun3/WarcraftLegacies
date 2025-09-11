@@ -57,11 +57,11 @@ namespace MacroTools.ObjectiveSystem
 
       _position = position;
 
-      caster.SetPosition(_position)
-        .PauseEx(true)
-        .SetAnimation("channel")
-        .SetFacingEx(facing)
-        .SetInvulnerable(false);
+      caster.SetPosition(_position);
+      caster.PauseEx(true);
+      caster.SetAnimation("channel");
+      caster.SetFacingEx(facing);
+      caster.SetInvulnerable(false);
       _sfxProgress = AddSpecialEffect(ProgressEffect, GetUnitX(caster), GetUnitY(caster))
         .SetTimeScale(10 / (float)duration)
         .SetColor(caster.OwningPlayer())

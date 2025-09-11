@@ -38,18 +38,16 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
         .SetTimeScale(10f / delay)
         .SetColor(Caster.OwningPlayer())
         .SetHeight(450);
-      Target
-        .SetAnimationSpeed(9.3f * (1 / delay))
-        .SetAnimation("birth");
+      Target.SetAnimationSpeed(9.3f * (1 / delay));
+      Target.SetAnimation("birth");
       CreateTimer().Start(delay, false, () =>
       {
         if (_state == SlipstreamPortalState.Opening)
         {
           _state = SlipstreamPortalState.Stable;
-          Target
-            .SetAnimationSpeed(1)
-            .SetAnimation("stand")
-            .SetWaygateActive(true);
+          Target.SetAnimationSpeed(1);
+          Target.SetAnimation("stand");
+          Target.SetWaygateActive(true);
           _progressBar.Destroy();
         }
 
@@ -73,9 +71,8 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
       if (_state != SlipstreamPortalState.Stable) return;
 
       _state = SlipstreamPortalState.Closing;
-      Target
-        .SetAnimationSpeed(0.65f * (1 / delay))
-        .SetAnimation("death");
+      Target.SetAnimationSpeed(0.65f * (1 / delay));
+      Target.SetAnimation("death");
       CreateTimer().Start(delay, false, () =>
       {
         CloseInstantly();
@@ -98,10 +95,9 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
     private void CloseInstantly()
     {
       _state = SlipstreamPortalState.Closed;
-      Target
-        .SetAnimationSpeed(1)
-        .Kill()
-        .Remove();
+      Target.SetAnimationSpeed(1);
+      Target.Kill();
+      Target.Remove();
       AddSpecialEffect(@"Abilities\Spells\Human\Feedback\SpellBreakerAttack.mdl", GetUnitX(Target), GetUnitY(Target))
         .SetScale(6)
         .SetLifespan();

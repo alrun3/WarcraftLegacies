@@ -22,17 +22,16 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
     
     public override void OnApply()
     {
-      Target
-        .SetLifePercent(100)
-        .PauseEx(true)
-        .Show(false);
-      
-      _egg = CreateUnit(Target.OwningPlayer(), EggId, GetUnitX(Target), GetUnitY(Target), 0)
-        .SetTimedLife(Duration + 1)
-        .SetMaximumHitpoints(MaximumHitPoints)
-        .SetLifePercent(100)
-        .SetArmor((int)BlzGetUnitArmor(Target))
-        .SetName($"Cocoon ({Target.GetProperName()})");
+      Target.SetLifePercent(100);
+      Target.PauseEx(true);
+      Target.Show(false);
+
+      _egg = CreateUnit(Target.OwningPlayer(), EggId, GetUnitX(Target), GetUnitY(Target), 0);
+      _egg.SetTimedLife(Duration + 1);
+      _egg.SetMaximumHitpoints(MaximumHitPoints);
+      _egg.SetLifePercent(100);
+      _egg.SetArmor((int)BlzGetUnitArmor(Target));
+      _egg.SetName($"Cocoon ({Target.GetProperName()})");
       
       AddSpecialEffect(ReviveEffect, GetUnitX(Target), GetUnitY(Target))
         .SetScale(2)
@@ -55,17 +54,15 @@ namespace WarcraftLegacies.Source.PassiveAbilities.DefensiveCocoon
     public override void OnDispose()
     {
       _deathTrigger?.Destroy();
-      Target
-        .Show(true)
-        .PauseEx(false);
+      Target.Show(true);
+      Target.PauseEx(false);
 
       if (UnitAlive(_egg)) 
         Revive();
       else
       {
-        Target
-          .Kill()
-          .SetPosition(_egg!.GetPosition());
+        Target.Kill();
+        Target.SetPosition(_egg!.GetPosition());
       }
     }
 

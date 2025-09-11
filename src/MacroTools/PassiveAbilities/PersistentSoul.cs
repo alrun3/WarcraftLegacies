@@ -76,14 +76,13 @@ namespace MacroTools.PassiveAbilities
           GetUnitY(whichUnit))
         .SetLifespan();
 
-      var reanimatedUnit = CreateUnit(castingPlayer, whichUnit.GetTypeId(), whichUnitPosition.X,
-          whichUnitPosition.Y, whichUnit.GetFacing())
-        .RemoveAllAbilities(new List<int>{1096905835,1097690998,1112498531})
-        .SetTimedLife(Duration, BuffId)
-        .SetColor(200, 50, 50, 255)
-        .SetExplodeOnDeath(true)
-        .AddType(UNIT_TYPE_UNDEAD)
-        .AddType(UNIT_TYPE_SUMMONED);
+      var reanimatedUnit = CreateUnit(castingPlayer, whichUnit.GetTypeId(), whichUnitPosition.X, whichUnitPosition.Y, whichUnit.GetFacing());
+      reanimatedUnit.RemoveAllAbilities(new List<int>{1096905835,1097690998,1112498531});
+      reanimatedUnit.SetTimedLife(Duration, BuffId);
+      reanimatedUnit.SetColor(200, 50, 50, 255);
+      reanimatedUnit.SetExplodeOnDeath(true);
+      reanimatedUnit.AddType(UNIT_TYPE_UNDEAD);
+      reanimatedUnit.AddType(UNIT_TYPE_SUMMONED);
       
       whichUnit.Remove();
       

@@ -70,10 +70,10 @@ namespace WarcraftLegacies.Source.Powers
 
       for (var i = 0; i < _summonedUnitCount; i++)
       {
-        var treant = CreateUnit(owningPlayer, _summonedUnitTypeId, point.X, point.Y, 270)
-          .SetTimedLife(_duration)
-          .AddType(UNIT_TYPE_SUMMONED)
-          .SetExplodeOnDeath(true);
+        var treant = CreateUnit(owningPlayer, _summonedUnitTypeId, point.X, point.Y, 270);
+        treant.SetTimedLife(_duration);
+        treant.AddType(UNIT_TYPE_SUMMONED);
+        treant.SetExplodeOnDeath(true);
         AddSpecialEffect(@"Objects\Spawnmodels\NightElf\EntBirthTarget\EntBirthTarget.mdl", treant.GetPosition().X,
             treant.GetPosition().Y)
           .SetLifespan();

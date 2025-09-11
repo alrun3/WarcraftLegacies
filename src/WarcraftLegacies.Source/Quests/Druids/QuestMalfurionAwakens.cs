@@ -78,11 +78,9 @@ namespace WarcraftLegacies.Source.Quests.Druids
       RemoveFurionBlockers();
       if (_malfurion.Unit == null)
       {
-        _malfurion.ForceCreate(completingFaction.Player, Regions.Moonglade.Center,
-          270);
-        _malfurion.Unit?
-          .SetLevel(3, false)
-          .AddItemSafe(_hornofCenarius.Item);
+        _malfurion.ForceCreate(completingFaction.Player, Regions.Moonglade.Center, 270);
+        _malfurion.Unit?.SetLevel(3, false);
+        _malfurion.Unit?.AddItemSafe(_hornofCenarius.Item);
       }
       else
       {

@@ -62,9 +62,8 @@ namespace WarcraftLegacies.Source.FactionMechanics.Scourge
         return;
 
       RemoveAbilities();
-      _frozenThrone.Unit?
-        .SetName("Frozen Throne (Empty)").
-        SetSkin(UNIT_ZBFT_FROZEN_THRONE_EMPTY);
+      _frozenThrone.Unit?.SetName("Frozen Throne (Empty)");
+      _frozenThrone.Unit?.SetSkin(UNIT_ZBFT_FROZEN_THRONE_EMPTY);
       State = FrozenThroneState.Empty;
       _frozenThrone.Capturable = false;
       _frozenThrone.DeathMessage =
@@ -89,10 +88,9 @@ namespace WarcraftLegacies.Source.FactionMechanics.Scourge
         return;
 
       RemoveAbilities();
-      _frozenThrone.Unit?
-        .SetName("Frozen Throne (Ruptured)")
-        .SetOwner(Player(PLAYER_NEUTRAL_PASSIVE))
-        .SetInvulnerable(true);
+      _frozenThrone.Unit?.SetName("Frozen Throne (Ruptured)");
+      _frozenThrone.Unit?.SetOwner(Player(PLAYER_NEUTRAL_PASSIVE));
+      _frozenThrone.Unit?.SetInvulnerable(true);
 
       foreach (var player in Util.EnumeratePlayers())
         DisplayTextToPlayer(player, 0, 0,
@@ -115,12 +113,11 @@ namespace WarcraftLegacies.Source.FactionMechanics.Scourge
 
     private static void RemoveAbilities()
     {
-      _frozenThrone.Unit?
-        .RemoveAbility(ABILITY_A0W8_RECALL_FROZEN_THRONE)
-        .RemoveAbility(ABILITY_A0L3_ANIMATE_DEAD_THE_FROZEN_THRONE)
-        .RemoveAbility(ABILITY_A001_FROST_NOVA_THE_FROZEN_THRONE)
-        .SetMaximumMana(0)
-        .SetName("Icecrown Citadel");
+      _frozenThrone.Unit?.RemoveAbility(ABILITY_A0W8_RECALL_FROZEN_THRONE);
+      _frozenThrone.Unit?.RemoveAbility(ABILITY_A0L3_ANIMATE_DEAD_THE_FROZEN_THRONE);
+      _frozenThrone.Unit?.RemoveAbility(ABILITY_A001_FROST_NOVA_THE_FROZEN_THRONE);
+      _frozenThrone.Unit?.SetMaximumMana(0);
+      _frozenThrone.Unit?.SetName("Icecrown Citadel");
     }
 
     private static void OnFrozenThroneChangeOwner()

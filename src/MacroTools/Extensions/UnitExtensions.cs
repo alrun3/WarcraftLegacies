@@ -20,39 +20,34 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Sets the unit's level to a particular value.
     /// </summary>
-    public static unit SetLevel(this unit whichUnit, int newLevel, bool showEyeCandy = true)
+    public static void SetLevel(this unit whichUnit, int newLevel, bool showEyeCandy = true)
     {
       var oldLevel = GetHeroLevel(whichUnit);
       if (newLevel > oldLevel)
         SetHeroLevel(whichUnit, newLevel, showEyeCandy);
       else if (newLevel < oldLevel)
         UnitStripHeroLevel(whichUnit, oldLevel - newLevel);
-
-      return whichUnit;
     }
 
     /// <summary>
     /// Determines whether or not the unit's attack can be seen in the UI window.
     /// </summary>
-    public static unit ShowAttackUi(this unit whichUnit, bool show, int weaponSlot = 0)
+    public static void ShowAttackUi(this unit whichUnit, bool show, int weaponSlot = 0)
     {
       BlzSetUnitWeaponBooleanField(whichUnit, UNIT_WEAPON_BF_ATTACK_SHOW_UI, weaponSlot, show);
-      return whichUnit;
     }
 
-    public static unit SetUnitLevel(this unit whichUnit, int level)
+    public static void SetUnitLevel(this unit whichUnit, int level)
     {
       BlzSetUnitIntegerField(whichUnit, UNIT_IF_LEVEL, level);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets a unit's armor.
     /// </summary>
-    public static unit SetArmor(this unit whichUnit, int armor)
+    public static void SetArmor(this unit whichUnit, int armor)
     {
       BlzSetUnitArmor(whichUnit, armor);
-      return whichUnit;
     }
 
     /// <summary>
@@ -68,28 +63,25 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Sets the unit's scaling value.
     /// </summary>
-    public static unit SetScale(this unit whichUnit, float scale)
+    public static void SetScale(this unit whichUnit, float scale)
     {
       SetUnitScale(whichUnit, scale, scale, scale);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets the unit's maximum hit points.
     /// </summary>
-    public static unit SetMaximumHitpoints(this unit whichUnit, int value)
+    public static void SetMaximumHitpoints(this unit whichUnit, int value)
     {
       BlzSetUnitMaxHP(whichUnit, value);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets the unit's current hit points.
     /// </summary>
-    public static unit SetCurrentHitpoints(this unit whichUnit, int value)
+    public static void SetCurrentHitpoints(this unit whichUnit, int value)
     {
       SetUnitState(whichUnit, UNIT_STATE_LIFE, value);
-      return whichUnit;
     }
     
     /// <summary>
@@ -103,46 +95,41 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Sets the unit's base damage.
     /// </summary>
-    public static unit SetDamageBase(this unit whichUnit, int value, int weaponSlot = 0)
+    public static void SetDamageBase(this unit whichUnit, int value, int weaponSlot = 0)
     {
       BlzSetUnitBaseDamage(whichUnit, value, weaponSlot);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets the unit's number of damage dice.
     /// </summary>
-    public static unit SetDamageDiceNumber(this unit whichUnit, int value, int weaponSlot = 0)
+    public static void SetDamageDiceNumber(this unit whichUnit, int value, int weaponSlot = 0)
     {
       BlzSetUnitDiceNumber(whichUnit, value, weaponSlot);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets the number of sides on the unit's damage dice.
     /// </summary>
-    public static unit SetDamageDiceSides(this unit whichUnit, int value, int weaponSlot = 0)
+    public static void SetDamageDiceSides(this unit whichUnit, int value, int weaponSlot = 0)
     {
       BlzSetUnitDiceSides(whichUnit, value, weaponSlot);
-      return whichUnit;
     }
 
     /// <summary>
     /// Changes the unit's skin to match that of another unit type.
     /// </summary>
-    public static unit SetSkin(this unit whichUnit, int skinUnitTypeId)
+    public static void SetSkin(this unit whichUnit, int skinUnitTypeId)
     {
       BlzSetUnitSkin(whichUnit, skinUnitTypeId);
-      return whichUnit;
     }
 
     /// <summary>
     /// Changes the unit's name.
     /// </summary>
-    public static unit SetName(this unit whichUnit, string name)
+    public static void SetName(this unit whichUnit, string name)
     {
       BlzSetUnitName(whichUnit, name);
-      return whichUnit;
     }
 
     /// <summary>
@@ -159,19 +146,17 @@ namespace MacroTools.Extensions
     /// Forces the unit to face a particular direction.
     /// </summary>
     /// <returns>The same unit that was passed in.</returns>
-    public static unit SetFacingEx(this unit whichUnit, float facing)
+    public static void SetFacingEx(this unit whichUnit, float facing)
     {
       BlzSetUnitFacingEx(whichUnit, facing);
-      return whichUnit;
     }
 
     /// <summary>
     /// Determines whether or not the unit explodes on death.
     /// </summary>
-    public static unit SetExplodeOnDeath(this unit whichUnit, bool flag)
+    public static void SetExplodeOnDeath(this unit whichUnit, bool flag)
     {
       SetUnitExploded(whichUnit, flag);
-      return whichUnit;
     }
 
     /// <summary>
@@ -185,10 +170,9 @@ namespace MacroTools.Extensions
     /// <para>255 is full, 0 is empty.</para>
     /// </summary>
     /// <returns>The same unit that was passed in.</returns>
-    public static unit SetColor(this unit whichUnit, int red, int green, int blue, int alpha)
+    public static void SetColor(this unit whichUnit, int red, int green, int blue, int alpha)
     {
       SetUnitVertexColor(whichUnit, red, green, blue, alpha);
-      return whichUnit;
     }
 
     /// <summary>
@@ -198,13 +182,12 @@ namespace MacroTools.Extensions
     /// <param name="duration">How long the unit should last.</param>
     /// <param name="buffId">This buff's name is placed on the unit's timed life progress bar.</param>
     /// <returns></returns>
-    public static unit SetTimedLife(this unit whichUnit, float duration, int buffId = 0)
+    public static void SetTimedLife(this unit whichUnit, float duration, int buffId = 0)
     {
       if (duration < 1)
         BlzUnitCancelTimedLife(whichUnit);
 
       UnitApplyTimedLife(whichUnit, buffId, duration);
-      return whichUnit;
     }
 
     /// <summary>
@@ -218,10 +201,9 @@ namespace MacroTools.Extensions
     /// <param name="whichUnit">The unit to set animation speed for.</param>
     /// <param name="speed">The animation speed. 0 is completely paused, 1 is normal.</param>
     /// <returns>The same unit that was passed in.</returns>
-    public static unit SetAnimationSpeed(this unit whichUnit, float speed)
+    public static void SetAnimationSpeed(this unit whichUnit, float speed)
     {
       SetUnitTimeScale(whichUnit, speed);
-      return whichUnit;
     }
 
     /// <summary>
@@ -230,10 +212,9 @@ namespace MacroTools.Extensions
     /// <param name="whichUnit">The unit to set the animation for.</param>
     /// <param name="animation">The name of the animation to play, e.g. "birth".</param>
     /// <returns>The same unit that was passed in.</returns>
-    public static unit SetAnimation(this unit whichUnit, string animation)
+    public static void SetAnimation(this unit whichUnit, string animation)
     {
       SetUnitAnimation(whichUnit, animation);
-      return whichUnit;
     }
     
     /// <summary>
@@ -242,10 +223,9 @@ namespace MacroTools.Extensions
     /// <param name="whichUnit">The unit to queue the animation for.</param>
     /// <param name="animation">The name of the animation to queue, e.g. "birth".</param>
     /// <returns>The same unit that was passed in.</returns>
-    public static unit QueueAnimation(this unit whichUnit, string animation)
+    public static void QueueAnimation(this unit whichUnit, string animation)
     {
       QueueUnitAnimation(whichUnit, animation);
-      return whichUnit;
     }
 
     /// <summary>
@@ -262,28 +242,25 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Drops the item on the ground.
     /// </summary>
-    public static unit DropItem(this unit whichUnit, item whichItem)
+    public static void DropItem(this unit whichUnit, item whichItem)
     {
       UnitRemoveItem(whichUnit, whichItem);
-      return whichUnit;
     }
 
     /// <summary>
     /// Determines whether or not the unit exists in the game world.
     /// </summary>
-    public static unit Show(this unit whichUnit, bool show)
+    public static void Show(this unit whichUnit, bool show)
     {
       ShowUnit(whichUnit, show);
-      return whichUnit;
     }
 
     /// <summary>
     /// Kill the unit instantly.
     /// </summary>
-    public static unit Kill(this unit whichUnit)
+    public static void Kill(this unit whichUnit)
     {
       KillUnit(whichUnit);
-      return whichUnit;
     }
 
     /// <summary>
@@ -297,19 +274,17 @@ namespace MacroTools.Extensions
     /// <summary>
     /// If true, prevents the unit from moving or taking actions.
     /// </summary>
-    public static unit PauseEx(this unit unit, bool value)
+    public static void PauseEx(this unit unit, bool value)
     {
       BlzPauseUnitEx(unit, value);
-      return unit;
     }
 
     /// <summary>
     /// If true, the unit cannot be targeted by attacks or hostile abilities and cannot be damaged.
     /// </summary>
-    public static unit SetInvulnerable(this unit unit, bool value)
+    public static void SetInvulnerable(this unit unit, bool value)
     {
       SetUnitInvulnerable(unit, value);
-      return unit;
     }
 
     /// <summary>
@@ -322,62 +297,56 @@ namespace MacroTools.Extensions
     /// Orders a unit to perform a specified order at a specified <see cref="Point"/>.
     /// </summary>
     [Obsolete("Use the version that takes an integer order ID instead.")]
-    public static unit IssueOrder(this unit unit, string order, Point target)
+    public static void IssueOrder(this unit unit, string order, Point target)
     {
       IssuePointOrder(unit, order, target.X, target.Y);
-      return unit;
     }
 
     /// <summary>
     /// Orders a unit to perform a specified order on the specified target.
     /// </summary>
     [Obsolete("Use the version that takes an integer order ID instead.")]
-    public static unit IssueOrder(this unit unit, string order, widget target)
+    public static void IssueOrder(this unit unit, string order, widget target)
     {
       IssueTargetOrder(unit, order, target);
-      return unit;
     }
     
     /// <summary>
     /// Orders a unit to perform a specified order at a specified <see cref="Point"/>.
     /// </summary>
-    public static unit IssueOrder(this unit unit, int orderId, Point target)
+    public static void IssueOrder(this unit unit, int orderId, Point target)
     {
       IssuePointOrderById(unit, orderId, target.X, target.Y);
-      return unit;
     }
 
     /// <summary>
     /// Orders a unit to perform a specified order on the specified target.
     /// </summary>
-    public static unit IssueOrder(this unit unit, int orderId, widget target)
+    public static void IssueOrder(this unit unit, int orderId, widget target)
     {
       IssueTargetOrderById(unit, orderId, target);
-      return unit;
     }
 
     /// <summary>
     /// Orders a unit to perform the specified targetless order.
     /// </summary>
-    public static unit IssueOrder(this unit unit, string order)
+    public static void IssueOrder(this unit unit, string order)
     {
       IssueImmediateOrder(unit, order);
-      return unit;
     }
     
     /// <summary>
     /// Orders a unit to perform the specified targetless order.
     /// </summary>
-    public static unit IssueOrder(this unit unit, int orderId)
+    public static void IssueOrder(this unit unit, int orderId)
     {
       IssueImmediateOrderById(unit, orderId);
-      return unit;
     }
 
     /// <summary>
     /// Moves the unit to a specified <see cref="Point"/>.
     /// </summary>
-    public static unit SetPosition(this unit unit, Point where, bool considerPathability = false)
+    public static void SetPosition(this unit unit, Point where, bool considerPathability = false)
     {
       if (!considerPathability)
       {
@@ -386,8 +355,6 @@ namespace MacroTools.Extensions
       }
       else
         SetUnitPosition(unit, where.X, where.Y);
-
-      return unit;
     }
 
     /// <summary>
@@ -398,10 +365,9 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Changess the unit's owner to the specified player.
     /// </summary>
-    public static unit SetOwner(this unit unit, player whichPlayer, bool changeColor = true)
+    public static void SetOwner(this unit unit, player whichPlayer, bool changeColor = true)
     {
       SetUnitOwner(unit, whichPlayer, changeColor);
-      return unit;
     }
 
     /// <summary>
@@ -415,31 +381,28 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Determines whether or not the waygate is active.
     /// </summary>
-    public static unit SetWaygateActive(this unit waygate, bool flag)
+    public static void SetWaygateActive(this unit waygate, bool flag)
     {
       WaygateActivate(waygate, flag);
-      return waygate;
     }
 
     /// <summary>
     ///   Sets the Waygate's destination to the target point.
     ///   Blindly assumes that the unit is a Waygate.
     /// </summary>
-    public static unit SetWaygateDestination(this unit waygate, Point destination)
+    public static void SetWaygateDestination(this unit waygate, Point destination)
     {
       WaygateActivate(waygate, true);
       WaygateSetDestination(waygate, destination.X, destination.Y);
-      return waygate;
     }
 
     /// <summary>
     /// Sets the units hit points to a specified percentage value.
     /// </summary>
-    public static unit SetLifePercent(this unit whichUnit, float percent)
+    public static void SetLifePercent(this unit whichUnit, float percent)
     {
       SetUnitState(whichUnit, UNIT_STATE_LIFE,
         GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE) * MathEx.Max(0, percent) * 0.01f);
-      return whichUnit;
     }
 
     /// <summary>
@@ -511,10 +474,9 @@ namespace MacroTools.Extensions
     public static void Rescue(this unit whichUnit, player whichPlayer)
     {
       //If the unit costs 10 food, that means it should be owned by neutral passive instead of the rescuing player.
-      whichUnit
-        .SetOwner(GetUnitFoodUsed(whichUnit) == 10 ? Player(PLAYER_NEUTRAL_PASSIVE) : whichPlayer)
-        .Show(true)
-        .PauseEx(false);
+      whichUnit.SetOwner(GetUnitFoodUsed(whichUnit) == 10 ? Player(PLAYER_NEUTRAL_PASSIVE) : whichPlayer);
+      whichUnit.Show(true);
+      whichUnit.PauseEx(false);
 
       var asCapital = CapitalManager.GetFromUnit(whichUnit);
       if (asCapital == null || asCapital.ProtectorCount == 0)
@@ -547,7 +509,7 @@ namespace MacroTools.Extensions
     ///   Increases the unit's Strength, Agility, or Intelligence.
     ///   Displays a special effect depending on which attributes are increased.
     /// </summary>
-    public static unit AddHeroAttributes(this unit whichUnit, int str, int agi, int intelligence)
+    public static void AddHeroAttributes(this unit whichUnit, int str, int agi, int intelligence)
     {
       SetHeroStr(whichUnit, GetHeroStr(whichUnit, false) + str, true);
       SetHeroAgi(whichUnit, GetHeroAgi(whichUnit, false) + agi, true);
@@ -564,22 +526,20 @@ namespace MacroTools.Extensions
         sfx = "Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl";
 
       DestroyEffect(AddSpecialEffect(sfx, GetUnitX(whichUnit), GetUnitY(whichUnit)));
-      return whichUnit;
     }
 
     /// <summary>
     /// Adds an amount of experience to the hero.
     /// </summary>
-    public static unit AddExperience(this unit whichUnit, int amount)
+    public static void AddExperience(this unit whichUnit, int amount)
     {
       AddHeroXP(whichUnit, amount, true);
-      return whichUnit;
     }
 
     /// <summary>
     ///   Drops a units entire inventory on the ground.
     /// </summary>
-    public static unit DropAllItems(this unit whichUnit)
+    public static void DropAllItems(this unit whichUnit)
     {
       if (IsUnitType(whichUnit, UNIT_TYPE_SUMMONED))
         throw new InvalidOperationException($"Tried to call {nameof(DropAllItems)} on a summoned hero.");
@@ -600,8 +560,6 @@ namespace MacroTools.Extensions
         whichUnit.DropItem(itemToDrop);
         itemToDrop.SetPositionSafe(new Point(x, y));
       }
-
-      return whichUnit;
     }
 
     /// <summary>
@@ -615,11 +573,10 @@ namespace MacroTools.Extensions
     /// <summary>
     ///   Add an item to a unit. If the unit's inventory is full, drop it on the ground near them instead.
     /// </summary>
-    public static unit AddItemSafe(this unit whichUnit, item whichItem)
+    public static void AddItemSafe(this unit whichUnit, item whichItem)
     {
       SetItemPosition(whichItem, GetUnitX(whichUnit), GetUnitY(whichUnit));
       UnitAddItem(whichUnit, whichItem);
-      return whichUnit;
     }
 
     /// <summary>
@@ -628,10 +585,9 @@ namespace MacroTools.Extensions
     /// <param name="whichUnit">The unit to affect.</param>
     /// <param name="multiplier">The amount to multiply attack damage by.</param>
     /// <param name="weaponIndex">Which weapon to return information about; can be 1 or 2.</param>
-    public static unit MultiplyBaseDamage(this unit whichUnit, float multiplier, int weaponIndex)
+    public static void MultiplyBaseDamage(this unit whichUnit, float multiplier, int weaponIndex)
     {
       BlzSetUnitBaseDamage(whichUnit, R2I(I2R(BlzGetUnitBaseDamage(whichUnit, weaponIndex)) * multiplier), weaponIndex);
-      return whichUnit;
     }
     
     /// <summary>
@@ -640,10 +596,9 @@ namespace MacroTools.Extensions
     /// <param name="whichUnit">The unit to affect.</param>
     /// <param name="multiplier">The amount to multiply attack speed by.</param>
     /// <param name="weaponIndex">Which weapon to change; can be 1 or 2.</param>
-    public static unit MultiplyAttackCooldown(this unit whichUnit, float multiplier, int weaponIndex)
+    public static void MultiplyAttackCooldown(this unit whichUnit, float multiplier, int weaponIndex)
     {
       BlzSetUnitAttackCooldown(whichUnit, BlzGetUnitAttackCooldown(whichUnit, weaponIndex) * multiplier, weaponIndex);
-      return whichUnit;
     }
 
     /// <summary>
@@ -651,12 +606,11 @@ namespace MacroTools.Extensions
     /// </summary>
     /// <param name="whichUnit">The unit to affect.</param>
     /// <param name="multiplier">The amount to multiply hit points by.</param>
-    public static unit MultiplyMaxHitpoints(this unit whichUnit, float multiplier)
+    public static void MultiplyMaxHitpoints(this unit whichUnit, float multiplier)
     {
       var percentageHitpoints = whichUnit.GetLifePercent();
       BlzSetUnitMaxHP(whichUnit, R2I(I2R(BlzGetUnitMaxHP(whichUnit)) * multiplier));
       whichUnit.SetLifePercent(percentageHitpoints);
-      return whichUnit;
     }
 
     /// <summary>
@@ -664,12 +618,11 @@ namespace MacroTools.Extensions
     /// </summary>
     /// <param name="whichUnit">The unit to affect.</param>
     /// <param name="multiplier">The amount to multiply hit points by.</param>
-    public static unit MultiplyMaxMana(this unit whichUnit, float multiplier)
+    public static void MultiplyMaxMana(this unit whichUnit, float multiplier)
     {
       var percentageHitpoints = whichUnit.GetManaPercent();
       BlzSetUnitMaxMana(whichUnit, R2I(I2R(BlzGetUnitMaxMana(whichUnit)) * multiplier));
       whichUnit.SetManaPercent(percentageHitpoints);
-      return whichUnit;
     }
 
     /// <summary>
@@ -681,31 +634,28 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Sets the percentage of mana a unit has remaining.
     /// </summary>
-    public static unit SetManaPercent(this unit whichUnit, float percent)
+    public static void SetManaPercent(this unit whichUnit, float percent)
     {
       SetUnitState(whichUnit, UNIT_STATE_MANA,
         GetUnitState(whichUnit, UNIT_STATE_MAX_MANA) * MathEx.Max(0, percent) * 0.01f);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets the unit's maximum mana.
     /// </summary>
     /// <returns>The same unit that was provided.</returns>
-    public static unit SetMaximumMana(this unit whichUnit, int maximumMana)
+    public static void SetMaximumMana(this unit whichUnit, int maximumMana)
     {
       BlzSetUnitMaxMana(whichUnit, maximumMana);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets the unit's current mana.
     /// </summary>
     /// <returns>The same unit that was provided.</returns>
-    public static unit SetMana(this unit whichUnit, int value)
+    public static void SetMana(this unit whichUnit, int value)
     {
       SetUnitState(whichUnit, UNIT_STATE_MANA, value);
-      return whichUnit;
     }
 
     /// <summary>
@@ -726,30 +676,27 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Adds an ability to the unit.
     /// </summary>
-    public static unit AddAbility(this unit whichUnit, int abilityTypeId)
+    public static void AddAbility(this unit whichUnit, int abilityTypeId)
     {
       UnitAddAbility(whichUnit, abilityTypeId);
       UnitMakeAbilityPermanent(whichUnit, true, abilityTypeId);
-      return whichUnit;
     }
 
     /// <summary>
     /// Sets a specific ability of a unit to the specified level.
     /// </summary>
     /// <returns></returns>
-    public static unit SetAbilityLevel(this unit whichUnit, int abilityTypeId, int level)
+    public static void SetAbilityLevel(this unit whichUnit, int abilityTypeId, int level)
     {
       SetUnitAbilityLevel(whichUnit, abilityTypeId, level);
-      return whichUnit;
     }
 
     /// <summary>
     /// Removes an ability from a unit.
     /// </summary>
-    public static unit RemoveAbility(this unit whichUnit, int abilityTypeId)
+    public static void RemoveAbility(this unit whichUnit, int abilityTypeId)
     {
       UnitRemoveAbility(whichUnit, abilityTypeId);
-      return whichUnit;
     }
 
     /// <summary>
@@ -760,10 +707,9 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Changes a unit's attack type as an integer.
     /// </summary>
-    public static unit SetAttackType(this unit whichUnit, int attackType)
+    public static void SetAttackType(this unit whichUnit, int attackType)
     {
       BlzSetUnitWeaponIntegerField(whichUnit, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, attackType);
-      return whichUnit;
     }
 
     /// <summary>
@@ -775,27 +721,25 @@ namespace MacroTools.Extensions
     /// <summary>
     /// Changes a unit's armor type.
     /// </summary>
-    public static unit SetArmorType(this unit whichUnit, int armorType)
+    public static void SetArmorType(this unit whichUnit, int armorType)
     {
       BlzSetUnitIntegerField(whichUnit, UNIT_IF_DEFENSE_TYPE, armorType);
-      return whichUnit;
     }
 
     /// <summary>
     /// Adds an additional unit type to the unit.
     /// </summary>
     /// <returns>The same unit that was passed in.</returns>
-    public static unit AddType(this unit whichUnit, unittype whichUnitType)
+    public static void AddType(this unit whichUnit, unittype whichUnitType)
     {
       UnitAddType(whichUnit, whichUnitType);
-      return whichUnit;
     }
 
     /// <summary>
     /// Causes the specified unit to become capturable,
     /// such that it changes ownership to the attacker when reduced below 0 hit points.
     /// </summary>
-    public static unit MakeCapturable(this unit whichUnit)
+    public static void MakeCapturable(this unit whichUnit)
     {
       CreateTrigger()
         .RegisterUnitEvent(whichUnit, EVENT_UNIT_DAMAGED)
@@ -806,7 +750,6 @@ namespace MacroTools.Extensions
           BlzSetEventDamage(0);
           SetUnitState(whichUnit, UNIT_STATE_LIFE, GetUnitState(whichUnit, UNIT_STATE_MAX_LIFE));
         });
-      return whichUnit;
     }
     
     /// <summary>
@@ -816,23 +759,21 @@ namespace MacroTools.Extensions
     /// <param name="abilCode">The ability to start the cooldown for.</param>
     /// <param name="cooldown">How long the cooldown should be. Defaults to the full cooldown of the ability.</param>
     /// <returns></returns>
-    public static unit StartAbilityCooldown(this unit whichUnit, int abilCode, float? cooldown = null)
+    public static void StartAbilityCooldown(this unit whichUnit, int abilCode, float? cooldown = null)
     {
       BlzEndUnitAbilityCooldown(whichUnit, abilCode);
       cooldown ??= BlzGetUnitAbilityCooldown(whichUnit, abilCode, 0);
       BlzStartUnitAbilityCooldown(whichUnit, abilCode, cooldown.Value);
-      return whichUnit;
     }
 
     /// <summary>
     /// Turns the unit to face a particular position.
     /// </summary>
-    public static unit FacePosition(this unit whichUnit, Point targetPoint)
+    public static void FacePosition(this unit whichUnit, Point targetPoint)
     {
       var unitPosition = whichUnit.GetPosition();
       var facing = WCSharp.Shared.Util.AngleBetweenPoints(unitPosition.X, unitPosition.Y, targetPoint.X, targetPoint.Y);
       BlzSetUnitFacingEx(whichUnit, facing);
-      return whichUnit;
     }
 
     /// <summary>
@@ -850,7 +791,7 @@ namespace MacroTools.Extensions
     /// <param name="whichUnit">The unit to remove abilities from</param>
     /// <param name="ignoredAbilityId">List of ability Ids to not be removed. </param>
     /// <returns>A List of abilityids for a given unit.</returns>
-    public static unit RemoveAllAbilities(this unit whichUnit, List<int> ignoredAbilityId)
+    public static void RemoveAllAbilities(this unit whichUnit, List<int> ignoredAbilityId)
     {
       var abilities = GetUnitAbilities(whichUnit);
 
@@ -860,8 +801,6 @@ namespace MacroTools.Extensions
         if (!ignoredAbilityId.Contains(abilityid)) 
           RemoveAbility(whichUnit, abilityid);
       }
-
-      return whichUnit;
     }
     
     /// <summary>
@@ -895,8 +834,9 @@ namespace MacroTools.Extensions
     {
       if (whichUnit.IsType(UNIT_TYPE_HERO))
         whichUnit.DropAllItems();
-      
-      whichUnit.Kill().Remove();
+
+      whichUnit.Kill();
+      whichUnit.Remove();
     }
 
     /// <summary>

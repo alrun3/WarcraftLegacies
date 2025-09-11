@@ -43,11 +43,11 @@ namespace MacroTools.Cheats
       
       foreach (var shore in ShoreManager.GetAllShores())
       {
-        CreateUnit(cheater, FourCC("npng"), shore.Position.X, shore.Position.Y, 0)
-          .SetScale(7)
-          .SetName(shore.Name)
-          .SetInvulnerable(true)
-          .RemoveAbility(FourCC("Awan"));
+        var unit = CreateUnit(cheater, FourCC("npng"), shore.Position.X, shore.Position.Y, 0);
+        unit.SetScale(7);
+        unit.SetName(shore.Name);
+        unit.SetInvulnerable(true);
+        unit.RemoveAbility(FourCC("Awan"));
       }
 
       return $"Created a penguin at all registered {nameof(Shore)}s.";

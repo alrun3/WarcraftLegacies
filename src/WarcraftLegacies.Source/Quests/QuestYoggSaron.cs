@@ -26,10 +26,10 @@ namespace WarcraftLegacies.Source.Quests
       @"ReplaceableTextures\CommandButtons\BTNYogg-saronIcon.blp")
     {
       _yoggsaron = yoggsaron;
-      _yoggsaronPrison = yoggsaronPrison
-        .MakeCapturable()
-        .SetOwner(Player(PLAYER_NEUTRAL_PASSIVE))
-        .SetInvulnerable(true);
+      _yoggsaronPrison = yoggsaronPrison;
+      _yoggsaronPrison.MakeCapturable();
+      _yoggsaronPrison.SetOwner(Player(PLAYER_NEUTRAL_PASSIVE));
+      _yoggsaronPrison.SetInvulnerable(true);
 
       _heroInRectObjective =
         new ObjectiveHeroWithLevelInRect(14, Regions.YoggSaronPrison, "the Prison of Yogg-Saron");
@@ -47,9 +47,8 @@ namespace WarcraftLegacies.Source.Quests
     /// <inheritdoc/>
     protected override void OnComplete(Faction completingFaction)
     {
-      _yoggsaronPrison
-        .SetOwner(_heroInRectObjective.CompletingUnit?.OwningPlayer() ?? Player(PLAYER_NEUTRAL_AGGRESSIVE))
-        .SetInvulnerable(false);
+      _yoggsaronPrison.SetOwner(_heroInRectObjective.CompletingUnit?.OwningPlayer() ?? Player(PLAYER_NEUTRAL_AGGRESSIVE));
+      _yoggsaronPrison.SetInvulnerable(false);
     }
 
     private void OnCastSummonSpell()

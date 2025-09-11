@@ -34,17 +34,15 @@ namespace WarcraftLegacies.Source.Quests.Cthun
       if (completingFaction.Player == null)
         return;
 
-      _gateAhnQiraj
-        .SetInvulnerable(false)
-        .SetOwner(completingFaction.Player);
+      _gateAhnQiraj.SetInvulnerable(false);
+      _gateAhnQiraj.SetOwner(completingFaction.Player);
     }
 
     /// <inheritdoc />
     protected override void OnFail(Faction completingFaction)
     {
-      _gateAhnQiraj
-        .SetInvulnerable(false)
-        .SetOwner(Player(PLAYER_NEUTRAL_AGGRESSIVE));
+      _gateAhnQiraj.SetInvulnerable(false);
+      _gateAhnQiraj.SetOwner(Player(PLAYER_NEUTRAL_AGGRESSIVE));
     }
 
     /// <inheritdoc/>

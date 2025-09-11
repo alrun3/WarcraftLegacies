@@ -47,14 +47,13 @@ namespace WarcraftLegacies.Source.Spells
 
     private void EmpowerUnit(int level, unit target)
     {
-      target
-        .MultiplyBaseDamage(AttackDamageMultiplier.Base + AttackDamageMultiplier.PerLevel * level, 0)
-        .MultiplyAttackCooldown(1 / (AttackSpeedMultiplier.Base + AttackSpeedMultiplier.PerLevel * level), 0)
-        .MultiplyMaxHitpoints(MaxHealthMultiplier.Base + MaxHealthMultiplier.PerLevel * level)
-        .SetColor(100, 255, 150, 255)
-        .SetTimedLife(Duration)
-        .SetExplodeOnDeath(true)
-        .SetScale(1.1f); 
+      target.MultiplyBaseDamage(AttackDamageMultiplier.Base + AttackDamageMultiplier.PerLevel * level, 0);
+      target.MultiplyAttackCooldown(1 / (AttackSpeedMultiplier.Base + AttackSpeedMultiplier.PerLevel * level), 0);
+      target.MultiplyMaxHitpoints(MaxHealthMultiplier.Base + MaxHealthMultiplier.PerLevel * level);
+      target.SetColor(100, 255, 150, 255);
+      target.SetTimedLife(Duration);
+      target.SetExplodeOnDeath(true);
+      target.SetScale(1.1f);
 
       if (target.GetTypeId() == UNIT_U013_SUPER_MAJOR_C_THUN)
       {

@@ -40,8 +40,11 @@ namespace MacroTools.Buffs
     /// <inheritdoc />
     public override void OnApply()
     {
-      foreach (var unit in UnitsToMove) 
-        unit.Show(false).SetInvulnerable(true);
+      foreach (var unit in UnitsToMove)
+      {
+        unit.Show(false);
+        unit.SetInvulnerable(true);
+      }
 
       Effect = AddSpecialEffect(@"Abilities\Spells\Undead\Darksummoning\DarkSummonTarget.mdl", TargetPosition.X,
         TargetPosition.Y);
@@ -64,11 +67,13 @@ namespace MacroTools.Buffs
         foreach (var unit in UnitsToMove.Take(amountToKill)) 
           unit.Kill();
       }
-      
-      foreach (var unit in UnitsToMove) 
-        unit.Show(true)
-          .SetPosition(TargetPosition)
-          .SetInvulnerable(false);
+
+      foreach (var unit in UnitsToMove)
+      {
+        unit.Show(true);
+        unit.SetPosition(TargetPosition);
+        unit.SetInvulnerable(false);
+      }
     }
   }
 }

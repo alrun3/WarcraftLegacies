@@ -44,9 +44,9 @@ namespace MacroTools.FactionChoices
 
       foreach (var unit in startingUnits)
       {
-        var replacedUnit = unit
-          .ReplaceWithFactionEquivalent(pickedFaction)
-          .SetOwner(pickingPlayer);
+        var replacedUnit = unit;
+        replacedUnit.ReplaceWithFactionEquivalent(pickedFaction);
+        replacedUnit.SetOwner(pickingPlayer);
 
         if (replacedUnit != unit && CinematicMode.State == CinematicState.Active) 
           CinematicMode.AddPausedUnit(replacedUnit);

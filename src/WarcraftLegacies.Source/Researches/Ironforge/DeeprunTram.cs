@@ -47,16 +47,14 @@ namespace WarcraftLegacies.Source.Researches.Ironforge
         _tramToStormwind?.Kill();
         return;
       }
-      
-      _tramToIronforge?
-        .SetOwner(recipient)
-        .SetWaygateDestination(Regions.Ironforge.Center)
-        .SetInvulnerable(false);
 
-      _tramToStormwind?
-        .SetOwner(recipient)
-        .SetWaygateDestination(Regions.Stormwind.Center)
-        .SetInvulnerable(false);
+      _tramToIronforge?.SetOwner(recipient);
+      _tramToIronforge?.SetWaygateDestination(Regions.Ironforge.Center);
+      _tramToIronforge?.SetInvulnerable(false);
+
+      _tramToStormwind?.SetOwner(recipient);
+      _tramToStormwind?.SetWaygateDestination(Regions.Stormwind.Center);
+      _tramToStormwind?.SetInvulnerable(false);
       
       _stormwind.SetObjectLevel(ResearchId, 1);
       _ironforge.SetObjectLevel(ResearchId, 1);

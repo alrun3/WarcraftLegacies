@@ -37,9 +37,8 @@ namespace WarcraftLegacies.Source.Quests
       var sunwellPosition = _sunwell.Unit!.GetPosition();
       _sunwellVial.Item.SetPositionSafe(sunwellPosition);
 
-      _sunwell.Unit!
-        .RemoveAbility(ABILITY_A0OC_EXTRACT_VIAL_ALL)
-        .SetMaximumMana(500);
+      _sunwell.Unit!.RemoveAbility(ABILITY_A0OC_EXTRACT_VIAL_ALL);
+      _sunwell.Unit!.SetMaximumMana(500);
     }
 
     /// <inheritdoc />

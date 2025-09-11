@@ -45,8 +45,10 @@ namespace WarcraftLegacies.Source.Quests
       _waygateTwo = waygateTwo;
       _wayGateOneDestination = wayGateOneDestination;
       _wayGateTwoDestination = wayGateTwoDestination;
-      _nightmareDragonKalimdor = nightmareDragonKalimdor.Show(false);
-      _nightmareDragonEk = nightmareDragonEk.Show(false);
+      _nightmareDragonKalimdor = nightmareDragonKalimdor;
+      _nightmareDragonKalimdor.Show(false);
+      _nightmareDragonEk = nightmareDragonEk;
+      _nightmareDragonEk.Show(false);
       _nightmareDragonKalimdor = nightmareDragonKalimdor;
       _nightmareDragonEk = nightmareDragonEk;
       _portalOneLocation = portalOneLocation;
@@ -79,12 +81,10 @@ namespace WarcraftLegacies.Source.Quests
     /// <inheritdoc/>
     protected override void OnComplete(Faction completingFaction)
     {
-      _waygateOne
-     .Show(true)
-     .SetWaygateDestination(_wayGateOneDestination.Center);
-      _waygateTwo
-        .Show(true)
-        .SetWaygateDestination(_wayGateTwoDestination.Center);
+      _waygateOne.Show(true);
+      _waygateOne.SetWaygateDestination(_wayGateOneDestination.Center);
+      _waygateTwo.Show(true);
+      _waygateTwo.SetWaygateDestination(_wayGateTwoDestination.Center);
     }
   }
 }

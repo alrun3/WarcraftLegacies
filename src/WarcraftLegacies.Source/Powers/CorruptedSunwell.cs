@@ -43,9 +43,9 @@ namespace WarcraftLegacies.Source.Powers
       {
         var x = GetUnitX(castingUnit);
         var y = GetUnitY(castingUnit);
-       CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), UNIT_N05K_WRETCHED_CORRUPTED_SUNWELL, x, y, 0)
-          .SetTimedLife(120.0f)
-          .AddType(UNIT_TYPE_SUMMONED);
+        var unit = CreateUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), UNIT_N05K_WRETCHED_CORRUPTED_SUNWELL, x, y, 0);
+        unit.SetTimedLife(120.0f);
+        unit.AddType(UNIT_TYPE_SUMMONED);
       }
     }
   }

@@ -31,12 +31,18 @@ namespace WarcraftLegacies.Source.Quests.Fel_Horde
         "Following the Second War, the archmage Khadgar and his fellow magi sealed the Dark Portal so that it would never again be used to threaten Azeroth. Little did they know that their magicks were only temporary, and that the portal would open again in time.",
         @"ReplaceableTextures\CommandButtons\BTNDarkPortal.blp")
     {
-      _innerWaygate1 = innerWaygate1.Show(false);
-      _innerWaygate2 = innerWaygate2.Show(false);
-      _innerWaygate3 = innerWaygate3.Show(false);
-      _outerWaygate1 = outerWaygate1.Show(false);
-      _outerWaygate2 = outerWaygate2.Show(false);
-      _outerWaygate3 = outerWaygate3.Show(false);
+      _innerWaygate1 = innerWaygate1;
+      _innerWaygate1.Show(false);
+      _innerWaygate2 = innerWaygate2;
+      _innerWaygate2.Show(false);
+      _innerWaygate3 = innerWaygate3;
+      _innerWaygate3.Show(false);
+      _outerWaygate1 = outerWaygate1;
+      _outerWaygate1.Show(false);
+      _outerWaygate2 = outerWaygate2;
+      _outerWaygate2.Show(false);
+      _outerWaygate3 = outerWaygate3;
+      _outerWaygate3.Show(false);
       AddObjective(new ObjectiveEitherOf(
         new ObjectiveResearch(UPGRADE_R02C_THE_DARK_PORTAL_FEL_HORDE, UNIT_O008_HELLFIRE_CITADEL_FEL_HORDE, true),
         new ObjectiveTime(600)));
@@ -61,24 +67,18 @@ namespace WarcraftLegacies.Source.Quests.Fel_Horde
 
     private void OpenPortal()
     {
-      _innerWaygate1
-        .Show(true)
-        .SetWaygateDestination(Regions.Dark_Portal_Exit_1.Center);
-      _innerWaygate2
-        .Show(true)
-        .SetWaygateDestination(Regions.Dark_Portal_Exit_2.Center);
-      _innerWaygate3
-        .Show(true)
-        .SetWaygateDestination(Regions.Dark_Portal_Exit_3.Center);
-      _outerWaygate1
-        .Show(true)
-        .SetWaygateDestination(Regions.Dark_Portal_Entrance_1.Center);
-      _outerWaygate2
-        .Show(true)
-        .SetWaygateDestination(Regions.Dark_Portal_Entrance_2.Center);
-      _outerWaygate3
-        .Show(true)
-        .SetWaygateDestination(Regions.Dark_Portal_Entrance_3.Center);
+      _innerWaygate1.Show(true);
+      _innerWaygate1.SetWaygateDestination(Regions.Dark_Portal_Exit_1.Center);
+      _innerWaygate2.Show(true);
+      _innerWaygate2.SetWaygateDestination(Regions.Dark_Portal_Exit_2.Center);
+      _innerWaygate3.Show(true);
+      _innerWaygate3.SetWaygateDestination(Regions.Dark_Portal_Exit_3.Center);
+      _outerWaygate1.Show(true);
+      _outerWaygate1.SetWaygateDestination(Regions.Dark_Portal_Entrance_1.Center);
+      _outerWaygate2.Show(true);
+      _outerWaygate2.SetWaygateDestination(Regions.Dark_Portal_Entrance_2.Center);
+      _outerWaygate3.Show(true);
+      _outerWaygate3.SetWaygateDestination(Regions.Dark_Portal_Entrance_3.Center);
     }
   }
 }

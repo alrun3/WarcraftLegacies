@@ -120,10 +120,9 @@ namespace MacroTools.FactionSystem
         {
           if (!IsUnitType(unit, UNIT_TYPE_STRUCTURE)) 
             refund.Gold += loopUnitType.GoldCost * RefundMultiplier;
-          unit
-            .DropAllItems()
-            .Kill()
-            .Remove();
+          unit.DropAllItems();
+          unit.Kill();
+          unit.Remove();
           continue;
         }
 

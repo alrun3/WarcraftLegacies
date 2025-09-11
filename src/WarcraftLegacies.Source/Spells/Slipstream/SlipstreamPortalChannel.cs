@@ -73,16 +73,16 @@ namespace WarcraftLegacies.Source.Spells.Slipstream
     /// <inheritdoc />
     public override void OnCreate()
     {
-      _portalOrigin = CreateUnit(Caster.OwningPlayer(), PortalUnitTypeId, _origin.X, _origin.Y, Caster.GetFacing() - 180)
-        .SetWaygateDestination(_target)
-        .SetColor(Color.Red, Color.Green, Color.Blue, Color.Alpha);
+      _portalOrigin = CreateUnit(Caster.OwningPlayer(), PortalUnitTypeId, _origin.X, _origin.Y, Caster.GetFacing() - 180);
+      _portalOrigin.SetWaygateDestination(_target);
+      _portalOrigin.SetColor(Color.Red, Color.Green, Color.Blue, Color.Alpha);
       _portalOriginBuff = new SlipstreamPortalBuff(Caster, _portalOrigin);
       BuffSystem.Add(_portalOriginBuff);
       _portalOriginBuff.Open(OpeningDelay);
-      
-      _portalDestination = CreateUnit(Caster.OwningPlayer(), PortalUnitTypeId, _target.X, _target.Y, Caster.GetFacing())
-        .SetWaygateDestination(new Point(_origin.X, _origin.Y))
-        .SetColor(Color.Red, Color.Green, Color.Blue, Color.Alpha);
+
+      _portalDestination = CreateUnit(Caster.OwningPlayer(), PortalUnitTypeId, _target.X, _target.Y, Caster.GetFacing());
+      _portalDestination.SetWaygateDestination(new Point(_origin.X, _origin.Y));
+      _portalDestination.SetColor(Color.Red, Color.Green, Color.Blue, Color.Alpha);
       _portalDestinationBuff = new SlipstreamPortalBuff(Caster, _portalDestination)
       {
         RefundFunc = RefundFunc
