@@ -1,4 +1,4 @@
-﻿using MacroTools.DummyCasters;
+﻿using WCSharp.Dummies;
 using WCSharp.Shared.Data;
 
 namespace MacroTools.Utils;
@@ -19,5 +19,5 @@ public static class Environment
   }
 
   static Environment() =>
-    _posUnit = unit.Create(player.NeutralPassive, DummyCasterManager.UnitTypeId, 0, 0, 0);
+    _posUnit = unit.Create(player.NeutralPassive, DummySystem.UNIT_TYPE_DUMMY, 0, 0, 0);
 }

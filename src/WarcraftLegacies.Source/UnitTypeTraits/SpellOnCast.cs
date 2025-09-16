@@ -46,15 +46,15 @@ public sealed class SpellOnCast : UnitTrait, IEffectOnSpellEffect
     switch (TargetType)
     {
       case SpellTargetType.None:
-        DummyCasterManager.GetGlobalDummyCaster().CastNoTarget(caster, DummyAbilityId,
+        DummyCaster.Cast(caster, DummyAbilityId,
           DummyOrderId, caster.GetAbilityLevel(_abilityTypeId));
         break;
       case SpellTargetType.Unit:
-        DummyCasterManager.GetGlobalDummyCaster().CastUnit(caster, DummyAbilityId,
-          DummyOrderId, caster.GetAbilityLevel(_abilityTypeId), GetSpellTargetUnit(), DummyCastOriginType.Caster);
+        DummyCaster.Cast(caster, DummyAbilityId,
+          DummyOrderId, caster.GetAbilityLevel(_abilityTypeId), GetSpellTargetUnit());
         break;
       case SpellTargetType.Point:
-        DummyCasterManager.GetGlobalDummyCaster().CastPoint(caster.Owner, DummyAbilityId,
+        DummyCaster.Cast(caster, DummyAbilityId,
           DummyOrderId, caster.GetAbilityLevel(_abilityTypeId), new Point(GetSpellTargetX(), GetSpellTargetY()));
         break;
     }

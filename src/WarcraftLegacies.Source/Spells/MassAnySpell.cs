@@ -80,14 +80,17 @@ public sealed class MassAnySpell : Spell
       damage = Damage.Base + Damage.PerLevel * casterAbilityLevel;
     }
 
-    var dummyCaster = DummyCasterManager.GetGlobalDummyCaster();
+    var dummy = DummyCaster.GetOrCreate(caster.X, caster.Y, caster.Owner, DummyAbilityId, casterAbilityLevel);
+
     foreach (var unit in units)
     {
-      dummyCaster.CastUnit(caster, DummyAbilityId, DummyAbilityOrderId, casterAbilityLevel, unit, DummyCastOriginType);
+      dummy.Cast(DummyAbilityOrderId, unit, DummyCastOriginType);
       if (damage > 0)
       {
         caster.DealDamage(unit, damage, false, false, attacktype.Normal, damagetype.Magic, weapontype.WhoKnows);
       }
     }
+
+    dummy.Dispose();
   }
 }

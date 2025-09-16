@@ -41,7 +41,8 @@ public sealed class MassDeathCoil : Spell
       }
     }
 
-    var dummyCaster = DummyCasterManager.GetAbilitySpecificDummyCaster(DummyAbilityId, DummyAbilityOrderId);
-    dummyCaster.CastOnTargets(caster, GetAbilityLevel(caster), dummyTargets, DummyCastOriginType.Caster);
+    var dummy = DummyCaster.GetOrCreate(caster.X, caster.Y, caster.Owner, DummyAbilityId, GetAbilityLevel(caster));
+    dummy.Cast(DummyAbilityOrderId, dummyTargets);
+    dummy.Dispose();
   }
 }

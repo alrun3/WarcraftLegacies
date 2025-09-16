@@ -46,9 +46,8 @@ public sealed class IceBlockSpell : Spell
       .Where(x => x != iceBlockDispelTarget && x.Alive && !x.IsInvulnerable)
       .ToList();
 
-    DummyCasterManager
-      .GetGlobalDummyCaster()
-      .CastUnit(caster, BuffApplicatorTypeId, ORDER_INNER_FIRE, 1, iceBlockDispelTarget, DummyCastOriginType.Target);
+    DummyCaster
+      .Cast(caster, BuffApplicatorTypeId, ORDER_INNER_FIRE, 1, iceBlockDispelTarget, DummyCastOriginType.Target);
 
     var iceBlockBuff = new IceBlockBuff(caster, iceBlockDispelTarget)
     {

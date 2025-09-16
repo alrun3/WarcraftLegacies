@@ -93,8 +93,8 @@ public sealed class SpellOnAttack : UnitTrait, IAppliesEffectOnDamage
   }
 
   private void DoSpellOnTarget(unit caster, unit target) =>
-    DummyCasterManager.GetGlobalDummyCaster().CastUnit(
+    DummyCaster.Cast(
       caster, DummyAbilityId, DummyOrderId,
       caster.GetAbilityLevel(_abilityTypeId),
-      target, DummyCastOriginType.Caster);
+      target);
 }

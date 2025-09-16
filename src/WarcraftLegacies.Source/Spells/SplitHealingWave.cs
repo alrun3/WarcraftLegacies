@@ -46,9 +46,8 @@ public sealed class SplitHealingWave : Spell
       return;
     }
 
-    DummyCasterManager
-      .GetGlobalDummyCaster()
-      .CastUnit(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster), secondaryTarget, DummyCastOriginType.Caster);
+    DummyCaster
+      .Cast(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster), secondaryTarget);
   }
 
   private static bool IsValidTarget(player casterOwner, unit target)

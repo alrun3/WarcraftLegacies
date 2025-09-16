@@ -41,13 +41,13 @@ public sealed class CastDummySpell : Spell
     switch (TargetType)
     {
       case SpellTargetType.None:
-        DummyCasterManager.GetGlobalDummyCaster().CastNoTarget(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster));
+        DummyCaster.Cast(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster));
         break;
       case SpellTargetType.Unit:
-        DummyCasterManager.GetGlobalDummyCaster().CastUnit(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster), target, OriginType);
+        DummyCaster.Cast(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster), target, OriginType);
         break;
       case SpellTargetType.Point:
-        DummyCasterManager.GetGlobalDummyCaster().CastPoint(caster.Owner, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster), targetPoint);
+        DummyCaster.Cast(caster, DummyAbilityId, DummyAbilityOrderId, GetAbilityLevel(caster), targetPoint);
         break;
       default:
         throw new ArgumentOutOfRangeException();
