@@ -3,9 +3,15 @@ using MacroTools.DummyCasters;
 using MacroTools.SpellSystem;
 using WCSharp.Shared.Data;
 using System.Linq;
+using MacroTools.Utils;
 
 namespace MacroTools.Spells
 {
+  /// <summary>
+  /// A filter that can be applied to dummy casts so that the casts are only performed on particular targets.
+  /// </summary>
+  public delegate bool CastFilter(unit caster, unit target);
+
   public sealed class MassAnySpell : Spell
   {
     public int DummyAbilityId { get; init; }
@@ -14,11 +20,9 @@ namespace MacroTools.Spells
     
     public float Radius { get; init; }
 
-    public required DummyCasterManager.CastFilter CastFilter { get; init; }
+    public required CastFilter CastFilter { get; init; }
 
     public SpellTargetType TargetType { get; init; } = SpellTargetType.None;
-
-    public DummyCasterType DummyCasterType { get; init; } = DummyCasterType.Global;
 
     public float Chance { get; init; } = 1.0f;
 
@@ -48,36 +52,21 @@ namespace MacroTools.Spells
         }
       }
 
-      if (DummyCasterType == DummyCasterType.Global)
+      foreach (var unit in GlobalGroup.EnumUnitsInRange(center, Radius).FindAll(u => filteredUnits.Contains(u)))
       {
-        DummyCasterManager.GetGlobalDummyCaster()
-          .CastOnUnitsInCircle(
-            caster, 
-            DummyAbilityId, 
-            DummyAbilityOrderId, 
-            GetAbilityLevel(caster), 
-            center, 
-            Radius, 
-            (c, t) => filteredUnits.Contains(t), 
-            DummyCastOriginType
-          );
-      }
-      else if (DummyCasterType == DummyCasterType.AbilitySpecific)
-      {
-        DummyCasterManager.GetAbilitySpecificDummyCaster(DummyAbilityId, DummyAbilityOrderId)
-          .CastOnUnitsInCircle(
-            caster, 
-            GetAbilityLevel(caster), 
-            center, 
-            Radius, 
-            (c, t) => filteredUnits.Contains(t), 
-            DummyCastOriginType
-          );
+        DummyCaster.Cast(
+          caster,
+          DummyAbilityId,
+          DummyAbilityOrderId,
+          GetAbilityLevel(caster),
+          unit,
+          DummyCastOriginType
+        );
       }
     }
 
 
-    private IEnumerable<unit> GetUnitsInRadius(Point center, float radius, DummyCasterManager.CastFilter castFilter)
+    private IEnumerable<unit> GetUnitsInRadius(Point center, float radius, CastFilter castFilter)
     {
       var group = CreateGroup();
       GroupEnumUnitsInRange(group, center.X, center.Y, radius, null);

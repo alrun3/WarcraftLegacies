@@ -57,8 +57,8 @@ namespace WarcraftLegacies.Source.Spells
         {
           if (IsUnitType(unit, UNIT_TYPE_STRUCTURE) || !UnitAlive(unit)) 
             continue;
-          DummyCasterManager.GetGlobalDummyCaster().CastUnit(caster, StunId, StunOrder, 1, unit, DummyCastOriginType.Target);
-          DummyCasterManager.GetGlobalDummyCaster().CastUnit(caster, PurgeId, PurgeOrder, 1, unit, DummyCastOriginType.Target);
+          DummyCaster.Cast(caster, StunId, StunOrder, 1, unit, DummyCastOriginType.Target);
+          DummyCaster.Cast(caster, PurgeId, PurgeOrder, 1, unit, DummyCastOriginType.Target);
         }
       }
       catch (Exception ex)

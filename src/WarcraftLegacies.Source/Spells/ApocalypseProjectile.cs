@@ -8,8 +8,6 @@ namespace WarcraftLegacies.Source.Spells
 {
   public sealed class ApocalypseProjectile : BasicMissile
   {
-    private readonly GlobalDummyCaster _dummyCaster;
-
     public float Damage { get; init; }
 
     public string EffectOnHitModel { get; init; } = "";
@@ -30,7 +28,6 @@ namespace WarcraftLegacies.Source.Spells
     public ApocalypseProjectile(player castingPlayer, float casterX, float casterY, float targetX, float targetY) :
       base(castingPlayer, casterX, casterY, targetX, targetY)
     {
-      _dummyCaster = DummyCasterManager.GetGlobalDummyCaster();
       Interval = PeriodicEvents.SYSTEM_INTERVAL;
     }
 
@@ -41,8 +38,8 @@ namespace WarcraftLegacies.Source.Spells
         return;
       
       unit.TakeDamage(Caster, Damage, false, false, damageType: DAMAGE_TYPE_NORMAL);
-      
-      _dummyCaster.CastUnit(Caster, DummyAbilityId, DummyAbilityOrderId, DummyAbilityLevel, unit,
+
+      DummyCaster.Cast(Caster, DummyAbilityId, DummyAbilityOrderId, DummyAbilityLevel, unit,
         DummyCastOriginType.Target);
 
       var effect = AddSpecialEffect(EffectOnHitModel, GetUnitX(unit), GetUnitY(unit));

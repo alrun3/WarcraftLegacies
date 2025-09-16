@@ -108,9 +108,9 @@ namespace MacroTools.PassiveAbilities
     }
 
     private void DoSpellOnTarget(unit caster, unit target) =>
-        DummyCasterManager.GetGlobalDummyCaster().CastUnit(
+        DummyCaster.Cast(
             caster, DummyAbilityId, DummyOrderId,
-            GetUnitAbilityLevel(caster, AbilityTypeId),
-            target, DummyCastOriginType.Caster);
+            caster.GetAbilityLevel(AbilityTypeId),
+            target);
   }
 }

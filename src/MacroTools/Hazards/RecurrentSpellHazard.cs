@@ -15,13 +15,19 @@ namespace MacroTools.Hazards
     /// <inheritdoc />
     protected override void OnPeriodic()
     {
-      DummyCasterManager.GetGlobalDummyCaster().CastPoint(GetOwningPlayer(Caster), _dummySpellId, _dummySpellOrderId, _level, Position);
+      if (Caster != null)
+      {
+        DummyCaster.Cast(Caster, _dummySpellId, _dummySpellOrderId, _level, Position);
+      }
     }
 
     /// <inheritdoc />
     public override void OnCreate()
     {
-      DummyCasterManager.GetGlobalDummyCaster().CastPoint(GetOwningPlayer(Caster), _dummySpellId, _dummySpellOrderId, _level, Position);
+      if (Caster != null)
+      {
+        DummyCaster.Cast(Caster, _dummySpellId, _dummySpellOrderId, _level, Position);
+      }
     }
     
     /// <summary>

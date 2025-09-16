@@ -74,8 +74,8 @@ namespace WarcraftLegacies.Source.Spells
                 DestroyEffect(effect);
                 for (int i = 0; i < illusionCount; i++)
                 {
-                    DummyCasterManager.GetGlobalDummyCaster()
-                        .CastUnit(caster, DummyAbilityId, DummyOrderId, 1, caster, DummyCastOriginType.Target);
+                    DummyCaster
+                        .Cast(caster, DummyAbilityId, DummyOrderId, 1, caster, DummyCastOriginType.Target);
                 }
             }
             catch (Exception ex)

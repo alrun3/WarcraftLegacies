@@ -56,9 +56,9 @@ namespace WarcraftLegacies.Source.Spells
     private void ApplySpeedUp(unit caster, int level)
     {
       // Use dummy caster to apply attack speed ability
-      DummyCasterManager.GetGlobalDummyCaster().CastUnit(
+      DummyCaster.Cast(
           caster, SpeedUpAbilityId, SpeedUpOrderId, level,
-          caster, DummyCastOriginType.Caster);
+          caster);
     }
 
     private void StartCharge(unit caster, unit target, InvulnerabilityBuff invulnerabilityBuff)

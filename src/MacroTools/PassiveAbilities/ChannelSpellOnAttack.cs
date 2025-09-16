@@ -1,6 +1,5 @@
 ﻿using MacroTools.DummyCasters;
 using MacroTools.PassiveAbilitySystem;
-using MacroTools.SpellSystem;
 
 namespace MacroTools.PassiveAbilities
 {
@@ -22,7 +21,7 @@ namespace MacroTools.PassiveAbilities
     /// <summary>
     /// An order string that can be used to cast the specified dummy ability.
     /// </summary>
-    public string DummyOrderString { get; init; } = "";
+    public int DummyOrderId { get; init; }
     
     /// <summary>
     /// The percentage chance that the effect will occur on attack.
@@ -38,11 +37,6 @@ namespace MacroTools.PassiveAbilities
     /// The duration gained per level of the channel
     /// </summary>
     public int DurationLevel { get; init; }
-
-    /// <summary>
-    /// The current level of this <see cref="Spell"/> instance for any specified unit.
-    /// </summary>
-    protected int GetAbilityLevel(unit whichUnit) => GetUnitAbilityLevel(whichUnit, AbilityTypeId);
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NoTargetSpellOnAttack"/> class.
@@ -66,8 +60,8 @@ namespace MacroTools.PassiveAbilities
         ChannelNoTarget(caster);
       }
     }
-    
-    private void ChannelNoTarget(unit caster) => DummyCasterManager.GetLongLivedDummyCaster().ChannelAtCaster(caster, DummyAbilityId,
-      DummyOrderString, GetUnitAbilityLevel(caster, AbilityTypeId), DurationBase + DurationLevel * GetAbilityLevel(caster));
+
+    private void ChannelNoTarget(unit caster) => DummyCaster.Cast(caster, DummyAbilityId,
+      DummyOrderId, caster.GetAbilityLevel(AbilityTypeId), DurationBase + DurationLevel * caster.GetAbilityLevel(AbilityTypeId));
   }
 }

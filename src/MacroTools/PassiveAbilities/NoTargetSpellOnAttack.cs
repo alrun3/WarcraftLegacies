@@ -58,7 +58,8 @@ namespace MacroTools.PassiveAbilities
         DoSpellNoTarget(caster);
       }
     }
-    private void DoSpellNoTarget(unit caster) => DummyCasterManager.GetGlobalDummyCaster().CastNoTarget(caster, DummyAbilityId,
+
+    private void DoSpellNoTarget(unit caster) => DummyCaster.Cast(caster, DummyAbilityId,
       DummyOrderId, GetUnitAbilityLevel(caster, AbilityTypeId));
   }
 }
