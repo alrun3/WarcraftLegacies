@@ -24,7 +24,7 @@ public sealed class ArtifactBook : Book<Artifact, ArtifactPage, ArtifactCard, Ar
     trigger.RegisterSharedKeyEvent(oskeytype.F7, @event.PlayerMetaKey, false);
     trigger.AddAction(() =>
     {
-      if (@event.Player != player.LocalPlayer)
+      if (!@event.Player.IsLocal)
       {
         return;
       }

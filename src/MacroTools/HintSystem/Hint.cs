@@ -60,7 +60,7 @@ public sealed class Hint
   {
     foreach (var player in WCSharp.Shared.Util.EnumeratePlayers())
     {
-      if (player.LocalPlayer == player)
+      if (player.IsLocal)
       {
         DisplayRandom();
       }

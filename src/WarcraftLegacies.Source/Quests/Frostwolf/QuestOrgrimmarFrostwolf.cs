@@ -55,7 +55,7 @@ public sealed class QuestOrgrimmarFrostwolf : QuestData
       unit.Rescue(completingFaction.Player);
     }
 
-    if (player.LocalPlayer == completingFaction.Player)
+    if (completingFaction.Player.IsLocal)
     {
       PlayThematicMusic("war3mapImported\\OrgrimmarTheme.mp3");
     }

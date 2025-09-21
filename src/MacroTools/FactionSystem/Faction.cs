@@ -361,7 +361,7 @@ public abstract class Faction
 
     questData.Add(this);
     _questsByName.Add(questData.Title.ToLower(), questData);
-    if (player.LocalPlayer == Player)
+    if (Player.IsLocal)
     {
       questData.ShowLocal();
     }
@@ -755,7 +755,7 @@ public abstract class Faction
   {
     foreach (var quest in _questsByName.Values)
     {
-      if (player.LocalPlayer == Player)
+      if (Player.IsLocal)
       {
         quest.ShowLocal();
       }
@@ -768,7 +768,7 @@ public abstract class Faction
   {
     foreach (var quest in _questsByName.Values)
     {
-      if (player.LocalPlayer == Player)
+      if (Player.IsLocal)
       {
         quest.HideLocal();
       }

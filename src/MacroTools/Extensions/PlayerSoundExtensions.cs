@@ -7,7 +7,7 @@ public static class PlayerSoundExtensions
   /// </summary>
   public static void PlaySound(this player whichPlayer, sound sound)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       sound.Start();
     }
@@ -18,7 +18,7 @@ public static class PlayerSoundExtensions
   /// </summary>
   public static void PlayMusicThematic(this player whichPlayer, string musicPath)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       PlayThematicMusic(musicPath);
     }

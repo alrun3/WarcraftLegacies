@@ -86,7 +86,7 @@ public abstract class Book<TItem, TPage, TCard, TPageFactory, TCardFactory> : Fr
     trigger.RegisterSharedKeyEvent(oskeytype.Escape, @event.PlayerMetaKey, false);
     trigger.AddAction(() =>
     {
-      if (@event.Player != player.LocalPlayer)
+      if (!@event.Player.IsLocal)
       {
         return;
       }
@@ -162,7 +162,7 @@ public abstract class Book<TItem, TPage, TCard, TPageFactory, TCardFactory> : Fr
   {
     try
     {
-      if (triggerPlayer != player.LocalPlayer)
+      if (!triggerPlayer.IsLocal)
       {
         return;
       }
@@ -249,7 +249,7 @@ public abstract class Book<TItem, TPage, TCard, TPageFactory, TCardFactory> : Fr
   /// <param name="triggerPlayer"></param>
   private void Exit(player triggerPlayer)
   {
-    if (triggerPlayer != player.LocalPlayer || !Visible || LauncherButton.Visible)
+    if (!triggerPlayer.IsLocal || !Visible || LauncherButton.Visible)
     {
       return;
     }
@@ -266,7 +266,7 @@ public abstract class Book<TItem, TPage, TCard, TPageFactory, TCardFactory> : Fr
   {
     try
     {
-      if (player.LocalPlayer == triggerPlayer)
+      if (triggerPlayer.IsLocal)
       {
         ActivePageIndex++;
       }
@@ -285,7 +285,7 @@ public abstract class Book<TItem, TPage, TCard, TPageFactory, TCardFactory> : Fr
   {
     try
     {
-      if (player.LocalPlayer == triggerPlayer)
+      if (triggerPlayer.IsLocal)
       {
         ActivePageIndex--;
       }

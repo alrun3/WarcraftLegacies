@@ -140,7 +140,7 @@ public class HeroHotkeyManager
 
       if (wasAlreadySelected)
       {
-        if (whichPlayer == player.LocalPlayer)
+        if (whichPlayer.IsLocal)
         {
           SetCameraPosition(fourthHero.X, fourthHero.Y);
         }
@@ -161,7 +161,7 @@ public class HeroHotkeyManager
           firstOfGroup = selectedGroup.First;
         }
         selectedGroup.Dispose();
-        if (whichPlayer == player.LocalPlayer)
+        if (whichPlayer.IsLocal)
         {
           fourthHero.Select(true);
         }

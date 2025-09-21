@@ -251,7 +251,7 @@ public abstract class QuestData
     {
       foreach (var objective in Objectives)
       {
-        if (player.LocalPlayer == whichFaction.Player)
+        if (whichFaction.Player.IsLocal)
         {
           objective.HideLocal();
         }
@@ -263,7 +263,7 @@ public abstract class QuestData
     {
       foreach (var objective in Objectives)
       {
-        if (player.LocalPlayer == whichFaction.Player)
+        if (whichFaction.Player.IsLocal)
         {
           objective.ShowLocal(Progress);
         }

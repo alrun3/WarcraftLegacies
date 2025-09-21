@@ -41,7 +41,7 @@ public static class PlayerExtensions
   /// <param name="duration">How long the ping should last.</param>
   public static void PingLocation(this player whichPlayer, Point position, float duration)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       PingMinimap(position.X, position.Y, duration);
     }
@@ -149,7 +149,7 @@ public static class PlayerExtensions
   /// </summary>
   public static void Select(this player whichPlayer, unit whichUnit)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       whichUnit.Select(true);
     }
@@ -160,7 +160,7 @@ public static class PlayerExtensions
   /// </summary>
   public static void FlashQuests(this player whichPlayer)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       FlashQuestDialogButton();
     }

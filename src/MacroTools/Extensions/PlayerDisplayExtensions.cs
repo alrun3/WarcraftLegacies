@@ -12,7 +12,7 @@ public static class PlayerDisplayExtensions
   public static void DisplayHint(this player whichPlayer, string msg)
   {
     whichPlayer.DisplayTextTo($"\n|cff00ff00HINT|r - {msg}", 0, 0);
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SoundLibrary.Hint.Start();
     }
@@ -46,7 +46,7 @@ public static class PlayerDisplayExtensions
     }
 
     whichUnit.Owner.DisplayTextTo(display, 0, 0);
-    if (player.LocalPlayer == whichUnit.Owner)
+    if (whichUnit.Owner.IsLocal)
     {
       SoundLibrary.Hint.Start();
     }
@@ -58,7 +58,7 @@ public static class PlayerDisplayExtensions
   public static void DisplayUnitLimit(this Faction whichFaction, int unitTypeId)
   {
     whichFaction.Player.DisplayTextTo($"\n|cff00ff00UNIT LIMIT CHANGED - {GetObjectName(unitTypeId)}|r\nYou can now train up to {whichFaction.GetObjectLimit(unitTypeId)} {GetObjectName(unitTypeId)}s.", 0, 0);
-    if (player.LocalPlayer == whichFaction.Player)
+    if (whichFaction.Player.IsLocal)
     {
       SoundLibrary.Hint.Start();
     }
@@ -70,7 +70,7 @@ public static class PlayerDisplayExtensions
   public static void DisplayResearchAcquired(this player whichPlayer, int researchId, int researchLevel)
   {
     whichPlayer.DisplayTextTo($"\n|cff00ff00RESEARCH ACQUIRED - {GetObjectName(researchId)}|r\n{BlzGetAbilityExtendedTooltip(researchId, researchLevel)}", 0, 0);
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SoundLibrary.Hint.Start();
     }
@@ -82,7 +82,7 @@ public static class PlayerDisplayExtensions
   public static void DisplayUnitTypeAcquired(this player whichPlayer, int unitId, string flavor)
   {
     whichPlayer.DisplayTextTo($"\n|cff00ff00NEW UNIT ACQUIRED - {GetObjectName(unitId)}\n|r{flavor}", 0, 0);
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SoundLibrary.Hint.Start();
     }
@@ -102,7 +102,7 @@ public static class PlayerDisplayExtensions
   public static player DisplayPowerAcquired(this player whichPlayer, Power power)
   {
     whichPlayer.DisplayTextTo($"\n|cff00ff00NEW POWER ACQUIRED - {power.Name}\n|r{power.Description}", 0, 0);
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SoundLibrary.Hint.Start();
     }
@@ -126,7 +126,7 @@ public static class PlayerDisplayExtensions
   public static player PingMinimapSimple(this player whichPlayer, float x, float y, float duration, int red = 255,
     int green = 255, int blue = 255, bool extraEffects = false)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       PingMinimapEx(x, y, duration, red, green, blue, extraEffects);
     }

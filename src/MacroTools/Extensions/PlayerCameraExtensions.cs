@@ -9,7 +9,7 @@ public static class PlayerCameraExtensions
   /// </summary>
   public static player ApplyCameraField(this player whichPlayer, camerafield whichField, float value, float duration)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SetCameraField(whichField, value, duration);
     }
@@ -19,7 +19,7 @@ public static class PlayerCameraExtensions
 
   public static player RepositionCamera(this player whichPlayer, float x, float y)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SetCameraPosition(x, y);
     }
@@ -29,7 +29,7 @@ public static class PlayerCameraExtensions
 
   public static player RepositionCamera(this player whichPlayer, Point position)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       SetCameraPosition(position.X, position.Y);
     }

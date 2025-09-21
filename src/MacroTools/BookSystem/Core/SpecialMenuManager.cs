@@ -25,7 +25,7 @@ public static class SpecialMenuManager
       Width = specialMenu.LauncherParent.Width,
       Height = specialMenu.LauncherParent.Height,
       Text = specialMenu.Title,
-      Visible = whichPlayer == null || whichPlayer == player.LocalPlayer
+      Visible = whichPlayer == null || whichPlayer.IsLocal
     };
     specialMenu.LauncherButton.SetPoint(framepointtype.Top, specialMenu.LauncherParent, framepointtype.Bottom, 0, 0);
     specialMenu.LauncherButton.OnClick = specialMenu.Open;

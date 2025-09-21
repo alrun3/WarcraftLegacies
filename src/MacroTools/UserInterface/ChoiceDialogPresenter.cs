@@ -69,7 +69,7 @@ public abstract class ChoiceDialogPresenter<TChoice> where TChoice : IChoice
 
   private void StartChoicePick(player whichPlayer, Dictionary<button, TChoice> choicePicksByButton)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       _pickDialog.SetVisibility(player.LocalPlayer, true);
     }
@@ -96,7 +96,7 @@ public abstract class ChoiceDialogPresenter<TChoice> where TChoice : IChoice
 
   private void ChoiceExpired(player whichPlayer)
   {
-    if (player.LocalPlayer == whichPlayer)
+    if (whichPlayer.IsLocal)
     {
       _pickDialog.SetVisibility(player.LocalPlayer, false);
     }
