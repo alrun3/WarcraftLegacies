@@ -3,6 +3,7 @@ using MacroTools.DialogueSystem;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.Powers;
@@ -40,7 +41,7 @@ public sealed class Sentinels : Faction
 
     GoldMines = new List<unit>
     {
-      preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-20780, 7860))
+      preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-20780, 7860))
     };
     Nicknames = new List<string>
     {

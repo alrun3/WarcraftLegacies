@@ -142,7 +142,7 @@ public sealed class QuestPlague : QuestData
     };
 
     var villagers = GlobalGroup
-      .EnumUnitsOfPlayer(player.NeutralPassive)
+      .EnumUnitsOfPlayer(Environment.NeutralPassive)
       .Where(x => villagerUnitTypeIds.Contains(x.UnitType));
 
     foreach (var villager in villagers)
@@ -155,11 +155,11 @@ public sealed class QuestPlague : QuestData
   {
     var primaryPlaguePlayer = completingFaction.ScoreStatus != ScoreStatus.Defeated && completingFaction.Player != null
       ? completingFaction.Player
-      : player.NeutralAggressive;
+      : Environment.NeutralAggressive;
 
     var secondaryPlaguePlayer = _secondaryPlagueFaction.ScoreStatus != ScoreStatus.Defeated && _secondaryPlagueFaction.Player != null
       ? _secondaryPlagueFaction.Player
-      : player.NeutralAggressive;
+      : Environment.NeutralAggressive;
 
     foreach (var plagueRect in _plagueParameters.PlagueRects)
     {

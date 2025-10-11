@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.Systems;
 using WarcraftLegacies.Shared.FactionObjectLimits;
 using WarcraftLegacies.Source.Quests;
@@ -36,9 +37,9 @@ public sealed class Sunfury : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(3295, -22670)),
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(2529, -19141)),
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), Regions.Area52Unlock.Center)
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(3295, -22670)),
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(2529, -19141)),
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, Regions.Area52Unlock.Center)
     };
     Nicknames = new List<string>
     {

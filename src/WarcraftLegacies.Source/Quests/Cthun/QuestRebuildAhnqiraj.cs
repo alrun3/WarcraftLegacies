@@ -1,4 +1,5 @@
 ﻿using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
@@ -43,7 +44,7 @@ public sealed class QuestRebuildAhnqiraj : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     _gateAhnQiraj.IsInvulnerable = false;
-    _gateAhnQiraj.SetOwner(player.NeutralAggressive);
+    _gateAhnQiraj.SetOwner(Environment.NeutralAggressive);
   }
 
   /// <inheritdoc/>

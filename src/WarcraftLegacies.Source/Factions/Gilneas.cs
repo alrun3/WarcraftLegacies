@@ -10,6 +10,7 @@ using WarcraftLegacies.Source.Quests;
 using WarcraftLegacies.Source.Quests.Gilneas;
 using WarcraftLegacies.Source.Setup;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Factions;
 
@@ -34,7 +35,7 @@ public sealed class Gilneas : Faction
 
     GoldMines = new List<unit>
     {
-      preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(5466, 3210)),
+      preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(5466, 3210)),
     };
     Nicknames = new List<string>
     {

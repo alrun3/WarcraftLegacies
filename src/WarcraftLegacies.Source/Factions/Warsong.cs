@@ -15,7 +15,7 @@ using WarcraftLegacies.Source.Quests.Warsong;
 using WarcraftLegacies.Source.Researches;
 using WarcraftLegacies.Source.Setup;
 using WCSharp.Shared.Data;
-
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Factions;
 
@@ -46,7 +46,7 @@ public sealed class Warsong : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-9729, 2426)),
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-9729, 2426)),
     };
     Nicknames = new List<string>
     {
@@ -69,10 +69,10 @@ public sealed class Warsong : Faction
     Regions.BarrenAmbient2.CleanupHostileUnits();
     Regions.AshenvaleCreeps.CleanupHostileUnits();
     var thunderBluffUnit = _preplacedUnitSystem.GetUnit(Constants.UNIT_N03M_THUNDERBLUFF);
-    var whichPlayer = player.NeutralAggressive;
+    var whichPlayer = Environment.NeutralAggressive;
     thunderBluffUnit.SetOwner(whichPlayer);
     var echoIslesUnit = _preplacedUnitSystem.GetUnit(Constants.UNIT_N02V_ECHO_ISLES);
-    var whichPlayer1 = player.NeutralAggressive;
+    var whichPlayer1 = Environment.NeutralAggressive;
     echoIslesUnit.SetOwner(whichPlayer1);
   }
 

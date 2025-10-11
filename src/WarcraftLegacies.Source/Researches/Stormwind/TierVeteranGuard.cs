@@ -8,8 +8,9 @@ public static class TierVeteranGuard
 {
   private static void Research()
   {
-    @event.Player.GetFaction()?.ModObjectLimit(UNIT_H03K_MARSHAL_STORMWIND, -Faction.Unlimited);
-    @event.Player.GetFaction()?.ModObjectLimit(UNIT_H03U_REAR_MARSHAL_STORMWIND_DEFENSIVE, 12);
+    var triggerPlayer = @event.Player;
+    triggerPlayer.GetFaction()?.ModObjectLimit(UNIT_H03K_MARSHAL_STORMWIND, -Faction.Unlimited);
+    triggerPlayer.GetFaction()?.ModObjectLimit(UNIT_H03U_REAR_MARSHAL_STORMWIND_DEFENSIVE, 12);
   }
 
   public static void Setup()

@@ -2,6 +2,7 @@
 using System.Linq;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.Systems;
 using MacroTools.Utils;
 using WarcraftLegacies.Shared.FactionObjectLimits;
@@ -35,7 +36,7 @@ public sealed class Draenei : Faction
 
     GoldMines = new List<unit>
     {
-      preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-21000, 8600))
+      preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-21000, 8600))
     };
     Nicknames = new List<string>
     {

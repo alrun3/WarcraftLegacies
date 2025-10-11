@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
@@ -23,7 +24,7 @@ public sealed class QuestLakeshire : QuestData
     AddObjective(new ObjectiveSelfExists());
     foreach (var unit in GlobalGroup.EnumUnitsInRect(rescueRect))
     {
-      if (unit.Owner == player.NeutralPassive)
+      if (unit.Owner == Environment.NeutralPassive)
       {
         unit.IsInvulnerable = true;
         _rescueUnits.Add(unit);
@@ -43,7 +44,7 @@ public sealed class QuestLakeshire : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

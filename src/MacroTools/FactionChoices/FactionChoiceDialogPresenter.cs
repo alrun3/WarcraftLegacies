@@ -7,6 +7,7 @@ using MacroTools.Systems;
 using MacroTools.UserInterface;
 using MacroTools.Utils;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.FactionChoices;
 
@@ -39,7 +40,7 @@ public sealed class FactionChoiceDialogPresenter : ChoiceDialogPresenter<Faction
   {
     var startingUnits = GlobalGroup
       .EnumUnitsInRect(choice.StartingArea)
-      .Where(x => x.UnitType != FourCC("ngol"));
+      .Where(x => x.UnitType != Environment.GoldMine);
 
     foreach (var unit in startingUnits)
     {
@@ -62,8 +63,8 @@ public sealed class FactionChoiceDialogPresenter : ChoiceDialogPresenter<Faction
 
     var unitsInRegion = GlobalGroup
       .EnumUnitsInRect(region)
-      .Where(x => x.UnitType != FourCC("ngol"))
-      .Where(x => x.Owner != player.NeutralAggressive);
+      .Where(x => x.UnitType != Environment.GoldMine)
+      .Where(x => x.Owner != Environment.NeutralAggressive);
 
     foreach (var unit in unitsInRegion)
     {

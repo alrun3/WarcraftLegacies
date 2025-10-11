@@ -2,6 +2,7 @@
 using MacroTools.ArtifactSystem;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ArtifactBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -58,6 +59,6 @@ public sealed class QuestScepterOfTheQueenSentinels : QuestData
   protected override void OnFail(Faction whichFaction)
   {
     _scepterOfTheQueen.Item.SetPosition(_highBourneArea.Center);
-    player.NeutralAggressive.RescueGroup(_highBourneAreaUnits);
+    Environment.NeutralAggressive.RescueGroup(_highBourneAreaUnits);
   }
 }

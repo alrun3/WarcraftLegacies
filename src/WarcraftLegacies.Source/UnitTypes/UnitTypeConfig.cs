@@ -1,4 +1,5 @@
-﻿using MacroTools.Systems;
+﻿using MacroTools.Libraries;
+using MacroTools.Systems;
 using WarcraftLegacies.Shared;
 
 namespace WarcraftLegacies.Source.UnitTypes;
@@ -146,7 +147,7 @@ public static class UnitTypeConfig
 
   private static void SubSetupGoblinMerchant()
   {
-    UnitType.Register(new UnitType(FourCC("ngol"))
+    UnitType.Register(new UnitType(Environment.GoldMine)
     {
       NeverDelete = true
     });

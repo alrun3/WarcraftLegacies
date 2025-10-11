@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -66,7 +67,7 @@ public sealed class QuestOrgrimmarFrostwolf : QuestData
   {
     CleanupRocks();
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

@@ -53,11 +53,12 @@ public sealed class ShaladrassilsBlessing : Power
 
   private void OnPlayerTakesDamage()
   {
-    var owner = @event.Unit.Owner;
-    if (!@event.Unit.IsControlPoint()
+    var triggerUnit = @event.Unit;
+    var owner = triggerUnit.Owner;
+    if (!triggerUnit.IsControlPoint()
         || _shaladrassil.Owner != owner
         || !(_shaladrassil.Mana >= _manaCost)
-        || @event.Unit.GetLifePercent() < 100)
+        || triggerUnit.GetLifePercent() < 100)
     {
       return;
     }

@@ -24,7 +24,7 @@ public sealed class TitanForgeArtifact : Spell
   {
     try
     {
-      var heldItem = @event.Unit.ItemAtOrDefault(0);
+      var heldItem = caster.ItemAtOrDefault(0);
       if (heldItem == null)
       {
         Refund(@event.Player);

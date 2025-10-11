@@ -2,6 +2,7 @@
 using MacroTools.DialogueSystem;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
@@ -41,7 +42,7 @@ public sealed class Legion : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(19331f, -30663))
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(19331f, -30663))
     };
     Nicknames = new List<string>
     {

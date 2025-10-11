@@ -8,6 +8,7 @@ using MacroTools.QuestSystem;
 using MacroTools.Systems;
 using WCSharp.Shared;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Quests.Legion;
 
@@ -103,8 +104,8 @@ public sealed class QuestSummonLegion : QuestData
     var exteriorPortalPosition = _objectiveCastSpell.Caster != null
       ? _objectiveCastSpell.Caster!.GetPosition()
       : new Point(0, 0);
-    _interiorPortal.SetOwner(player.NeutralAggressive);
-    var exteriorPortal = unit.Create(whichPlayer ?? player.NeutralAggressive, UNIT_N037_DEMON_PORTAL, exteriorPortalPosition.X, exteriorPortalPosition.Y, 0);
+    _interiorPortal.SetOwner(Environment.NeutralAggressive);
+    var exteriorPortal = unit.Create(whichPlayer ?? Environment.NeutralAggressive, UNIT_N037_DEMON_PORTAL, exteriorPortalPosition.X, exteriorPortalPosition.Y, 0);
     exteriorPortal.SetWaygateDestination(_interiorPortal.GetPosition());
     _interiorPortal.SetWaygateDestination(exteriorPortal.GetPosition());
   }

@@ -1,4 +1,5 @@
-﻿using MacroTools.Utils;
+﻿using MacroTools.Libraries;
+using MacroTools.Utils;
 
 namespace WarcraftLegacies.Source.Setup;
 
@@ -14,7 +15,7 @@ public static class NeutralHostileSetup
   {
     foreach (var unit in GlobalGroup.EnumUnitsOfPlayer(player.Create(20)))
     {
-      var whichPlayer = player.NeutralAggressive;
+      var whichPlayer = Environment.NeutralAggressive;
       unit.SetOwner(whichPlayer);
     }
   }

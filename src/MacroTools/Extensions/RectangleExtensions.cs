@@ -5,6 +5,7 @@ using MacroTools.FactionSystem;
 using MacroTools.Systems;
 using MacroTools.Utils;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.Extensions;
 
@@ -59,14 +60,14 @@ public static class RectangleExtensions
 
     foreach (var unit in unitsInArea)
     {
-      if (unit.Owner != player.NeutralPassive || unit.UnitType == FourCC("ngol"))
+      if (unit.Owner != Environment.NeutralPassive || unit.UnitType == Environment.GoldMine)
       {
         continue;
       }
 
       if (!unit.IsRemovable())
       {
-        unit.SetOwner(player.NeutralAggressive);
+        unit.SetOwner(Environment.NeutralAggressive);
         continue;
       }
 
@@ -77,7 +78,7 @@ public static class RectangleExtensions
       }
       else
       {
-        unit.SetOwner(player.NeutralAggressive);
+        unit.SetOwner(Environment.NeutralAggressive);
       }
     }
   }
@@ -91,7 +92,7 @@ public static class RectangleExtensions
       .EnumUnitsInRect(area);
     foreach (var unit in unitsInArea)
     {
-      if (unit.Owner == player.NeutralAggressive && unit.IsRemovable())
+      if (unit.Owner == Environment.NeutralAggressive && unit.IsRemovable())
       {
         unit.Dispose();
       }
@@ -111,12 +112,14 @@ public static class RectangleExtensions
   {
     var group = GlobalGroup
       .EnumUnitsInRect(rectangle)
-      .Where(x => x.Owner == player.NeutralPassive && filter.Invoke(x))
+      .Where(x => x.Owner == Environment.NeutralPassive && filter.Invoke(x))
       .ToList();
     foreach (var unit in group)
     {
-      if (unit.IsUnitType(unittype.Structure) && hideStructures && !unit.IsUnitType(unittype.Ancient) ||
-          !unit.IsUnitType(unittype.Structure) && hideUnits)
+      var isStructure = unit.IsUnitType(unittype.Structure);
+      var isAncient = unit.IsUnitType(unittype.Ancient);
+
+      if (isStructure && hideStructures && !isAncient || !isStructure && hideUnits)
       {
         unit.IsVisible = false;
       }
@@ -143,8 +146,8 @@ public static class RectangleExtensions
 
     var unitsInRegion = GlobalGroup
       .EnumUnitsInRect(region)
-      .Where(x => x.UnitType != FourCC("ngol")) // exclude goldmines
-      .Where(unit => unit.IsUnitType(unittype.Structure)); // Filter to include only structures
+      .Where(unit => unit.UnitType != Environment.GoldMine)
+      .Where(unit => unit.IsUnitType(unittype.Structure));
 
     foreach (var unit in unitsInRegion)
     {

@@ -4,6 +4,12 @@ namespace MacroTools.Libraries;
 
 public static class Environment
 {
+  public static readonly player NeutralAggressive = player.NeutralAggressive;
+  public static readonly player NeutralPassive = player.NeutralPassive;
+  public static readonly player NeutralVictim = player.NeutralVictim;
+
+  public static readonly int GoldMine = FourCC("ngol");
+
   public const int MaxPlayers = 28;
   private static readonly unit _posUnit;
 
@@ -18,5 +24,5 @@ public static class Environment
   }
 
   static Environment() =>
-    _posUnit = unit.Create(player.NeutralPassive, FourCC("u00X"), 0, 0, 0);
+    _posUnit = unit.Create(NeutralPassive, FourCC("u00X"), 0, 0, 0);
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.DialogueSystem;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.Systems;
 using WarcraftLegacies.Shared.FactionObjectLimits;
@@ -34,7 +35,7 @@ public sealed class Kultiras : Faction
 
     GoldMines = new List<unit>
     {
-      preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(4585, -13038))
+      preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(4585, -13038))
     };
     Nicknames = new List<string>
     {

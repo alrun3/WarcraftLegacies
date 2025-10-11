@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.QuestSystem;
@@ -41,7 +42,7 @@ public sealed class QuestUnlockSpire : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

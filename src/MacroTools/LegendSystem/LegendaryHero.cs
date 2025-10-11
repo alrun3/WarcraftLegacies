@@ -6,6 +6,7 @@ using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using WCSharp.Events;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.LegendSystem;
 
@@ -277,7 +278,7 @@ public sealed class LegendaryHero : Legend
 
     foreach (var player in WCSharp.Shared.Util.EnumeratePlayers())
     {
-      player.DisplayTextTo(Unit.Owner == player.NeutralAggressive
+      player.DisplayTextTo(Unit.Owner == Environment.NeutralAggressive
           ? $"\n|cffffcc00LEGENDARY FOE SLAIN|r\n{DeathMessage}"
           : $"\n|cffffcc00HERO SLAIN|r\n{DeathMessage}");
     }

@@ -46,11 +46,12 @@ public sealed class PersistentSoul : PassiveAbility, IEffectOnDeath
   public void OnDeath()
   {
     var caster = @event.Unit;
+    var casterPosition = caster.GetPosition();
 
-    foreach (var unit in GlobalGroup.EnumUnitsInRange(caster.GetPosition(), Radius)
+    foreach (var unit in GlobalGroup.EnumUnitsInRange(casterPosition, Radius)
                .Where(x => IsUnitReanimationCandidate(caster, x))
                .OrderByDescending(x => x.GetLevel())
-               .ThenBy(x => MathEx.GetDistanceBetweenPoints(caster.GetPosition(), x.GetPosition()))
+               .ThenBy(x => MathEx.GetDistanceBetweenPoints(casterPosition, x.GetPosition()))
                .Take(ReanimationCountLevel * caster.GetAbilityLevel(_abilityTypeId)))
     {
       Reanimate(caster.Owner, unit);

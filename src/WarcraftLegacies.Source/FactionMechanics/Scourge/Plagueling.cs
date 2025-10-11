@@ -9,8 +9,9 @@ public static class Plagueling
 
   private static void OnSell()
   {
-    @event.SoldUnit.ApplyTimedLife(0, Duration);
-    @event.SoldUnit.SetExploded(true);
+    var soldUnit = @event.SoldUnit;
+    soldUnit.ApplyTimedLife(0, Duration);
+    soldUnit.SetExploded(true);
   }
 
   public static void Setup()

@@ -1,6 +1,7 @@
 ﻿using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
 using WCSharp.Effects;
@@ -28,7 +29,7 @@ public sealed class QuestYoggSaron : QuestData
   {
     _yoggsaron = yoggsaron;
     yoggsaronPrison.MakeCapturable();
-    yoggsaronPrison.SetOwner(player.NeutralPassive);
+    yoggsaronPrison.SetOwner(Environment.NeutralPassive);
     yoggsaronPrison.IsInvulnerable = true;
     _yoggsaronPrison = yoggsaronPrison;
 
@@ -49,7 +50,7 @@ public sealed class QuestYoggSaron : QuestData
   protected override void OnComplete(Faction completingFaction)
   {
     var newOwner = _heroInRectObjective.CompletingUnit == null
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : _heroInRectObjective.CompletingUnit.Owner;
 
     _yoggsaronPrison.SetOwner(newOwner);
@@ -59,7 +60,7 @@ public sealed class QuestYoggSaron : QuestData
   private void OnCastSummonSpell()
   {
     var yoggsaronSummonPoint = new Point(3995, 23488);
-    _yoggsaron.ForceCreate(player.NeutralAggressive, yoggsaronSummonPoint, 320);
+    _yoggsaron.ForceCreate(Environment.NeutralAggressive, yoggsaronSummonPoint, 320);
     effect effect = effect.Create(@"Abilities\Spells\Human\Thunderclap\ThunderClapCaster.mdl", yoggsaronSummonPoint.X, yoggsaronSummonPoint.Y);
     effect.Scale = 2;
     EffectSystem.Add(effect, 1);

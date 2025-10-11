@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
@@ -28,7 +29,7 @@ public sealed class QuestTwilightlanding : QuestData
     AddObjective(new ObjectiveExpire(660, Title));
     AddObjective(new ObjectiveSelfExists());
     _rescueUnits = rescueRect.PrepareUnitsForRescue(RescuePreparationMode.HideAll,
-      filterUnit => filterUnit.UnitType != FourCC("ngol"));
+      filterUnit => filterUnit.UnitType != Environment.GoldMine);
     ResearchId = UPGRADE_RBMG_QUEST_COMPLETED_TWILIGHT_LANDING;
 
   }
@@ -43,7 +44,7 @@ public sealed class QuestTwilightlanding : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

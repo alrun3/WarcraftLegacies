@@ -2,6 +2,7 @@
 using MacroTools.DialogueSystem;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
@@ -45,9 +46,9 @@ public sealed class Lordaeron : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(13617, 8741)),
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(7716, 11657)),
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(17198, 8222))
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(13617, 8741)),
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(7716, 11657)),
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(17198, 8222))
     };
     Nicknames = new List<string>
     {

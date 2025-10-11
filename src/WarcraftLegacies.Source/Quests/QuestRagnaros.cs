@@ -1,6 +1,7 @@
 ﻿using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
 using WCSharp.Effects;
@@ -28,7 +29,7 @@ public sealed class QuestRagnaros : QuestData
   {
     _ragnaros = ragnaros;
     ragnarosSummmoningPedestal.MakeCapturable();
-    ragnarosSummmoningPedestal.SetOwner(player.NeutralPassive);
+    ragnarosSummmoningPedestal.SetOwner(Environment.NeutralPassive);
     ragnarosSummmoningPedestal.IsInvulnerable = true;
     _ragnarosSummoningPedestal = ragnarosSummmoningPedestal;
 
@@ -48,14 +49,14 @@ public sealed class QuestRagnaros : QuestData
   /// <inheritdoc/>
   protected override void OnComplete(Faction completingFaction)
   {
-    _ragnarosSummoningPedestal.SetOwner(_heroInRectObjective.CompletingUnit.Owner ?? player.NeutralAggressive);
+    _ragnarosSummoningPedestal.SetOwner(_heroInRectObjective.CompletingUnit.Owner ?? Environment.NeutralAggressive);
     _ragnarosSummoningPedestal.IsInvulnerable = false;
   }
 
   private void OnCastSummonSpell()
   {
     var ragnarosSummonPoint = new Point(12332, -10597);
-    _ragnaros.ForceCreate(player.NeutralAggressive, ragnarosSummonPoint, 320);
+    _ragnaros.ForceCreate(Environment.NeutralAggressive, ragnarosSummonPoint, 320);
     effect effect = effect.Create(@"Abilities\Spells\Other\BreathOfFire\BreathOfFireMissile.mdl", ragnarosSummonPoint.X, ragnarosSummonPoint.Y);
     effect.Scale = 2;
     EffectSystem.Add(effect, 1);

@@ -3,6 +3,7 @@ using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
 using WarcraftLegacies.Source.Powers;
 using WCSharp.Shared;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.FactionMechanics.Scourge;
 
@@ -83,9 +84,9 @@ public static class TheFrozenThrone
         _frozenThrone.Unit.IsInvulnerable = false;
       }
 
-      if (_frozenThrone.OwningPlayer == player.NeutralPassive)
+      if (_frozenThrone.OwningPlayer == Environment.NeutralPassive)
       {
-        _frozenThrone.Unit.SetOwner(player.NeutralAggressive);
+        _frozenThrone.Unit.SetOwner(Environment.NeutralAggressive);
       }
     }
 
@@ -109,7 +110,7 @@ public static class TheFrozenThrone
     if (_frozenThrone.Unit != null)
     {
       _frozenThrone.Unit.Name = "Frozen Throne (Ruptured)";
-      _frozenThrone.Unit.SetOwner(player.NeutralPassive);
+      _frozenThrone.Unit.SetOwner(Environment.NeutralPassive);
       _frozenThrone.Unit.IsInvulnerable = true;
     }
 

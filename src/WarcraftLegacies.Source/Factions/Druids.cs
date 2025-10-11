@@ -2,6 +2,7 @@
 using MacroTools.DialogueSystem;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -43,8 +44,8 @@ public sealed class Druids : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-9200, 10742)),
-       _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-17545, 15856))
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-9200, 10742)),
+       _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-17545, 15856))
     };
     Nicknames = new List<string>
     {

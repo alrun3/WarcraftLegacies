@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
@@ -35,7 +36,7 @@ public sealed class QuestRebuildCivilisation : QuestData
     }
     else
     {
-      player.NeutralAggressive.RescueGroup(_rescueUnits);
+      Environment.NeutralAggressive.RescueGroup(_rescueUnits);
     }
   }
 

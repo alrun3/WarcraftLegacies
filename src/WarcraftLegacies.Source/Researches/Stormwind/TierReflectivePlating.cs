@@ -8,8 +8,9 @@ public static class TierReflectivePlating
 {
   private static void Research()
   {
-    @event.Player.GetFaction()?.ModObjectLimit(UNIT_H04C_PIKEMAN_STORMWIND, Faction.Unlimited);
-    @event.Player.GetFaction()?.ModObjectLimit(UNIT_H02O_BLADESMAN_STORMWIND, -Faction.Unlimited);
+    var triggerPlayer = @event.Player;
+    triggerPlayer.GetFaction()?.ModObjectLimit(UNIT_H04C_PIKEMAN_STORMWIND, Faction.Unlimited);
+    triggerPlayer.GetFaction()?.ModObjectLimit(UNIT_H02O_BLADESMAN_STORMWIND, -Faction.Unlimited);
   }
 
   public static void Setup()

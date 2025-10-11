@@ -1,6 +1,7 @@
 ﻿using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
 using MacroTools.QuestSystem;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ObjectiveSystem.Objectives.LegendBased;
 
@@ -23,7 +24,7 @@ public sealed class ObjectiveDontControlLegend : Objective
       TargetWidget = target.Unit;
     }
 
-    DisplaysPosition = target.Unit.Owner == player.NeutralAggressive;
+    DisplaysPosition = target.Unit.Owner == Environment.NeutralAggressive;
     target.ChangedOwner += OnTargetChangeOwner;
     Position = new(_target.Unit.X, _target.Unit.Y);
   }

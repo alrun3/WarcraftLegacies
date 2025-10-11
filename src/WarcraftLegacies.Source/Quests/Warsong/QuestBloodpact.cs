@@ -1,5 +1,6 @@
 ﻿using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
 
@@ -45,7 +46,7 @@ public sealed class QuestBloodpact : QuestData
       completingFaction.SetObjectLevel(UPGRADE_R09O_DRINK_THE_BLOOD_OF_MANNOROTH, -1);
       completingFaction.SetObjectLevel(UPGRADE_R09P_REVERT_BLOODPACT, 1);
 
-      _mannoroth.ForceCreate(player.NeutralAggressive, Regions.FountainUnlock.Center, 270);
+      _mannoroth.ForceCreate(Environment.NeutralAggressive, Regions.FountainUnlock.Center, 270);
       _grom.UnitType = UNIT_OGRH_CHIEFTAIN_OF_THE_WARSONG_CLAN_WARSONG;
     });
   }

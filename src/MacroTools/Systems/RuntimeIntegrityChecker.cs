@@ -2,6 +2,7 @@
 using MacroTools.ControlPointSystem;
 using MacroTools.FactionSystem;
 using MacroTools.Utils;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.Systems;
 
@@ -33,7 +34,7 @@ public static class RuntimeIntegrityChecker
   {
     foreach (var controlPoint in ControlPointManager.Instance.GetAllControlPoints())
     {
-      if (controlPoint.Owner == player.NeutralPassive && !controlPoint.Unit.IsInvulnerable)
+      if (controlPoint.Owner == Environment.NeutralPassive && !controlPoint.Unit.IsInvulnerable)
       {
         Logger.LogWarning($"{controlPoint.Name} is owned by Neutral Passive and is not invulnerable.");
       }

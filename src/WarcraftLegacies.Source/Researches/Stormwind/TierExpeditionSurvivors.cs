@@ -8,8 +8,9 @@ public static class TierExpeditionSurvivors
 {
   private static void Research()
   {
-    @event.Player.GetFaction()?.ModObjectLimit(UNIT_H00A_SPEARMAN_STORMWIND, -Faction.Unlimited);
-    @event.Player.GetFaction()?.ModObjectLimit(UNIT_H05N_MARKSMAN_STORMWIND, Faction.Unlimited);
+    var triggerPlayer = @event.Player;
+    triggerPlayer.GetFaction()?.ModObjectLimit(UNIT_H00A_SPEARMAN_STORMWIND, -Faction.Unlimited);
+    triggerPlayer.GetFaction()?.ModObjectLimit(UNIT_H05N_MARKSMAN_STORMWIND, Faction.Unlimited);
   }
 
   public static void Setup()

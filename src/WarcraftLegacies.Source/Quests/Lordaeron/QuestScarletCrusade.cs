@@ -12,6 +12,7 @@ using MacroTools.Utils;
 using WarcraftLegacies.Source.Factions;
 using WarcraftLegacies.Source.Setup;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Quests.Lordaeron;
 
@@ -89,7 +90,7 @@ public sealed class QuestScarletCrusade : QuestData
   {
     var neutralHostileUnitsInTyrsHand = GlobalGroup
       .EnumUnitsInRect(Regions.TyrUnlock)
-      .Where(x => x.Owner == player.NeutralAggressive);
+      .Where(x => x.Owner == Environment.NeutralAggressive);
 
     foreach (var unit in neutralHostileUnitsInTyrsHand)
     {

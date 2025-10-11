@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.QuestSystem;
 using MacroTools.Utils;
@@ -19,7 +20,7 @@ public sealed class QuestHonorHold : QuestData
   {
     foreach (var unit in GlobalGroup.EnumUnitsInRect(rescueRect))
     {
-      if (unit.Owner == player.NeutralPassive)
+      if (unit.Owner == Environment.NeutralPassive)
       {
         unit.IsInvulnerable = true;
         _rescueUnits.Add(unit);
@@ -43,7 +44,7 @@ public sealed class QuestHonorHold : QuestData
   {
     foreach (var unit in _rescueUnits)
     {
-      unit.Rescue(player.NeutralAggressive);
+      unit.Rescue(Environment.NeutralAggressive);
     }
   }
 

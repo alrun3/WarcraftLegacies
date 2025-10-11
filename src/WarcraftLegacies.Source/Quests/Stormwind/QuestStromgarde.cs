@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -25,7 +26,7 @@ public sealed class QuestStromgarde : QuestData
     ResearchId = UPGRADE_R01M_QUEST_COMPLETED_STROMGARDE_STORMWIND;
     foreach (var unit in GlobalGroup.EnumUnitsInRect(rescueRect))
     {
-      if (unit.Owner == player.NeutralPassive)
+      if (unit.Owner == Environment.NeutralPassive)
       {
         unit.IsInvulnerable = true;
         _rescueUnits.Add(unit);
@@ -45,7 +46,7 @@ public sealed class QuestStromgarde : QuestData
   {
     foreach (var unit in _rescueUnits)
     {
-      unit.Rescue(player.NeutralAggressive);
+      unit.Rescue(Environment.NeutralAggressive);
     }
   }
 

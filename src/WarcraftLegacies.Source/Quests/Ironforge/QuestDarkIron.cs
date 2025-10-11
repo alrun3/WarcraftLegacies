@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.QuestSystem;
@@ -48,6 +49,6 @@ public sealed class QuestDarkIron : QuestData
   /// <inheritdoc />
   protected override void OnFail(Faction failingFaction)
   {
-    player.NeutralAggressive.RescueGroup(_rescueUnits);
+    Environment.NeutralAggressive.RescueGroup(_rescueUnits);
   }
 }

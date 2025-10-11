@@ -2,6 +2,7 @@
 using System.Linq;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
@@ -58,7 +59,7 @@ public sealed class QuestTombOfSargeras : QuestData
   /// <inheritdoc />
   protected override void OnComplete(Faction completingFaction)
   {
-    player.NeutralAggressive.RescueGroup(_rescueUnits);
+    Environment.NeutralAggressive.RescueGroup(_rescueUnits);
     _rescueUnits.Clear();
     if (_preventAccessTriggers != null)
     {

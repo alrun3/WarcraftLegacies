@@ -11,6 +11,7 @@ using MacroTools.QuestSystem;
 using WarcraftLegacies.Source.FactionMechanics.Scourge;
 using WarcraftLegacies.Source.Objectives;
 using WarcraftLegacies.Source.Powers;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Quests.Naga;
 
@@ -95,7 +96,7 @@ public sealed class QuestKiljaedensCommand : QuestData
   /// <inheritdoc />
   protected override void OnDiscovered(Faction whichFaction)
   {
-    _kiljaeden = unit.Create(player.NeutralPassive, UNIT_U004_THE_DECEIVER_LEGION, 5827, -30923, 185);
+    _kiljaeden = unit.Create(Environment.NeutralPassive, UNIT_U004_THE_DECEIVER_LEGION, 5827, -30923, 185);
     _kiljaeden.HeroLevel = 20;
     _kiljaeden.IsInvulnerable = true;
     var darkPortalEffect = effect.Create(@"Abilities\Spells\Demon\DarkPortal\DarkPortalTarget.mdl", _kiljaeden.X, _kiljaeden.Y);

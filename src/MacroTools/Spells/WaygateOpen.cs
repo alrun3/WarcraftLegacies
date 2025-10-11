@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.SpellSystem;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.Spells;
 
@@ -59,10 +60,10 @@ public sealed class WaygateOpen : Spell
     var exteriorWaygatePosition = GetExteriorWaygatePosition();
     var interiorWaygatePosition = GetInteriorWaygatePosition();
 
-    _exteriorWaygate = unit.Create(player.NeutralPassive, ExteriorWaygateUnitTypeId, exteriorWaygatePosition.X, exteriorWaygatePosition.Y, 0);
+    _exteriorWaygate = unit.Create(Environment.NeutralPassive, ExteriorWaygateUnitTypeId, exteriorWaygatePosition.X, exteriorWaygatePosition.Y, 0);
     _exteriorWaygate.SetWaygateDestination(interiorWaygatePosition);
 
-    _interiorWaygate = unit.Create(player.NeutralPassive, InteriorWaygateUnitTypeId, interiorWaygatePosition.X, interiorWaygatePosition.Y, 0);
+    _interiorWaygate = unit.Create(Environment.NeutralPassive, InteriorWaygateUnitTypeId, interiorWaygatePosition.X, interiorWaygatePosition.Y, 0);
     _exteriorWaygate.SetWaygateDestination(exteriorWaygatePosition);
   }
 

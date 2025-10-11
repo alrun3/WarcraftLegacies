@@ -1,4 +1,5 @@
 ﻿using MacroTools.QuestSystem;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ObjectiveSystem.Objectives.UnitBased;
 
@@ -34,7 +35,7 @@ public sealed class ObjectiveUnitIsDead : Objective
     TargetWidget = Target;
     InitializeDescription();
     DisplaysPosition = Target.IsUnitType(unittype.Structure) ||
-                       Target.Owner == player.NeutralAggressive;
+                       Target.Owner == Environment.NeutralAggressive;
 
     Position = new(Target.X, Target.Y);
   }

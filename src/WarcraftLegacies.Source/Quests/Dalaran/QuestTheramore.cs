@@ -3,6 +3,7 @@ using System.Linq;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -62,7 +63,7 @@ public sealed class QuestTheramore : QuestData
     }
     else
     {
-      player.NeutralVictim.RescueGroup(_rescueUnits);
+      Environment.NeutralVictim.RescueGroup(_rescueUnits);
     }
 
     foreach (var unit in GlobalGroup.EnumUnitsInRect(Regions.Dalaran).Where(x =>
@@ -74,7 +75,7 @@ public sealed class QuestTheramore : QuestData
     foreach (var unit in GlobalGroup.EnumUnitsInRect(Regions.Dalaran).Where(x =>
                x.Owner == completingFaction.Player && x.IsUnitType(unittype.Structure)).ToList())
     {
-      var whichPlayer = player.NeutralAggressive;
+      var whichPlayer = Environment.NeutralAggressive;
       unit.SetOwner(whichPlayer);
     }
   }
@@ -83,7 +84,7 @@ public sealed class QuestTheramore : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

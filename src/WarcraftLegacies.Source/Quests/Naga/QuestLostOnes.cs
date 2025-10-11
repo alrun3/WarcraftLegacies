@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
@@ -42,6 +43,6 @@ public sealed class QuestLostOnes : QuestData
 
   protected override void OnFail(Faction completingFaction)
   {
-    player.NeutralAggressive.RescueGroup(_rescueUnits);
+    Environment.NeutralAggressive.RescueGroup(_rescueUnits);
   }
 }

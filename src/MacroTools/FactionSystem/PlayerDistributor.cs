@@ -4,6 +4,7 @@ using MacroTools.Extensions;
 using MacroTools.LegendSystem;
 using MacroTools.Systems;
 using MacroTools.Utils;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.FactionSystem;
 
@@ -139,7 +140,7 @@ public static class PlayerDistributor
 
       var newOwner = playerToDistribute.GetTeam()?.Size > 1
         ? playersToDistributeTo[GetRandomInt(0, playersToDistributeTo.Count - 1)]
-        : player.NeutralVictim;
+        : Environment.NeutralVictim;
 
       unit.SetOwner(newOwner);
     }

@@ -1,4 +1,5 @@
 ﻿using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.Systems;
 
 namespace WarcraftLegacies.Source.Setup.Legends;
@@ -173,7 +174,7 @@ public sealed class LegendNeutral
       Capturable = true
     };
     BlackrookHold.Unit.Life = 500;
-    BlackrookHold.Unit.Owner = player.NeutralVictim;
+    BlackrookHold.Unit.Owner = Environment.NeutralVictim;
   }
 
   public void RegisterLegends()

@@ -3,6 +3,7 @@ using System.Linq;
 using MacroTools.QuestSystem;
 using MacroTools.Utils;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ObjectiveSystem.Objectives.UnitBased;
 
@@ -44,7 +45,7 @@ public sealed class ObjectiveHostilesInAreaAreDead : Objective
     foreach (var rectangle in rectangles)
     {
       var unitsInAreas = GlobalGroup.EnumUnitsInRect(rectangle)
-        .Where(x => x.Owner == player.NeutralAggressive && !x.IsUnitType(unittype.Ancient) &&
+        .Where(x => x.Owner == Environment.NeutralAggressive && !x.IsUnitType(unittype.Ancient) &&
                     !x.IsUnitType(unittype.Sapper));
       foreach (var unit in unitsInAreas)
       {

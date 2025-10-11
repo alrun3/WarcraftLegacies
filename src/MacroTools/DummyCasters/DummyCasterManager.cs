@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Systems;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.DummyCasters;
 
@@ -39,7 +40,7 @@ public static class DummyCasterManager
 
   private static unit InitializeDummyCasterUnit()
   {
-    var dummyUnit = unit.Create(player.NeutralAggressive, _unitTypeId, 0, 0, 0);
+    var dummyUnit = unit.Create(Environment.NeutralAggressive, _unitTypeId, 0, 0, 0);
 
     UnitType.Register(new UnitType(FourCC("u00X"))
     {

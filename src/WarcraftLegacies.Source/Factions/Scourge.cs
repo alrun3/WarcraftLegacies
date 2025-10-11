@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.DialogueSystem;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
@@ -45,7 +46,7 @@ public sealed class Scourge : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-4939, 18803))
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-4939, 18803))
     };
     Nicknames = new List<string>
     {

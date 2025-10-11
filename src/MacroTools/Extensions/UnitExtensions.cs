@@ -5,6 +5,7 @@ using MacroTools.LegendSystem;
 using MacroTools.Libraries;
 using MacroTools.Systems;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.Extensions;
 
@@ -170,7 +171,7 @@ public static class UnitExtensions
   public static void Rescue(this unit whichUnit, player whichPlayer)
   {
     //If the unit costs 10 food, that means it should be owned by neutral passive instead of the rescuing player.
-    var whichPlayer1 = whichUnit.FoodUsed == 10 ? player.NeutralPassive : whichPlayer;
+    var whichPlayer1 = whichUnit.FoodUsed == 10 ? Environment.NeutralPassive : whichPlayer;
     whichUnit.SetOwner(whichPlayer1);
     whichUnit.IsVisible = true;
     whichUnit.SetPausedEx(false);
@@ -402,7 +403,7 @@ public static class UnitExtensions
   public static bool IsResistant(this unit whichUnit)
   {
     return whichUnit.IsUnitType(unittype.Resistant) || whichUnit.IsUnitType(unittype.Hero) ||
-           (whichUnit.Owner == player.NeutralAggressive && whichUnit.GetLevel() >= 6);
+           (whichUnit.Owner == Environment.NeutralAggressive && whichUnit.GetLevel() >= 6);
   }
 
   /// <summary>

@@ -5,6 +5,7 @@ using MacroTools.FactionSystem;
 using MacroTools.Save;
 using MacroTools.Utils;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.Extensions;
 
@@ -94,7 +95,7 @@ public static class PlayerExtensions
   /// <param name="units">The units to rescue.</param>
   public static void RescueGroup(this player? newOwningPlayer, List<unit> units)
   {
-    newOwningPlayer ??= player.NeutralAggressive;
+    newOwningPlayer ??= Environment.NeutralAggressive;
 
     foreach (var unit in units)
     {
@@ -129,7 +130,6 @@ public static class PlayerExtensions
   /// </summary>
   public static void RemoveAllUnits(this player whichPlayer)
   {
-    var hostilePlayer = player.NeutralAggressive;
     foreach (var unit in GlobalGroup
                .EnumUnitsOfPlayer(whichPlayer))
     {
@@ -139,7 +139,7 @@ public static class PlayerExtensions
       }
       else
       {
-        unit.SetOwner(hostilePlayer);
+        unit.SetOwner(Environment.NeutralAggressive);
       }
     }
   }

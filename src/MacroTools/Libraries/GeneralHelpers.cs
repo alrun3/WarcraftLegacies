@@ -90,7 +90,7 @@ public static class GeneralHelpers
         break;
       }
 
-      if (u.Owner == player.NeutralAggressive && !u.IsUnitType(unittype.Sapper) &&
+      if (u.Owner == Environment.NeutralAggressive && !u.IsUnitType(unittype.Sapper) &&
           !u.IsUnitType(unittype.Structure))
       {
         u.Kill();

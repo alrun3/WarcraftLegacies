@@ -1,5 +1,6 @@
 ﻿using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.QuestSystem;
@@ -19,7 +20,7 @@ public sealed class QuestTortolla : QuestData
     AddObjective(new ObjectiveSelfExists());
     ResearchId = UPGRADE_R049_QUEST_COMPLETED_THE_TURTLE_DEMIGOD;
 
-    var sleepingTurtle = unit.Create(player.NeutralPassive, HeroId, -11315, 9389, 333);
+    var sleepingTurtle = unit.Create(Environment.NeutralPassive, HeroId, -11315, 9389, 333);
     sleepingTurtle.IsInvulnerable = true;
     _sleepingTortolla = sleepingTurtle;
     AddHeroXP(sleepingTurtle, tortolla.StartingXp, true);

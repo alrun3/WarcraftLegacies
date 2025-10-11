@@ -54,7 +54,7 @@ public sealed class SlipstreamSpellSpecificDestination : Spell
       return;
     }
 
-    var spellTarget = new Point(@event.SpellTargetX, @event.SpellTargetY);
+    var spellTarget = new Point(targetPoint.X, targetPoint.Y);
     ChannelManager.Add(new SlipstreamPortalChannel(caster, Id, spellTarget, TargetLocation)
     {
       Active = true,

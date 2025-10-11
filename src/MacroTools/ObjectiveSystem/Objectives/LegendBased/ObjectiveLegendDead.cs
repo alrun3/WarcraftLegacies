@@ -1,6 +1,7 @@
 ﻿using System;
 using MacroTools.LegendSystem;
 using MacroTools.QuestSystem;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ObjectiveSystem.Objectives.LegendBased;
 
@@ -29,7 +30,7 @@ public sealed class ObjectiveLegendDead : Objective
       ? $"{target.Name} is destroyed"
       : $"{target.Name} is dead";
     DisplaysPosition = _target.Unit.IsUnitType(unittype.Structure) ||
-                       _target.Unit.Owner == player.NeutralAggressive;
+                       _target.Unit.Owner == Environment.NeutralAggressive;
     target.PermanentlyDied += OnDeath;
     Position = new(_target.Unit.X, _target.Unit.Y);
   }

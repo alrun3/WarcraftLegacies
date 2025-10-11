@@ -47,17 +47,21 @@ public sealed class MaelstromWeapon : Power
 
   private void OnDamage()
   {
-    if (!@event.IsAttack || (ValidUnitTypes != null && !ValidUnitTypes.Contains(@event.DamageSource.UnitType)))
+    var damageSource = @event.DamageSource;
+    var damageSourceUnitType = damageSource.UnitType;
+
+    if (!@event.IsAttack || (ValidUnitTypes != null && !ValidUnitTypes.Contains(damageSourceUnitType)))
     {
       return;
     }
 
-    if (!unit.IsHero(@event.DamageSource.UnitType) && !(GetRandomReal(0, 1) < _damageChance))
+    if (!unit.IsHero(damageSourceUnitType) && !(GetRandomReal(0, 1) < _damageChance))
     {
       return;
     }
 
-    @event.Unit.TakeDamage(@event.DamageSource, _damageDealt);
-    EffectSystem.Add(effect.Create(Effect, @event.Unit.X, @event.Unit.Y), 1);
+    var triggerUnit = @event.Unit;
+    triggerUnit.TakeDamage(damageSource, _damageDealt);
+    EffectSystem.Add(effect.Create(Effect, triggerUnit.X, triggerUnit.Y), 1);
   }
 }

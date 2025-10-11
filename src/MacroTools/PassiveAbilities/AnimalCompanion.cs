@@ -25,8 +25,9 @@ public sealed class AnimalCompanion : PassiveAbility, IAppliesEffectOnDamage
 
   public void OnDealsDamage()
   {
+    var damageSource = @event.DamageSource;
     var animalCompanionBuff =
-      new AnimalCompanionCaster(@event.DamageSource, @event.DamageSource, _summonUnitTypeId)
+      new AnimalCompanionCaster(damageSource, damageSource, _summonUnitTypeId)
       {
         Duration = Duration,
         SpecialEffect = SpecialEffect

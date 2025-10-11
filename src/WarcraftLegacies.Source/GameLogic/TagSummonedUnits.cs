@@ -17,7 +17,7 @@ public static class TagSummonedUnits
       var unit = @event.Unit;
       if (unit.IsUnitType(unittype.Undead))
       {
-        @event.Unit.AddType(unittype.Summoned);
+        unit.AddType(unittype.Summoned);
       }
     });
   }

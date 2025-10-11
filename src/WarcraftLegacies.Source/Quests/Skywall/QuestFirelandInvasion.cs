@@ -95,11 +95,11 @@ public sealed class QuestFirelandInvasion : QuestData
   {
     var primaryInvasionPlayer = completingFaction.ScoreStatus != ScoreStatus.Defeated && completingFaction.Player != null
       ? completingFaction.Player
-      : player.NeutralAggressive;
+      : Environment.NeutralAggressive;
 
     var secondaryInvasionPlayer = _secondaryInvasionFaction.ScoreStatus != ScoreStatus.Defeated && _secondaryInvasionFaction.Player != null
       ? _secondaryInvasionFaction.Player
-      : player.NeutralAggressive;
+      : Environment.NeutralAggressive;
 
     foreach (var invasionRect in _invasionParameters.InvasionRects)
     {

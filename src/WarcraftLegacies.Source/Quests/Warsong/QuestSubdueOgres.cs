@@ -10,6 +10,7 @@ using MacroTools.QuestSystem;
 using WarcraftLegacies.Source.FactionMechanics.Warsong;
 using WarcraftLegacies.Source.Setup.Legends;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Quests.Warsong;
 
@@ -93,7 +94,7 @@ public sealed class QuestSubdueOgres : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

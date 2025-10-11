@@ -1,4 +1,5 @@
 ﻿using MacroTools.Extensions;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.SpellSystem;
 
@@ -13,7 +14,7 @@ public static class CastFilters
   public static bool IsTargetAllyAndAlive(unit caster, unit target)
   {
     var casterPlayer = caster.Owner;
-    return (target.IsAllyTo(casterPlayer) || target.Owner == player.NeutralPassive) &&
+    return (target.IsAllyTo(casterPlayer) || target.Owner == Environment.NeutralPassive) &&
            target.Alive && target.IsInvulnerable == false;
   }
 
@@ -28,7 +29,7 @@ public static class CastFilters
   {
     var casterPlayer = caster.Owner;
     return caster != target &&
-           (target.IsEnemyTo(casterPlayer) || target.Owner == player.NeutralPassive) &&
+           (target.IsEnemyTo(casterPlayer) || target.Owner == Environment.NeutralPassive) &&
            target.Alive && target.IsInvulnerable == false;
   }
 }

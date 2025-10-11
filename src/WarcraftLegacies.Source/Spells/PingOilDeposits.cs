@@ -26,7 +26,8 @@ public sealed class PingOilDeposits : Spell
   /// <inheritdoc />
   public override void OnCast(unit caster, unit target, Point targetPoint)
   {
-    var oilPower = @event.Unit.Owner.GetFaction()?.GetPowerByType<OilPower>();
+    var owningPlayer = caster.Owner;
+    var oilPower = owningPlayer.GetFaction()?.GetPowerByType<OilPower>();
     if (oilPower == null)
     {
       return;
@@ -34,7 +35,7 @@ public sealed class PingOilDeposits : Spell
 
     foreach (var oilDeposit in oilPower.GetAllOilPools())
     {
-      caster.Owner.PingMinimapSimple(oilDeposit.Position.X, oilDeposit.Position.Y, Duration);
+      owningPlayer.PingMinimapSimple(oilDeposit.Position.X, oilDeposit.Position.Y, Duration);
     }
   }
 }

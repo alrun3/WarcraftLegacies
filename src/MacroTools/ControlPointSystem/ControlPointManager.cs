@@ -7,6 +7,7 @@ using MacroTools.Libraries;
 using MacroTools.Systems;
 using WCSharp.Effects;
 using WCSharp.Events;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ControlPointSystem;
 
@@ -173,7 +174,7 @@ public sealed class ControlPointManager
     }
 
     controlPoint.OnRegister();
-    if (controlPoint.Unit.Owner != player.NeutralAggressive)
+    if (controlPoint.Unit.Owner != Environment.NeutralAggressive)
     {
       controlPoint.Unit.AddAbility(RegenerationAbility);
     }
@@ -274,9 +275,9 @@ public sealed class ControlPointManager
   {
     GameTime.TurnEnded += (_, _) =>
     {
-      if (controlPoint.Owner == player.NeutralAggressive ||
-          controlPoint.Owner == player.NeutralPassive ||
-          controlPoint.Owner == player.NeutralVictim ||
+      if (controlPoint.Owner == Environment.NeutralAggressive ||
+          controlPoint.Owner == Environment.NeutralPassive ||
+          controlPoint.Owner == Environment.NeutralVictim ||
           controlPoint.ControlLevel >= ControlLevelSettings.ControlLevelMaximum)
       {
         return;
@@ -301,7 +302,7 @@ public sealed class ControlPointManager
     controlPoint.Unit
       .ShowAttackUi(false);
 
-    if (initialize && controlPoint.Unit.Owner == player.NeutralAggressive)
+    if (initialize && controlPoint.Unit.Owner == Environment.NeutralAggressive)
     {
       controlPoint.Unit.Life = HostileStartingCurrentHitPoints;
     }

@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
@@ -67,8 +68,8 @@ public sealed class QuestUnlockShip : QuestData
     }
     else
     {
-      player.NeutralVictim.RescueGroup(_rescueUnits);
-      _proudmooreCapitalShip.Rescue(player.NeutralAggressive);
+      Environment.NeutralVictim.RescueGroup(_rescueUnits);
+      _proudmooreCapitalShip.Rescue(Environment.NeutralAggressive);
     }
 
     EnsureShipIsUnlocked(completingFaction);
@@ -82,7 +83,7 @@ public sealed class QuestUnlockShip : QuestData
     }
     else
     {
-      _proudmooreCapitalShip.Rescue(player.NeutralAggressive);
+      _proudmooreCapitalShip.Rescue(Environment.NeutralAggressive);
     }
 
     _proudmooreCapitalShip.SetPausedEx(false);

@@ -4,6 +4,7 @@ using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.QuestSystem;
 using MacroTools.Utils;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 
@@ -68,7 +69,7 @@ public sealed class ObjectiveControlPoint : Objective
   {
     var unitsNearby = GlobalGroup
       .EnumUnitsInRange(_target.Unit.GetPosition(), range)
-        .Where(x => x.Owner == player.NeutralAggressive && !x.IsUnitType(unittype.Ancient) &&
+        .Where(x => x.Owner == Environment.NeutralAggressive && !x.IsUnitType(unittype.Ancient) &&
          !x.IsUnitType(unittype.Sapper) && !x.IsUnitType(unittype.Structure));
 
     foreach (var unit in unitsNearby)

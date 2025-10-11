@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
@@ -51,7 +52,7 @@ public sealed class QuestRepairExodarHull : QuestData
     }
     else
     {
-      player.NeutralAggressive.RescueGroup(_rescueUnits);
+      Environment.NeutralAggressive.RescueGroup(_rescueUnits);
     }
   }
 }

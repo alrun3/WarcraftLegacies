@@ -6,6 +6,7 @@ using MacroTools.FactionSystem;
 using MacroTools.QuestSystem;
 using MacroTools.Utils;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace MacroTools.ObjectiveSystem.Objectives.UnitBased;
 
@@ -44,8 +45,8 @@ public sealed class ObjectiveAnyEnemyUnitInRects : Objective, IHasCompletingUnit
 
   private bool IsUnitValid(unit whichUnit) =>
     !IsPlayerOnSameTeamAsAnyEligibleFaction(whichUnit.Owner) && whichUnit.Alive &&
-    whichUnit.Owner != player.NeutralAggressive &&
-    whichUnit.Owner != player.NeutralPassive &&
+    whichUnit.Owner != Environment.NeutralAggressive &&
+    whichUnit.Owner != Environment.NeutralPassive &&
     EligibilityCondition(whichUnit);
 
   private bool IsValidUnitInRects()

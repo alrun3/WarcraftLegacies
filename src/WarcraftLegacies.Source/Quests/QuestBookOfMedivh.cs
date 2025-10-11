@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem;
 using MacroTools.ObjectiveSystem.Objectives.ArtifactBased;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
@@ -53,7 +54,7 @@ public sealed class QuestBookOfMedivh : QuestData
 
     if (_bookOfMedivhPedestal == null)
     {
-      _bookOfMedivhPedestal = unit.Create(player.NeutralPassive, UNIT_NBSM_BOOK_OF_MEDIVH, bookLocation.Rectangle.Center.X, bookLocation.Rectangle.Center.Y);
+      _bookOfMedivhPedestal = unit.Create(Environment.NeutralPassive, UNIT_NBSM_BOOK_OF_MEDIVH, bookLocation.Rectangle.Center.X, bookLocation.Rectangle.Center.Y);
       _bookOfMedivhPedestal.IsInvulnerable = true;
       _bookOfMedivhPedestal.AddAbility(ABILITY_A01Y_INVENTORY_DUMMY_DROP_ARTIFACT);
       _bookOfMedivhPedestal.AddItemSafe(bookOfMedivh.Item);

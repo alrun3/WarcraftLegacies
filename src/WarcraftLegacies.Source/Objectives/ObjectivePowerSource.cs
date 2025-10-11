@@ -26,15 +26,15 @@ public sealed class ObjectivePowerSource : Objective
     pickupTrigger.RegisterUnitEvent(dimensionalGenerator, unitevent.PickupItem);
     pickupTrigger.AddAction(() =>
     {
-      if (validItemTypeIds.Contains(@event.ManipulatedItem.TypeId))
+      var manipulatedItem = @event.ManipulatedItem;
+      if (validItemTypeIds.Contains(manipulatedItem.TypeId))
       {
-        UsedPowerSource = @event.ManipulatedItem;
+        UsedPowerSource = manipulatedItem;
         Progress = QuestProgress.Complete;
       }
-
       else
       {
-        @event.ManipulatedItem.SetPosition(@event.Unit.GetPosition());
+        manipulatedItem.SetPosition(@event.Unit.GetPosition());
       }
     });
   }

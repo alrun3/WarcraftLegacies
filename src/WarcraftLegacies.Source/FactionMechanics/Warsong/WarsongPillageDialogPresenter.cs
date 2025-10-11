@@ -4,6 +4,7 @@ using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.UserInterface;
 using MacroTools.Utils;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.FactionMechanics.Warsong;
 
@@ -96,8 +97,8 @@ public sealed class WarsongPillageDialogPresenter : ChoiceDialogPresenter<Warson
 
     foreach (var unit in GlobalGroup.EnumUnitsInRect(choice.Location)
                .Where(unit => unit.IsUnitType(unittype.Structure) &&
-                              (unit.Owner == player.NeutralAggressive ||
-                               unit.Owner == player.NeutralPassive)))
+                              (unit.Owner == Environment.NeutralAggressive ||
+                               unit.Owner == Environment.NeutralPassive)))
     {
       unit.SetLifePercent(15);
     }

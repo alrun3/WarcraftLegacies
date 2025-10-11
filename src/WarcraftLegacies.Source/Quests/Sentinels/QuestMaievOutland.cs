@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
 using MacroTools.QuestSystem;
@@ -57,6 +58,6 @@ public sealed class QuestMaievOutland : QuestData
       _vaultOfTheWardens.Unit.RemoveAbility(ABILITY_A0J5_CHASE_ILLIDAN_TO_OUTLAND_SENTINEL);
     }
 
-    player.NeutralAggressive.RescueGroup(_rescueUnits);
+    Environment.NeutralAggressive.RescueGroup(_rescueUnits);
   }
 }

@@ -2,6 +2,7 @@
 using MacroTools.DialogueSystem;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ResearchSystems;
 using MacroTools.Systems;
@@ -38,7 +39,7 @@ public sealed class Frostwolf : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-9729, 2426)),
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-9729, 2426)),
     };
     Nicknames = new List<string>
     {

@@ -42,9 +42,10 @@ public sealed class Gate : PassiveAbility, IEffectOnUpgrade, IEffectOnDeath, IEf
   /// <inheritdoc/>
   public void OnSpellFinish()
   {
-    if (@event.Unit.UnitType == _openedId)
+    var triggerUnit = @event.Unit;
+    if (triggerUnit.UnitType == _openedId)
     {
-      @event.Unit.SetAnimation("death alternate");
+      triggerUnit.SetAnimation("death alternate");
     }
   }
 
@@ -66,7 +67,8 @@ public sealed class Gate : PassiveAbility, IEffectOnUpgrade, IEffectOnDeath, IEf
   /// <inheritdoc />
   public void OnUpgrade()
   {
-    TurnBasedHitpointsManager.UnRegister(@event.Unit);
-    TurnBasedHitpointsManager.Register(@event.Unit, HitPointPercentagePerTurn);
+    var triggerUnit = @event.Unit;
+    TurnBasedHitpointsManager.UnRegister(triggerUnit);
+    TurnBasedHitpointsManager.Register(triggerUnit, HitPointPercentagePerTurn);
   }
 }

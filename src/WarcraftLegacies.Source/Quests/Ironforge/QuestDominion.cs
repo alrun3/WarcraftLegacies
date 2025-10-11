@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
@@ -45,7 +46,7 @@ public sealed class QuestDominion : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);
@@ -56,7 +57,7 @@ public sealed class QuestDominion : QuestData
   {
     foreach (var unit in _rescueUnits)
     {
-      unit.Rescue(completingFaction.Player ?? player.NeutralAggressive);
+      unit.Rescue(completingFaction.Player ?? Environment.NeutralAggressive);
     }
 
     completingFaction.Player?.PlayMusicThematic("war3mapImported\\DwarfTheme.mp3");

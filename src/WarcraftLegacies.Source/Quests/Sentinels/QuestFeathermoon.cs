@@ -2,6 +2,7 @@
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -53,14 +54,14 @@ public sealed class QuestFeathermoon : QuestData
     if (_feathermoon.Unit != null && _feathermoon.Unit.Alive)
     {
       _feathermoon.Unit.SetLifePercent(100);
-      _feathermoon.Unit.Rescue(completingFaction.Player ?? player.NeutralAggressive);
+      _feathermoon.Unit.Rescue(completingFaction.Player ?? Environment.NeutralAggressive);
     }
   }
 
   protected override void OnFail(Faction failingFaction)
   {
     var rescuer = failingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : failingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);
@@ -73,7 +74,7 @@ public sealed class QuestFeathermoon : QuestData
     if (_feathermoon.Unit != null && _feathermoon.Unit.Alive)
     {
       _feathermoon.Unit.SetLifePercent(100);
-      _feathermoon.Unit.Rescue(player.NeutralAggressive);
+      _feathermoon.Unit.Rescue(Environment.NeutralAggressive);
     }
   }
 }

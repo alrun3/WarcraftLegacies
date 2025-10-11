@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.Systems;
 using WarcraftLegacies.Shared.FactionObjectLimits;
 using WarcraftLegacies.Source.FactionMechanics.Fel_Horde;
@@ -37,7 +38,7 @@ public sealed class FelHorde : Faction
     FoodMaximum = 250;
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(-2735, -30242))
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(-2735, -30242))
     };
     Nicknames = new List<string>
     {

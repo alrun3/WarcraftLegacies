@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ControlPointBased;
 using MacroTools.ObjectiveSystem.Objectives.FactionBased;
 using MacroTools.ObjectiveSystem.Objectives.QuestBased;
@@ -37,7 +38,7 @@ public sealed class QuestWakingCity : QuestData
     AddObjective(new ObjectiveUpgrade(UNIT_N0AT_CATHEDRAL_OF_MADNESS_NZOTH_T3, UNIT_N0AR_TWISTING_HALLS_NZOTH_T1));
     AddObjective(new ObjectiveSelfExists());
     _rescueUnits = rescueRect.PrepareUnitsForRescue(RescuePreparationMode.HideAll,
-      filterUnit => filterUnit.UnitType != FourCC("ngol"));
+      filterUnit => filterUnit.UnitType != Environment.GoldMine);
     ResearchId = UPGRADE_RBIT_QUEST_COMPLETED_THE_WAKING_CITY;
     _allLegendSetup = allLegendSetup;
 
@@ -53,7 +54,7 @@ public sealed class QuestWakingCity : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

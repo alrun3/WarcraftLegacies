@@ -2,6 +2,7 @@
 using MacroTools.DialogueSystem;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ResearchSystems;
 using MacroTools.Systems;
@@ -37,7 +38,7 @@ public sealed class Quelthalas : Faction
 
     GoldMines = new List<unit>
     {
-      _preplacedUnitSystem.GetUnit(FourCC("ngol"), new Point(17716, 13000))
+      _preplacedUnitSystem.GetUnit(Environment.GoldMine, new Point(17716, 13000))
     };
     Nicknames = new List<string>
     {

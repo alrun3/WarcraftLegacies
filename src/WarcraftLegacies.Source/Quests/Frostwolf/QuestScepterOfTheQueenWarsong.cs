@@ -3,6 +3,7 @@ using MacroTools.ArtifactSystem;
 using MacroTools.Extensions;
 using MacroTools.FactionSystem;
 using MacroTools.LegendSystem;
+using MacroTools.Libraries;
 using MacroTools.ObjectiveSystem.Objectives.ArtifactBased;
 using MacroTools.ObjectiveSystem.Objectives.LegendBased;
 using MacroTools.ObjectiveSystem.Objectives.UnitBased;
@@ -53,6 +54,6 @@ public sealed class QuestScepterOfTheQueenWarsong : QuestData
   protected override void OnComplete(Faction whichFaction)
   {
     _anyUnitInRect.CompletingUnit?.AddItemSafe(_scepterOfTheQueen.Item);
-    player.NeutralAggressive.RescueGroup(_highBourneAreaUnits);
+    Environment.NeutralAggressive.RescueGroup(_highBourneAreaUnits);
   }
 }

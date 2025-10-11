@@ -37,9 +37,10 @@ internal static class JuggernautDeath
 
     PlayerUnitEvents.Register(UnitEvent.ChangesOwner, () =>
     {
+      var whichPlayer = @event.Unit.Owner;
+
       foreach (var juggernaut in dependentJuggernauts)
       {
-        var whichPlayer = @event.Unit.Owner;
         juggernaut.SetOwner(whichPlayer);
       }
     }, powerGenerator);

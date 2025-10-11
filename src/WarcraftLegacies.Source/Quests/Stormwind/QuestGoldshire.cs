@@ -7,6 +7,7 @@ using MacroTools.ObjectiveSystem.Objectives.TimeBased;
 using MacroTools.QuestSystem;
 using MacroTools.Utils;
 using WCSharp.Shared.Data;
+using Environment = MacroTools.Libraries.Environment;
 
 namespace WarcraftLegacies.Source.Quests.Stormwind;
 
@@ -23,7 +24,7 @@ public sealed class QuestGoldshire : QuestData
     AddObjective(new ObjectiveSelfExists());
     foreach (var unit in GlobalGroup.EnumUnitsInRect(rescueRect))
     {
-      if (unit.Owner == player.NeutralPassive)
+      if (unit.Owner == Environment.NeutralPassive)
       {
         unit.IsInvulnerable = true;
         _rescueUnits.Add(unit);
@@ -41,7 +42,7 @@ public sealed class QuestGoldshire : QuestData
   protected override void OnFail(Faction completingFaction)
   {
     var rescuer = completingFaction.ScoreStatus == ScoreStatus.Defeated
-      ? player.NeutralAggressive
+      ? Environment.NeutralAggressive
       : completingFaction.Player;
 
     rescuer.RescueGroup(_rescueUnits);

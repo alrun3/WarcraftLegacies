@@ -37,10 +37,11 @@ public sealed class ObjectiveCastSpell : Objective
 
   private void OnCast()
   {
+    var triggerUnit = @event.Unit;
     if (Progress != QuestProgress.Complete &&
-        (!_holderOnly || EligibleFactions.Contains(@event.Unit.Owner)))
+        (!_holderOnly || EligibleFactions.Contains(triggerUnit.Owner)))
     {
-      Caster = @event.Unit;
+      Caster = triggerUnit;
       Progress = QuestProgress.Complete;
     }
   }
