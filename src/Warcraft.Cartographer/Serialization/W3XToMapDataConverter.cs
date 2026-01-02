@@ -10,6 +10,7 @@ using War3Net.Common.Extensions;
 using Warcraft.Cartographer.Deserialization;
 using Warcraft.Cartographer.Extensions;
 using Warcraft.Cartographer.IO;
+using Warcraft.Cartographer.Model;
 using static Warcraft.Cartographer.Paths.PathConventions;
 
 namespace Warcraft.Cartographer.Serialization;
@@ -47,7 +48,7 @@ public sealed class W3XToMapDataConverter(W3XToMapDataConverterOptions options)
 
     if (map.Environment != null)
     {
-      FileHelper.SerializeAndWrite(options.MapDataPaths.EnvironmentPath, map.Environment);
+      FileHelper.SerializeAndWrite(options.MapDataPaths.EnvironmentPath, MapEnvironmentDto.MapFrom(map.Environment));
     }
 
     if (map.Info != null)

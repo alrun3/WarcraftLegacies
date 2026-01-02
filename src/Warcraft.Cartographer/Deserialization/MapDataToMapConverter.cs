@@ -6,6 +6,7 @@ using War3Net.Build.Object;
 using War3Net.Build.Script;
 using War3Net.Build.Widget;
 using Warcraft.Cartographer.Json;
+using Warcraft.Cartographer.Model;
 using Warcraft.Cartographer.Paths;
 using static Warcraft.Cartographer.Paths.PathConventions;
 
@@ -43,7 +44,7 @@ public sealed class MapDataToMapConverter(MapDataToMapConverterOptions options)
     var map = new Map
     {
       Sounds = DeserializeSounds(),
-      Environment = JsonHelper.DeserializeIfExist<MapEnvironment>(options.MapDataPaths.EnvironmentPath),
+      Environment = MapFrom(JsonHelper.DeserializeIfExist<MapEnvironmentDto>(options.MapDataPaths.EnvironmentPath)),
       PathingMap = JsonHelper.DeserializeIfExist<MapPathingMap>(options.MapDataPaths.PathingMapPath),
       PreviewIcons = JsonHelper.DeserializeIfExist<MapPreviewIcons>(options.MapDataPaths.PreviewIconsPath),
       Regions = DeserializeRegions(),
@@ -62,6 +63,11 @@ public sealed class MapDataToMapConverter(MapDataToMapConverterOptions options)
       UpgradeObjectData = DeserializeUpgradeData()
     };
     return map;
+  }
+
+  private static MapEnvironment? MapFrom(MapEnvironmentDto? dto)
+  {
+    return dto != null ? MapEnvironmentDto.MapFrom(dto) : null;
   }
 
   private MapDoodads? DeserializeDoodads()
