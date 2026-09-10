@@ -142,6 +142,16 @@
       "Value": 8
     },
     {
+      "Id": "anam",
+      "Type": 3,
+      "Value": "Animate Dead"
+    },
+    {
+      "Id": "ansf",
+      "Type": 3,
+      "Value": "(Scourge - Cult of the Damned)"
+    },
+    {
       "Id": "arhk",
       "Type": 3,
       "Value": "E"
